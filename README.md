@@ -6,6 +6,8 @@
 ### vector 
 - [popsize and capacity](#popsize-and-capacity)
 - [emplace_back](#emplace_back)
+- [pop](#pop)
+- [() []](#()-[])
 
 ##### popsize and capacity 
 ```cpp
