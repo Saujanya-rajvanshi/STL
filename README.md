@@ -7,7 +7,8 @@
 - [popsize and capacity](#popsize-and-capacity)
 - [emplace_back](#emplace_back)
 - [pop](#pop)
-- [() []](#()-[])
+- [() []](#(-)-[-])
+- [front and back ](#front-and-back)
 
 ##### popsize and capacity 
 ```cpp
