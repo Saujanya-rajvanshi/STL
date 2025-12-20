@@ -9,6 +9,7 @@
 - [pop](#pop)
 - [() []](#(-)-[-])
 - [front and back ](#front-and-back)
+- [vector begin and erase](#vector-begin-and-erase)
 
 ##### popsize and capacity 
 ```cpp
