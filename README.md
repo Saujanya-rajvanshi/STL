@@ -4,7 +4,8 @@
 
 
 ### vector 
-- [popsize and capacity](#popsize-andcapacity)
+- [popsize and capacity](#popsize-and-capacity)
+- [emplace_back](#emplace_back)
 
 ##### popsize and capacity 
 ```cpp
