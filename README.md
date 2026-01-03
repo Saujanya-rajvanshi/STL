@@ -4,14 +4,42 @@
 
 
 ### vector 
-- [push size and capacity](#push-size-and-capacity)
+- [push and pop](#push-and-pop)
+- [size and capacity](#size-and-capacity)
 - [emplace_back](#emplace_back)
-- [pop](#pop)
 - [() []](#(-)-[-])
 - [front and back ](#front-and-back)
 - [vector begin and erase](#vector-begin-and-erase)
 
-##### push size and capacity 
+##### push and pop
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> vec; //0
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+    vec.emplace_back(6);
+    
+    vec.pop_back();
+    for(int val: vec) {
+        cout << val << " ";
+        
+    }
+    cout << endl;
+
+return 0;
+
+}
+```
+
+##### size and capacity 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -61,33 +89,6 @@ return 0;
 }
 ```
 
-##### pop
-```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    vector<int> vec; //0
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    vec.emplace_back(6);
-    
-    vec.pop_back();
-    for(int val: vec) {
-        cout << val << " ";
-        
-    }
-    cout << endl;
-
-return 0;
-
-}
-```
 ##### [ ] ( )
 ```cpp
 #include <iostream>
