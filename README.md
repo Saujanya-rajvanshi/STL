@@ -40,7 +40,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [stack](#STACK)
 - [queue](#QUEUE)
   
-### vector 
+### VECTOR 
 - [push and pop](#push-and-pop)
 - [size and capacity](#size-and-capacity)
 - [emplace_back](#emplace_back)
@@ -317,7 +317,10 @@ return 0;
 }
 ```
 
-### list
+### LIST
+- [push and pop](#push-and-pop)
+- [pair](#pair)
+
 
 #### push and pop 
 
@@ -393,7 +396,7 @@ return 0;
 }
 ```
 
-### stack
+### STACK
 
 ```cpp
 
@@ -445,7 +448,7 @@ return 0;
 ```
 
 
-### queue
+### QUEUE
 
 ```cpp
 #include <iostream>
@@ -469,7 +472,58 @@ return 0;
 }
 ```
 
-### Map
+#### SET
+```cpp
+#include <iostream>
+#include <map>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> s;
+    s.insert(1);
+    s.insert(2);
+    s.insert(3);
+    s.insert(4);
+    s.insert(5);
+    for(auto val: s) {
+        cout << val << " ";
+        cout << endl;
+    }
+
+return 0;
+
+
+}
+```
+
+```cpp
+#include <iostream>
+#include <map>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> s;
+    s.insert(1);
+    s.insert(2);
+    s.insert(3);
+    s.insert(4);
+    s.insert(5);
+    
+    
+    cout << "lower bound = " << *(s.lower_bound (4)) << endl; //4
+    
+    for(auto val: s) {
+        cout << val << " ";
+        cout << endl;
+    }
+
+return 0;
+}
+```
+
+### MAP
 ```cpp
 #include <iostream>
 #include <map>
@@ -605,59 +659,6 @@ int main() {
     
     for(auto p: m) {
         cout << p.first << " " << p.second << endl;
-    }
-
-return 0;
-
-
-}
-```
-
-#### set
-```cpp
-#include <iostream>
-#include <map>
-#include <set>
-using namespace std;
-
-int main() {
-    set<int> s;
-    s.insert(1);
-    s.insert(2);
-    s.insert(3);
-    s.insert(4);
-    s.insert(5);
-    for(auto val: s) {
-        cout << val << " ";
-        cout << endl;
-    }
-
-return 0;
-
-
-}
-```
-
-```cpp
-#include <iostream>
-#include <map>
-#include <set>
-using namespace std;
-
-int main() {
-    set<int> s;
-    s.insert(1);
-    s.insert(2);
-    s.insert(3);
-    s.insert(4);
-    s.insert(5);
-    
-    
-    cout << "lower bound = " << *(s.lower_bound (4)) << endl; //4
-    
-    for(auto val: s) {
-        cout << val << " ";
-        cout << endl;
     }
 
 return 0;
