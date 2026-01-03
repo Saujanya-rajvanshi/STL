@@ -38,6 +38,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [vector](#vector)
 - [list](#list)
 - [stack](#stack)
+- [queue](#queue)
   
 ### vector 
 - [push and pop](#push-and-pop)
