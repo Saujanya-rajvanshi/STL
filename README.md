@@ -1,7 +1,7 @@
 # STL
 ## index
 - [basic](#basic)
-- [containers](#containers)
+- [containers](#CONTAINERS)
 - [algorithm](#ALGORITHM)
 - [iterators](#iterators)
 - [function](#function)
@@ -33,7 +33,7 @@ Advantages of STL
 👉 STL makes C++ powerful, fast, and easier to use.
 ```
 
-## containers
+## CONTAINERS
 vector, list, stack, queue, priority_queue, deque, map, unordered_map, set 
 - [vector](#VECTOR)
 - [list](#LIST)
