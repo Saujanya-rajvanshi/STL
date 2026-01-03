@@ -692,7 +692,7 @@ return 0;
 }
 ```
 
-
+### ALGORITHM
 #### sorting
 ```cpp
 #include <iostream>
