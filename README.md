@@ -71,7 +71,8 @@ vector<int> v;
 ## **Vector Functions (STL)**
 
 ### 🍀 Capacity & Size
-
+- [capacity and size](#capacity-and-size)
+  
 - `size()` → returns number of elements — [size](#size)
 - `capacity()` → returns allocated storage — [capacity](#capacity)
 - `empty()` → checks if vector is empty — [empty](#empty)
