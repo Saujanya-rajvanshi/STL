@@ -83,40 +83,39 @@ vector<int> v;
 
 ### 🍀 Modifiers
 
-* `push_back(x)` → insert element at end
-* `pop_back()` → remove last element
-* `insert(pos, x)` → insert at given position
-* `erase(pos)` → remove element at position
-* `clear()` → remove all elements
-* `assign(n, x)` → fill vector with values
-* `swap(v)` → swap contents with another vector
+- `push_back(x)` → insert element at end — [push_back](#push_back)
+- `pop_back()` → remove last element — [pop_back](#pop_back)
+- `insert(pos, x)` → insert at position — [insert](#insert)
+- `erase(pos)` → remove element — [erase](#erase)
+- `clear()` → remove all elements — [clear](#clear)
+- `assign(n, x)` → fill vector — [assign](#assign)
+- `swap(v)` → swap vectors — [swap](#swap)
 
 ---
 
 ### 🍀 Element Access
 
-* `at(i)` → access element with bounds checking
-* `operator[]` → access element (no bounds check)
-* `front()` → first element
-* `back()` → last element
-* `data()` → pointer to underlying array
+- `at(i)` → bounds-checked access — [at](#at)
+- `operator[]` → direct access — [operator](#operator)
+- `front()` → first element — [front](#front)
+- `back()` → last element — [back](#back)
+- `data()` → pointer to array — [data](#data)
 
 ---
 
 ### 🍀 Iterators
 
-* `begin()`, `end()`
-* `rbegin()`, `rend()`
-* `cbegin()`, `cend()`
-
+- `begin()` / `end()` — [begin](#begin)
+- `rbegin()` / `rend()` — [rbegin](#rbegin)
+- `cbegin()` / `cend()` — [cbegin](#cbegin)
 ---
 
 ### 🍀 Common STL Algorithms used with vector
 
-* `sort(v.begin(), v.end())`
-* `reverse(v.begin(), v.end())`
-* `find(v.begin(), v.end(), x)`
-
+- `sort(v.begin(), v.end())` — [sort](#sort)
+- `reverse(v.begin(), v.end())` — [reverse](#reverse)
+- `find(v.begin(), v.end(), x)` — [find](#find)
+  
 ---
 
 If you want, I can:
