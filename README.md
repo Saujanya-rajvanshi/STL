@@ -72,12 +72,12 @@ vector<int> v;
 
 ### 🍀 Capacity & Size
 
-* `size()` → returns number of elements -[size](#size-and-capacity)
-* `capacity()` → returns allocated storage
-* `empty()` → checks if vector is empty
-* `resize(n)` → changes size of vector
-* `reserve(n)` → reserves capacity
-* `shrink_to_fit()` → reduces capacity
+- `size()` → returns number of elements — [size](#size)
+- `capacity()` → returns allocated storage — [capacity](#capacity)
+- `empty()` → checks if vector is empty — [empty](#empty)
+- `resize(n)` → changes size of vector — [resize](#resize)
+- `reserve(n)` → reserves capacity — [reserve](#reserve)
+- `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
 
 ---
 
