@@ -1,12 +1,12 @@
 # STL
-### index
+## index
 - [basic](#basic)
 - [containers](#containers)
 - [algorithm](#algorithm)
 - [iterators](#iterators)
 - [function](#function)
 
-### basic
+## basic
 ```cpp
 STL (Standard Template Library)
 The STL is a collection of generic classes and functions in C++ that provide ready-made data structures and algorithms.
@@ -53,7 +53,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [clear](#clear)
 - [loop with begin](#loop-with-begin)
   
-##### push and pop
+#### push and pop
 ```cpp
 #include <iostream>
 #include <vector>
@@ -81,7 +81,7 @@ return 0;
 }
 ```
 
-##### size and capacity 
+#### size and capacity 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -103,7 +103,7 @@ return 0;
 }
 ```
 
-##### emplace_back 
+#### emplace_back 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -131,7 +131,7 @@ return 0;
 }
 ```
 
-##### [ ] ( )
+#### [ ] ( )
 ```cpp
 #include <iostream>
 #include <vector>
@@ -156,7 +156,7 @@ return 0;
 
 ```
 
-##### front and back 
+#### front and back 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -187,7 +187,7 @@ return 0;
 }
 ```
 
-##### vector begin and erase 
+#### vector begin and erase 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -207,7 +207,7 @@ return 0;
 }
 ```
 
-##### same number in table
+#### same number in table
 ```cpp
 #include <iostream>
 #include <vector>
@@ -229,7 +229,7 @@ return 0;
 }
 ```
 
-#####  plus n on begin 
+####  plus n on begin 
 
 ```cpp
 #include <iostream>
@@ -250,7 +250,7 @@ return 0;
 }
 ```
 
-##### replacing an element by other
+#### replacing an element by other
 
 ```cpp
 #include <iostream>
@@ -271,7 +271,7 @@ return 0;
 }
 ```
 
-##### clear
+#### clear
 
 ```cpp
 #include <iostream>
@@ -296,7 +296,7 @@ return 0;
 }
 ```
 
-##### loop with begin 
+#### loop with begin 
 ```cpp
 #include <iostream>
 #include <vector>
@@ -319,7 +319,7 @@ return 0;
 
 ### list
 
-##### push and pop 
+#### push and pop 
 
 ```cpp
 #include <iostream>
@@ -353,7 +353,7 @@ return 0;
 }
 ```
 
-##### pair
+#### pair
 ```cpp
 #include <iostream>
 #include <list>
@@ -443,8 +443,6 @@ return 0;
 }
 
 ```
-
-
 
 
 ### queue
