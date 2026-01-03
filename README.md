@@ -71,7 +71,6 @@ vector<int> v;
 ## **Vector Functions (STL)**
 
 ### 🍀 Capacity & Size
-- [capacity and size](#capacity-and-size)
   
 * `size()` → returns number of elements — [size](#size)
 * `capacity()` → returns allocated storage — [capacity](#capacity)
@@ -83,7 +82,6 @@ vector<int> v;
 ---
 
 ### 🍀 Modifiers
-- [modifiers](#modifiers)
 
 * `push_back(x)` → insert element at end — [push_back](#push_back)
 * `pop_back()` → remove last element — [pop_back](#pop_back)
@@ -138,7 +136,48 @@ If you want, I can:
 - [replacing an element by other](#replacing-an-element-by-other)
 - [clear](#clear)
 - [loop with begin](#loop-with-begin)
-  
+
+#### size 
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> vec; //0
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+
+    cout << vec.size() << endl; //3
+
+return 0;
+}
+```
+
+#### capacity 
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> vec; //0
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+
+    cout << vec.capacity() << endl; //4
+
+return 0;
+}
+```
 #### push and pop
 ```cpp
 #include <iostream>
@@ -161,28 +200,6 @@ int main() {
         
     }
     cout << endl;
-
-return 0;
-
-}
-```
-
-#### size and capacity 
-```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    vector<int> vec; //0
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    cout << vec.size() << endl; //3
-    cout << vec.capacity() << endl; //4
 
 return 0;
 
