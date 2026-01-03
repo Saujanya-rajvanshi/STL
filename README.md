@@ -50,15 +50,81 @@ vector, list, stack, queue, priority_queue, deque, map, unordered_map, set
   
 ### VECTOR 
 
-Vector (STL) — Definition
-A vector is a dynamic array provided by the STL that stores elements in contiguous memory and can grow or shrink automatically at runtime.
+**Vector (STL) — Definition**
 
-Key points
-    Fast random access — O(1)
-    Dynamic size
-    Elements stored continuously in memory
+A **vector** is a **dynamic array** provided by the STL that stores elements in **contiguous memory** and can **grow or shrink automatically** at runtime.
 
-Example:
+**Key points**
+
+* Fast random access — **O(1)**
+* Dynamic size
+* Elements stored continuously in memory
+
+**Example:**
+
+```cpp
+vector<int> v;
+```
+
+---
+
+## **Vector Functions (STL)**
+
+### 🍀 Capacity & Size
+
+* `size()` → returns number of elements
+* `capacity()` → returns allocated storage
+* `empty()` → checks if vector is empty
+* `resize(n)` → changes size of vector
+* `reserve(n)` → reserves capacity
+* `shrink_to_fit()` → reduces capacity
+
+---
+
+### 🍀 Modifiers
+
+* `push_back(x)` → insert element at end
+* `pop_back()` → remove last element
+* `insert(pos, x)` → insert at given position
+* `erase(pos)` → remove element at position
+* `clear()` → remove all elements
+* `assign(n, x)` → fill vector with values
+* `swap(v)` → swap contents with another vector
+
+---
+
+### 🍀 Element Access
+
+* `at(i)` → access element with bounds checking
+* `operator[]` → access element (no bounds check)
+* `front()` → first element
+* `back()` → last element
+* `data()` → pointer to underlying array
+
+---
+
+### 🍀 Iterators
+
+* `begin()`, `end()`
+* `rbegin()`, `rend()`
+* `cbegin()`, `cend()`
+
+---
+
+### 🍀 Common STL Algorithms used with vector
+
+* `sort(v.begin(), v.end())`
+* `reverse(v.begin(), v.end())`
+* `find(v.begin(), v.end(), x)`
+
+---
+
+If you want, I can:
+
+* shorten this for **exam notes**
+* add **time complexity**
+* or format it for a **professional GitHub README**
+
 
 - [push and pop](#push-and-pop)
 - [size and capacity](#size-and-capacity)
