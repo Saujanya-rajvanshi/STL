@@ -36,6 +36,7 @@ Advantages of STL
 ## containers
 vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [vector](#vector)
+- [list](#list)
   
 ### vector 
 - [push and pop](#push-and-pop)
