@@ -83,14 +83,15 @@ vector<int> v;
 ---
 
 ### 🍀 Modifiers
+- [modifiers](#modifiers)
 
-- `push_back(x)` → insert element at end — [push_back](#push_back)
-- `pop_back()` → remove last element — [pop_back](#pop_back)
-- `insert(pos, x)` → insert at position — [insert](#insert)
-- `erase(pos)` → remove element — [erase](#erase)
-- `clear()` → remove all elements — [clear](#clear)
-- `assign(n, x)` → fill vector — [assign](#assign)
-- `swap(v)` → swap vectors — [swap](#swap)
+* `push_back(x)` → insert element at end — [push_back](#push_back)
+* `pop_back()` → remove last element — [pop_back](#pop_back)
+* `insert(pos, x)` → insert at position — [insert](#insert)
+* `erase(pos)` → remove element — [erase](#erase)
+* `clear()` → remove all elements — [clear](#clear)
+* `assign(n, x)` → fill vector — [assign](#assign)
+* `swap(v)` → swap vectors — [swap](#swap)
 
 ---
 
