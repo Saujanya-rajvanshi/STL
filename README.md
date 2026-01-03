@@ -4,14 +4,14 @@
 
 
 ### vector 
-- [popsize and capacity](#popsize-and-capacity)
+- [push size and capacity](#push-size-and-capacity)
 - [emplace_back](#emplace_back)
 - [pop](#pop)
 - [() []](#(-)-[-])
 - [front and back ](#front-and-back)
 - [vector begin and erase](#vector-begin-and-erase)
 
-##### popsize and capacity 
+##### push size and capacity 
 ```cpp
 #include <iostream>
 #include <vector>
