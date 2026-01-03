@@ -72,7 +72,7 @@ vector<int> v;
 
 ### 🍀 Capacity & Size
 
-* `size()` → returns number of elements
+* `size()` → returns number of elements -[size](#size-and-capacity)
 * `capacity()` → returns allocated storage
 * `empty()` → checks if vector is empty
 * `resize(n)` → changes size of vector
