@@ -2,7 +2,7 @@
 ## index
 - [basic](#basic)
 - [containers](#containers)
-- [algorithm](#algorithm)
+- [algorithm](#ALGORITHM)
 - [iterators](#iterators)
 - [function](#function)
 
