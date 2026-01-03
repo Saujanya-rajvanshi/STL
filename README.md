@@ -47,7 +47,8 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [same number in table](#same-number-in-table)
 - [plus n on begin](#plus-n-on-begin)
 - [replacing an element by other](#replacing-an-element-by-other)
-
+- [clear](#clear)
+  
 ##### push and pop
 ```cpp
 #include <iostream>
