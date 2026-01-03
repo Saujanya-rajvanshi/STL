@@ -34,8 +34,8 @@ Advantages of STL
 ```
 
 ## containers
+vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [vector](#vector)
-vector, list, deque, set, map, unordered_map, stack, queue, priority_queue
   
 ### vector 
 - [push and pop](#push-and-pop)
@@ -46,6 +46,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_queue
 - [vector begin and erase](#vector-begin-and-erase)
 - [same number in table](#same-number-in-table)
 - [plus n on begin](#plus-n-on-begin)
+- [replacing an element by other](#replacing-an-element-by-other)
 
 ##### push and pop
 ```cpp
