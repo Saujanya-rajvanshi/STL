@@ -48,6 +48,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_que
 - [plus n on begin](#plus-n-on-begin)
 - [replacing an element by other](#replacing-an-element-by-other)
 - [clear](#clear)
+- [loop with begin](#loop-with-begin)
   
 ##### push and pop
 ```cpp
