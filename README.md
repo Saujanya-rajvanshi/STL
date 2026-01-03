@@ -61,15 +61,15 @@ Example: vector<int> v;
 Vector Functions (STL)
 
 🍀Capacity & Size
-    size() – returns number of elements
-    capacity() – returns allocated storage
-    empty() – checks if vector is empty
-    resize(n) – changes size of vector
-    reserve(n) – reserves capacity
-    shrink_to_fit() – reduces capacity
+    size() : returns number of elements
+    capacity() : returns allocated storage
+    empty() : checks if vector is empty
+    resize(n) : changes size of vector
+    reserve(n) : reserves capacity
+    shrink_to_fit() : reduces capacity
     
 🍀Modifiers
-   push_back(x) – insert element at end
+   push_back(x)  insert element at end
    pop_back() – remove last element
    insert(pos, x) – insert at position
    erase(pos) – remove element at position
