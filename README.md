@@ -118,12 +118,6 @@ vector<int> v;
   
 ---
 
-If you want, I can:
-
-* shorten this for **exam notes**
-* add **time complexity**
-* or format it for a **professional GitHub README**
-
 
 - [push and pop](#push-and-pop)
 - [size and capacity](#size-and-capacity)
@@ -137,75 +131,77 @@ If you want, I can:
 - [clear](#clear)
 - [loop with begin](#loop-with-begin)
 
-#### size 
+#### capacity and size
 ```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 int main() {
-    vector<int> vec; //0
+    vector<int> vec;
+
+    // empty()
+    cout << "Is vector empty? " << vec.empty() << endl;
+
     vec.push_back(1);
     vec.push_back(2);
     vec.push_back(3);
     vec.push_back(4);
     vec.push_back(5);
 
-    cout << vec.size() << endl; //3
+    // size and capacity
+    cout << "Size: " << vec.size() << endl;
+    cout << "Capacity: " << vec.capacity() << endl;
 
-return 0;
+    // resize(n)
+    vec.resize(3);
+    cout << "Size after resize: " << vec.size() << endl;
+    cout << "Capacity after resize: " << vec.capacity() << endl;
+
+    // reserve(n)
+    vec.reserve(10);
+    cout << "Capacity after reserve: " << vec.capacity() << endl;
+
+    // shrink_to_fit()
+    vec.shrink_to_fit();
+    cout << "Capacity after shrink_to_fit: " << vec.capacity() << endl;
+
+    return 0;
 }
 ```
-
-#### capacity 
+##### size 
 ```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    vector<int> vec; //0
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-
-    cout << vec.capacity() << endl; //4
-
-return 0;
-}
+cout << "Size: " << vec.size() << endl;
 ```
-#### push and pop
+
+##### capacity 
 ```cpp
-#include <iostream>
-#include <vector>
+cout << "Capacity: " << vec.capacity() << endl;
+```
 
-using namespace std;
+##### empty
+```cpp
+cout << "Is vector empty? " << vec.empty() << endl;
+```
 
-int main() {
-    vector<int> vec; //0
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    vec.emplace_back(6);
+##### resize
+```cpp
+vec.resize(3);
+    cout << "Size after resize: " << vec.size() << endl;
+    cout << "Capacity after resize: " << vec.capacity() << endl;
+```
+##### reverse
+```cpp
+vec.reserve(10);
+    cout << "Capacity after reserve: " << vec.capacity() << endl;
+```
+##### shrink_to_fit
+```cpp
+vec.shrink_to_fit();
+    cout << "Capacity after shrink_to_fit: " << vec.capacity() << endl;
+```
+
     
-    vec.pop_back();
-    for(int val: vec) {
-        cout << val << " ";
-        
-    }
-    cout << endl;
-
-return 0;
-
-}
-```
-
 #### emplace_back 
 ```cpp
 #include <iostream>
