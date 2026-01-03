@@ -34,7 +34,8 @@ Advantages of STL
 ```
 
 ## containers
-- [vectors](#vectors)
+- [vector](#vector)
+vector, list, deque, set, map, unordered_map, stack, queue, priority_queue
   
 ### vector 
 - [push and pop](#push-and-pop)
@@ -43,6 +44,7 @@ Advantages of STL
 - [() []](#(-)-[-])
 - [front and back ](#front-and-back)
 - [vector begin and erase](#vector-begin-and-erase)
+- [same number in table](#same-number-in-table)
 
 ##### push and pop
 ```cpp
@@ -197,6 +199,7 @@ return 0;
 
 }
 ```
+
 ##### same number in table
 ```cpp
 #include <iostream>
