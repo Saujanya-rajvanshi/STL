@@ -45,6 +45,7 @@ vector, list, deque, set, map, unordered_map, stack, queue, priority_queue
 - [front and back ](#front-and-back)
 - [vector begin and erase](#vector-begin-and-erase)
 - [same number in table](#same-number-in-table)
+- [plus n on begin](#plus-n-on-begin)
 
 ##### push and pop
 ```cpp
@@ -222,7 +223,7 @@ return 0;
 }
 ```
 
-##### +n on begin 
+#####  plus n on begin 
 
 ```cpp
 #include <iostream>
