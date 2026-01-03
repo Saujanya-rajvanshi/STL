@@ -1,7 +1,34 @@
 # STL
 ### index
+- [basic](#basic)
 - [vector](#vector)
 
+### basic
+```cpp
+STL (Standard Template Library)
+The STL is a collection of generic classes and functions in C++ that provide ready-made data structures and algorithms.
+
+Main components of STL
+
+1. Containers: store data
+    Examples: vector, list, deque, set, map, unordered_map, stack, queue, priority_queue
+
+2. Algorithms: perform operations on data
+    Examples: sort, find, reverse, count, max_element, min_element
+
+3. Iterators: access container elements
+    Examples: begin(), end(), rbegin(), rend()
+
+4. Function objects (Functors): objects that act like functions
+    Examples: greater<>, less<>
+
+Advantages of STL
+  Reusable and efficient
+  Reduces code length
+  Well-tested and optimized
+
+👉 STL makes C++ powerful, fast, and easier to use.
+```
 
 ### vector 
 - [push and pop](#push-and-pop)
