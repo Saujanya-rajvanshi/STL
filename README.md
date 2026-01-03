@@ -699,6 +699,13 @@ return 0;
 ```
 
 ### ALGORITHM
+Algorithms (STL) — Definition
+
+Algorithms are STL functions used to perform operations on data stored in containers, such as searching, sorting, counting, or modifying elements.
+They work with iterators and are independent of container type.
+
+Examples: sort, find, reverse, count, max_element
+
 #### sorting
 ```cpp
 #include <iostream>
