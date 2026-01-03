@@ -49,50 +49,16 @@ vector, list, stack, queue, priority_queue, deque, map, unordered_map, set
 - [set](#SET)
   
 ### VECTOR 
+
 Vector (STL) — Definition
+A vector is a dynamic array provided by the STL that stores elements in contiguous memory and can grow or shrink automatically at runtime.
 
-A vector is a dynamic array provided by STL that stores elements in contiguous memory and can grow or shrink automatically at runtime.
-Key points:
-    Fast random access (O(1))
+Key points
+    Fast random access — O(1)
     Dynamic size
-    Elements stored continuously
-Example: vector<int> v;
+    Elements stored continuously in memory
 
-Vector Functions (STL)
-
-🍀Capacity & Size
-    size() : returns number of elements
-    capacity() : returns allocated storage
-    empty() : checks if vector is empty
-    resize(n) : changes size of vector
-    reserve(n) : reserves capacity
-    shrink_to_fit() : reduces capacity
-    
-🍀Modifiers
-   push_back(x)  insert element at end
-   pop_back() – remove last element
-   insert(pos, x) – insert at position
-   erase(pos) – remove element at position
-   clear() – remove all elements
-   assign(n, x) – fill vector with values
-   swap(v) – swap contents with another vector
-   
-🍀 Element Access
-   at(i) – access element with bounds check
-   operator[] – access element (no check)
-   front() – first element
-   back() – last element
-   data() – pointer to underlying array
-  
-🍀Iterators
-   begin(), end()
-   rbegin(), rend()
-   cbegin(), cend()
-
-🍀Common STL Algorithms used with vector
-   sort(v.begin(), v.end())
-   reverse(v.begin(), v.end())
-   find(v.begin(), v.end(), x)
+Example:
 
 - [push and pop](#push-and-pop)
 - [size and capacity](#size-and-capacity)
