@@ -83,7 +83,7 @@ vector<int> v;
 ---
 
 ### 🍀 Modifiers
-- [modifier](#modifiers)
+- [modifier](#modifier)
 
 * `push_back(x)` → insert element at end — [push_back](#push_back)
 * `pop_back()` → remove last element — [pop_back](#pop_back)
