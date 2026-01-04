@@ -87,6 +87,7 @@ vector<int> v;
 
 * `push_back(x)` → insert element at end — [push_back](#push_back)
 * `pop_back()` → remove last element — [pop_back](#pop_back)
+* `emplace_back()` → insert last element — [emplace_back](#emplace_back)
 * `insert(pos, x)` → insert at position — [insert](#insert)
 * `erase(pos)` → remove element — [erase](#erase)
 * `clear()` → remove all elements — [clear](#clear)
@@ -253,11 +254,176 @@ vec.shrink_to_fit();
 
 * `push_back(x)` → insert element at end — [push_back](#push_back)
 * `pop_back()` → remove last element — [pop_back](#pop_back)
+* `emplace_back()` → insert last element — [emplace_back](#emplace_back)
 * `insert(pos, x)` → insert at position — [insert](#insert)
 * `erase(pos)` → remove element — [erase](#erase)
 * `clear()` → remove all elements — [clear](#clear)
 * `assign(n, x)` → fill vector — [assign](#assign)
 * `swap(v)` → swap vectors — [swap](#swap)
+
+#### combined code 
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vec;
+
+    // push_back()
+    vec.push_back(10);
+    vec.push_back(20);
+    vec.push_back(30);
+
+    // emplace_back()
+    vec.emplace_back(40);
+
+    cout << "Vector elements: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    // pop_back()
+    vec.pop_back();
+
+    cout << "After pop_back: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    // insert()
+    vec.insert(vec.begin() + 1, 15);
+
+    cout << "After insert: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    // erase()
+    vec.erase(vec.begin() + 2);
+
+    cout << "After erase: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    // assign()
+    vec.assign(3, 7);
+
+    cout << "After assign: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    // clear()
+    vec.clear();
+    cout << "Size after clear: " << vec.size() << endl;
+
+    // swap()
+    vector<int> vec2 = {1, 2, 3};
+    vec.swap(vec2);
+
+    cout << "After swap, vec elements: ";
+    for (int x : vec) cout << x << " ";
+    cout << endl;
+
+    return 0;
+}
+```
+---
+
+### push_back
+
+Adds element at end
+Size ↑, capacity may ↑
+
+```cpp
+vec.push_back(10);
+```
+
+---
+
+### pop_back
+
+Removes last element
+Size ↓, capacity same
+
+```cpp
+vec.pop_back();
+```
+
+---
+
+### emplace_back
+
+Adds element at end (faster than push_back for objects)
+
+```cpp
+vec.emplace_back(20);
+```
+
+---
+
+### insert
+
+Inserts element at given position
+Shifts elements right
+
+```cpp
+vec.insert(vec.begin() + 1, 5);
+```
+
+---
+
+### erase
+
+Removes element at position
+Shifts elements left
+
+```cpp
+vec.erase(vec.begin() + 2);
+```
+
+---
+
+### clear
+
+Removes all elements
+Size = 0, capacity unchanged
+
+```cpp
+vec.clear();
+```
+
+---
+
+### assign
+
+Replaces all elements with `n` copies of value
+
+```cpp
+vec.assign(4, 7); // [7 7 7 7]
+```
+
+---
+
+### swap
+
+Swaps contents of two vectors (O(1))
+
+```cpp
+vec1.swap(vec2);
+```
+
+---
+
+### Quick table (exam-friendly)
+
+| Function  | Size    | Capacity |
+| --------- | ------- | -------- |
+| push_back | ↑       | maybe ↑  |
+| pop_back  | ↓       | same     |
+| clear     | 0       | same     |
+| assign    | = n     | maybe ↑  |
+| swap      | swapped | swapped  |
+
+If you want next: **iterators**, **access functions**, or **one-page STL vector cheat sheet**.
+
 
 
     
