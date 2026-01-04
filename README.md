@@ -83,6 +83,7 @@ vector<int> v;
 ---
 
 ### 🍀 Modifiers
+- [modifier](#modifiers)
 
 * `push_back(x)` → insert element at end — [push_back](#push_back)
 * `pop_back()` → remove last element — [pop_back](#pop_back)
@@ -247,6 +248,17 @@ Non-binding request (usually works)
 vec.shrink_to_fit();
     cout << "Capacity after shrink_to_fit: " << vec.capacity() << endl;
 ```
+
+## Modifier
+
+* `push_back(x)` → insert element at end — [push_back](#push_back)
+* `pop_back()` → remove last element — [pop_back](#pop_back)
+* `insert(pos, x)` → insert at position — [insert](#insert)
+* `erase(pos)` → remove element — [erase](#erase)
+* `clear()` → remove all elements — [clear](#clear)
+* `assign(n, x)` → fill vector — [assign](#assign)
+* `swap(v)` → swap vectors — [swap](#swap)
+
 
     
 #### emplace_back 
