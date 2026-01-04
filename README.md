@@ -218,17 +218,31 @@ cout << "Is vector empty? " << vec.empty() << endl;
 ```
 
 ##### resize
+Changes size
+Adds elements (default-initialized) or removes elements
+Capacity may increase
+
 ```cpp
 vec.resize(3);
     cout << "Size after resize: " << vec.size() << endl;
     cout << "Capacity after resize: " << vec.capacity() << endl;
 ```
+
 ##### reverse
+Changes capacity only
+No elements added/removed
+Size unchanged
+
 ```cpp
 vec.reserve(10);
     cout << "Capacity after reserve: " << vec.capacity() << endl;
 ```
+
 ##### shrink_to_fit
+Reduces capacity to size
+Size unchanged
+Non-binding request (usually works)
+
 ```cpp
 vec.shrink_to_fit();
     cout << "Capacity after shrink_to_fit: " << vec.capacity() << endl;
