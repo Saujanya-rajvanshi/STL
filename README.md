@@ -135,7 +135,7 @@ vector<int> v;
 #### capacity and size
 
 ---
-#### STL `vector` growth (very short)
+#### STL `vector` growth 
 
 * `size` = used boxes
 * `capacity` = total boxes
@@ -155,6 +155,8 @@ vector<int> v;
 👉 Doubling gives **fast push_back (amortized O(1))**
 
 ---
+
+#### combined code 
 
 ```cpp
 #include <iostream>
