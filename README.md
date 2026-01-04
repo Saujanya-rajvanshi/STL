@@ -422,9 +422,6 @@ vec1.swap(vec2);
 | assign    | = n     | maybe ↑  |
 | swap      | swapped | swapped  |
 
-If you want next: **iterators**, **access functions**, or **one-page STL vector cheat sheet**.
-
-
 
     
 #### emplace_back 
