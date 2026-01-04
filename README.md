@@ -132,7 +132,7 @@ vector<int> v;
 - [clear](#clear)
 - [loop with begin](#loop-with-begin)
 
-#### capacity and size
+## capacity and size
 ---
 * `size()` → returns number of elements — [size](#size)
 * `capacity()` → returns allocated storage — [capacity](#capacity)
