@@ -65,25 +65,6 @@ A **vector** is a **dynamic array** provided by the STL that stores elements in 
 ```cpp
 vector<int> v;
 ```
-#### STL `vector` growth (very short)
-
-* `size` = used boxes
-* `capacity` = total boxes
-* When full → **capacity doubles**
-
-```
-1  →  2  →  4  →  8  →  16 ...
-[_]
-
-[1][2]
-
-[1][2][3][_]
-
-[1][2][3][4][5][_][_][_]
-```
-
-👉 Doubling gives **fast push_back (amortized O(1))**
-
 
 ---
 
@@ -152,6 +133,29 @@ vector<int> v;
 - [loop with begin](#loop-with-begin)
 
 #### capacity and size
+
+---
+#### STL `vector` growth (very short)
+
+* `size` = used boxes
+* `capacity` = total boxes
+* When full → **capacity doubles**
+
+```
+1  →  2  →  4  →  8  →  16 ...
+[_]
+
+[1][2]
+
+[1][2][3][_]
+
+[1][2][3][4][5][_][_][_]
+```
+
+👉 Doubling gives **fast push_back (amortized O(1))**
+
+---
+
 ```cpp
 #include <iostream>
 #include <vector>
