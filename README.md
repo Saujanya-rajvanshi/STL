@@ -72,44 +72,18 @@ vector<int> v;
 
 ### 🍀 Capacity & Size
 - [capacity and size](#capacity-and-size)
-  
-* `size()` → returns number of elements — [size](#size)
-* `capacity()` → returns allocated storage — [capacity](#capacity)
-* `empty()` → checks if vector is empty — [empty](#empty)
-* `resize(n)` → changes size of vector — [resize](#resize)
-* `reserve(n)` → reserves capacity — [reserve](#reserve)
-* `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
-
 ---
 
 ### 🍀 Modifiers
 - [modifier](#modifier)
-
-* `push_back(x)` → insert element at end — [push_back](#push_back)
-* `pop_back()` → remove last element — [pop_back](#pop_back)
-* `emplace_back()` → insert last element — [emplace_back](#emplace_back)
-* `insert(pos, x)` → insert at position — [insert](#insert)
-* `erase(pos)` → remove element — [erase](#erase)
-* `clear()` → remove all elements — [clear](#clear)
-* `assign(n, x)` → fill vector — [assign](#assign)
-* `swap(v)` → swap vectors — [swap](#swap)
-
 ---
 
 ### 🍀 Element Access
 - [Element Access](#Element-Access)
-- `at(i)` → bounds-checked access — [at](#at)
-- `operator[]` → direct access — [operator](#operator)
-- `front()` → first element — [front](#front)
-- `back()` → last element — [back](#back)
-- `data()` → pointer to array — [data](#data)
-
 ---
 
 ### 🍀 Iterators
-- `begin()` / `end()` — [begin](#begin)
-- `rbegin()` / `rend()` — [rbegin](#rbegin)
-- `cbegin()` / `cend()` — [cbegin](#cbegin)
+- [Iterators](#Iterators)
 ---
 
 ### 🍀 Common STL Algorithms used with vector
