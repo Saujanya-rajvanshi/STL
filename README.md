@@ -87,10 +87,7 @@ vector<int> v;
 ---
 
 ### 🍀 Common STL Algorithms used with vector
-
-- `sort(v.begin(), v.end())` — [sort](#sort)
-- `reverse(v.begin(), v.end())` — [reverse](#reverse)
-- `find(v.begin(), v.end(), x)` — [find](#find)
+- [Common STL Algorithms used with vector](#Common-STL-Algorithms-used-with-vector)
   
 ---
 
@@ -479,7 +476,7 @@ int* p = vec.data();
 
 ---
 
-## 🔹 Combined Code (Iterators)
+## 🔹 Combined Code 
 
 ```cpp
 #include <iostream>
@@ -512,8 +509,6 @@ int main() {
 ```
 
 ---
-
-## 🔹 Quick Notes (Iterator-wise)
 
 ### begin() / end()
 
@@ -549,8 +544,122 @@ vec.rend();
 vec.cbegin();
 vec.cend();
 ```
+---
 
 ---
+
+## Common STL Algorithms with vector
+
+**sort()** → sorts elements — `sort`
+**reverse()** → reverses order — `reverse`
+**find()** → searches element — `find`
+
+---
+
+## 🔹 Combined Code (Algorithms)
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {40, 10, 30, 20};
+
+    // sort()
+    sort(v.begin(), v.end());
+    cout << "After sort: ";
+    for (int x : v) cout << x << " ";
+    cout << endl;
+
+    // reverse()
+    reverse(v.begin(), v.end());
+    cout << "After reverse: ";
+    for (int x : v) cout << x << " ";
+    cout << endl;
+
+    // find()
+    int key = 30;
+    auto it = find(v.begin(), v.end(), key);
+
+    if (it != v.end())
+        cout << "Found " << key << " at index "
+             << it - v.begin() << endl;
+    else
+        cout << "Not found" << endl;
+
+    return 0;
+}
+```
+
+---
+
+## 🔹 Quick Notes (Algorithm-wise)
+
+### sort()
+
+✔ Sorts in ascending order (default)
+✔ Time: **O(n log n)**
+
+```cpp
+sort(v.begin(), v.end());
+```
+
+---
+
+### reverse()
+
+✔ Reverses vector order
+✔ Time: **O(n)**
+
+```cpp
+reverse(v.begin(), v.end());
+```
+
+---
+
+### find()
+
+✔ Linear search
+✔ Returns iterator
+✔ If not found → `v.end()`
+
+```cpp
+find(v.begin(), v.end(), x);
+```
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - [push and pop](#push-and-pop)
 - [size and capacity](#size-and-capacity)
