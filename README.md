@@ -97,7 +97,7 @@ vector<int> v;
 ---
 
 ### 🍀 Element Access
--[Element Access](#Element-Access)
+- [Element Access](#Element-Access)
 - `at(i)` → bounds-checked access — [at](#at)
 - `operator[]` → direct access — [operator](#operator)
 - `front()` → first element — [front](#front)
@@ -107,7 +107,6 @@ vector<int> v;
 ---
 
 ### 🍀 Iterators
-
 - `begin()` / `end()` — [begin](#begin)
 - `rbegin()` / `rend()` — [rbegin](#rbegin)
 - `cbegin()` / `cend()` — [cbegin](#cbegin)
@@ -506,6 +505,90 @@ vec.back();
 
 ```cpp
 int* p = vec.data();
+```
+
+---
+Here is the **iterator section** in the **same clean + exam-ready style** 👇
+
+---
+
+## 🍀 Iterators (vector)
+
+**begin() / end()** → forward iterators — `begin`, `end`
+**rbegin() / rend()** → reverse iterators — `rbegin`, `rend`
+**cbegin() / cend()** → constant iterators — `cbegin`, `cend`
+
+---
+
+## 🔹 Combined Code (Iterators)
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vec = {10, 20, 30, 40};
+
+    // begin() / end()
+    cout << "Forward: ";
+    for (auto it = vec.begin(); it != vec.end(); it++)
+        cout << *it << " ";
+    cout << endl;
+
+    // rbegin() / rend()
+    cout << "Reverse: ";
+    for (auto it = vec.rbegin(); it != vec.rend(); it++)
+        cout << *it << " ";
+    cout << endl;
+
+    // cbegin() / cend()
+    cout << "Constant: ";
+    for (auto it = vec.cbegin(); it != vec.cend(); it++)
+        cout << *it << " ";
+    cout << endl;
+
+    return 0;
+}
+```
+
+---
+
+## 🔹 Quick Notes (Iterator-wise)
+
+### begin() / end()
+
+✔ Points to first element
+✔ `end()` → points **after last element**
+
+```cpp
+vec.begin();
+vec.end();
+```
+
+---
+
+### rbegin() / rend()
+
+✔ Reverse traversal
+✔ `rbegin()` → last element
+✔ `rend()` → before first element
+
+```cpp
+vec.rbegin();
+vec.rend();
+```
+
+---
+
+### cbegin() / cend()
+
+✔ Read-only iterator
+❌ Cannot modify values
+
+```cpp
+vec.cbegin();
+vec.cend();
 ```
 
 ---
