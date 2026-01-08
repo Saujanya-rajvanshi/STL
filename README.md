@@ -471,11 +471,11 @@ int* p = vec.data();
 ---
 ---
 
-## 🍀 Iterators (vector)
+## Iterators 
 
-**begin() / end()** → forward iterators — `begin`, `end`
-**rbegin() / rend()** → reverse iterators — `rbegin`, `rend`
-**cbegin() / cend()** → constant iterators — `cbegin`, `cend`
+* **begin() / end()** → forward iterators — `begin`, `end`
+* **rbegin() / rend()** → reverse iterators — `rbegin`, `rend`
+* **cbegin() / cend()** → constant iterators — `cbegin`, `cend`
 
 ---
 
