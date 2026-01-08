@@ -548,7 +548,7 @@ vec.cend();
 
 ---
 
-## Common STL Algorithms with vector
+## Common STL Algorithms used with vector
 
 **sort()** → sorts elements — `sort`
 **reverse()** → reverses order — `reverse`
