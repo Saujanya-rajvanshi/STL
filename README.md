@@ -97,7 +97,7 @@ vector<int> v;
 ---
 
 ### 🍀 Element Access
-
+-[Element Access](#Element-Access)
 - `at(i)` → bounds-checked access — [at](#at)
 - `operator[]` → direct access — [operator](#operator)
 - `front()` → first element — [front](#front)
@@ -413,16 +413,102 @@ vec1.swap(vec2);
 
 ---
 
-### Quick table (exam-friendly)
+---
 
-| Function  | Size    | Capacity |
-| --------- | ------- | -------- |
-| push_back | ↑       | maybe ↑  |
-| pop_back  | ↓       | same     |
-| clear     | 0       | same     |
-| assign    | = n     | maybe ↑  |
-| swap      | swapped | swapped  |
+## Element Access
 
+**at(i)** → bounds-checked access — `at`
+**operator[]** → direct access (no check) — `[]`
+**front()** → first element — `front`
+**back()** → last element — `back`
+**data()** → pointer to internal array — `data`
+
+---
+
+## combined Code 
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vec = {10, 20, 30, 40};
+
+    // at()
+    cout << "at(1): " << vec.at(1) << endl;
+
+    // operator[]
+    cout << "operator[2]: " << vec[2] << endl;
+
+    // front()
+    cout << "front(): " << vec.front() << endl;
+
+    // back()
+    cout << "back(): " << vec.back() << endl;
+
+    // data()
+    int* ptr = vec.data();
+    cout << "data()[0]: " << ptr[0] << endl;
+
+    return 0;
+}
+```
+
+---
+
+### at()
+
+✔ Bounds-checked
+❌ Throws exception if index invalid
+
+```cpp
+vec.at(2);
+```
+
+---
+
+### operator[]
+
+✔ Faster
+❌ No bounds checking
+
+```cpp
+vec[2];
+```
+
+---
+
+### front()
+
+✔ Access first element
+
+```cpp
+vec.front();
+```
+
+---
+
+### back()
+
+✔ Access last element
+
+```cpp
+vec.back();
+```
+
+---
+
+### data()
+
+✔ Returns pointer to internal array
+✔ Useful for C-style arrays
+
+```cpp
+int* p = vec.data();
+```
+
+---
 
     
 #### emplace_back 
