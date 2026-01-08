@@ -403,11 +403,11 @@ vec1.swap(vec2);
 
 ## Element Access
 
-**at(i)** → bounds-checked access — `at`
-**operator[]** → direct access (no check) — `[]`
-**front()** → first element — `front`
-**back()** → last element — `back`
-**data()** → pointer to internal array — `data`
+* **at(i)** → bounds-checked access — `at`
+* **operator[]** → direct access (no check) — `[]`
+* **front()** → first element — `front`
+* **back()** → last element — `back`
+* **data()** → pointer to internal array — `data`
 
 ---
 
