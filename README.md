@@ -120,19 +120,6 @@ vector<int> v;
   
 ---
 
-
-- [push and pop](#push-and-pop)
-- [size and capacity](#size-and-capacity)
-- [emplace_back](#emplace_back)
-- [() []](#(-)-[-])
-- [front and back ](#front-and-back)
-- [vector begin and erase](#vector-begin-and-erase)
-- [same number in table](#same-number-in-table)
-- [plus n on begin](#plus-n-on-begin)
-- [replacing an element by other](#replacing-an-element-by-other)
-- [clear](#clear)
-- [loop with begin](#loop-with-begin)
-
 ## capacity and size
 ---
 * `size()` → returns number of elements — [size](#size)
@@ -508,8 +495,6 @@ int* p = vec.data();
 ```
 
 ---
-Here is the **iterator section** in the **same clean + exam-ready style** 👇
-
 ---
 
 ## 🍀 Iterators (vector)
@@ -592,6 +577,19 @@ vec.cend();
 ```
 
 ---
+
+- [push and pop](#push-and-pop)
+- [size and capacity](#size-and-capacity)
+- [emplace_back](#emplace_back)
+- [() []](#(-)-[-])
+- [front and back ](#front-and-back)
+- [vector begin and erase](#vector-begin-and-erase)
+- [same number in table](#same-number-in-table)
+- [plus n on begin](#plus-n-on-begin)
+- [replacing an element by other](#replacing-an-element-by-other)
+- [clear](#clear)
+- [loop with begin](#loop-with-begin)
+
 
     
 #### emplace_back 
