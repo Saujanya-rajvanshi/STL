@@ -69,24 +69,10 @@ vector<int> v;
 ---
 
 ## **Vector Functions (STL)**
-
-### 🍀 Capacity & Size
 - [capacity and size](#capacity-and-size)
----
-
-### 🍀 Modifiers
 - [modifier](#modifier)
----
-
-### 🍀 Element Access
 - [Element Access](#Element-Access)
----
-
-### 🍀 Iterators
 - [Iterators](#Iterators)
----
-
-### 🍀 Common STL Algorithms used with vector
 - [Common STL Algorithms used with vector](#Common-STL-Algorithms-used-with-vector)
   
 ---
