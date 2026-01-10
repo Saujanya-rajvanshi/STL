@@ -342,7 +342,7 @@ vec.pop_back();
 ### emplace_back
 
 * Adds element at end (faster than push_back for objects)
-👉 can create inplace object
+* 👉 can create inplace object
 * Size ↑, capacity may ↑
 
 ```cpp
