@@ -122,6 +122,7 @@ vector<int> v;
 
 ```
 👉 Doubling gives **fast push_back (amortized O(1))**
+* when there is no more space left
 * Allocate new memory , Copy into new memory, Insert
 * the old copy gets deleted automaticaly
 ---
