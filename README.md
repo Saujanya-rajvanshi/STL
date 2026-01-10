@@ -99,6 +99,7 @@ vector<int> v;
 * `resize(n)` → changes size of vector — [resize](#resize)
 * `reserve(n)` → reserves capacity — [reserve](#reserve)
 * `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
+* `[]()` → — [[]()](#bracket)
 ---
 ---
 #### STL `vector` growth 
@@ -205,6 +206,31 @@ Non-binding request (usually works)
 ```cpp
 vec.shrink_to_fit();
     cout << "Capacity after shrink_to_fit: " << vec.capacity() << endl;
+```
+
+#### bracket
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> vec; //0
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(3);
+    vec.push_back(4);
+    vec.push_back(5);
+    cout << vec.size() << endl; //3
+    cout << vec.capacity() << endl; //4
+
+    cout << "val at idx 2" << vec [2] << or << vec.at(2) << endl;
+
+return 0;
+
+}
+
 ```
 
 ## Modifier
@@ -701,31 +727,6 @@ int main() {
 return 0;
 
 }
-```
-
-#### [ ] ( )
-```cpp
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
-int main() {
-    vector<int> vec; //0
-    vec.push_back(1);
-    vec.push_back(2);
-    vec.push_back(3);
-    vec.push_back(4);
-    vec.push_back(5);
-    cout << vec.size() << endl; //3
-    cout << vec.capacity() << endl; //4
-
-    cout << "val at idx 2" << vec [2] << or << vec.at(2) << endl;
-
-return 0;
-
-}
-
 ```
 
 #### front and back 
