@@ -453,9 +453,10 @@ int main() {
 ---
 
 ### at()
-
-✔ Bounds-checked
-❌ Throws exception if index invalid
+👉 returns the data 
+*If index is invalid: Throws std::out_of_range
+* Program can be handled using try–catch
+* **Safe** failure
 
 ```cpp
 vec.at(2);
@@ -464,9 +465,11 @@ vec.at(2);
 ---
 
 ### operator[]
-
-✔ Faster
-❌ No bounds checking
+👉 return the data 
+* If index is invalid: No error
+* May access garbage value
+* May crash or corrupt memory
+* **Dangerous**
 
 ```cpp
 vec[2];
