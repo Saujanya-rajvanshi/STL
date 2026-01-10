@@ -1270,13 +1270,1338 @@ auto it = find(dq.begin(), dq.end(), 30);
 
 ---
 
-If you want next:
+Here are **STACK (STL) notes**, written in the **same clean, structured style** as your **vector / deque notes**
+👉 exam-ready + concept-clear.
 
-* **STACK / QUEUE using deque**
-* **list vs deque vs vector**
-* **which STL container to use when**
+---
 
-Just say 👍
+# STACK (STL)
+
+**Stack — Definition**
+
+A **stack** is a **container adaptor** provided by STL that follows **LIFO**
+(**Last In, First Out**) principle.
+
+**Key points**
+
+* LIFO order
+* Insertion and deletion from **top only**
+* No random access
+* No iterators
+* Built on another container (default: **deque**)
+
+**Example**
+
+```cpp
+stack<int> st;
+```
+
+---
+
+## Header File
+
+```cpp
+#include <stack>
+```
+
+---
+
+## Stack Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove top element
+* `top()` → access top element
+* `size()` → number of elements
+* `empty()` → check if stack is empty
+* `swap(st)` → swap stacks
+
+---
+
+## Stack Working (LIFO)
+
+```
+push(10)
+push(20)
+push(30)
+
+TOP → 30
+       20
+       10
+```
+
+`pop()` removes **30**
+
+---
+
+## Combined Code
+
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> st;
+
+    cout << "Is empty? " << st.empty() << endl;
+
+    st.push(10);
+    st.push(20);
+    st.push(30);
+
+    cout << "Top: " << st.top() << endl;
+    cout << "Size: " << st.size() << endl;
+
+    st.pop();
+
+    cout << "Top after pop: " << st.top() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Function Explanation
+
+---
+
+### push()
+
+👉 Inserts element at top
+
+* **O(1)**
+
+```cpp
+st.push(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly at top
+
+* Faster for objects
+* **O(1)**
+
+```cpp
+st.emplace(20);
+```
+
+---
+
+### pop()
+
+👉 Removes top element
+
+* **O(1)**
+* ❌ Does NOT return value
+
+```cpp
+st.pop();
+```
+
+---
+
+### top()
+
+👉 Access top element
+
+* **O(1)**
+* ❌ Stack must not be empty
+
+```cpp
+st.top();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+st.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if stack is empty
+
+* Returns `1` (true) or `0` (false)
+
+```cpp
+st.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two stacks
+
+* **O(1)**
+
+```cpp
+st1.swap(st2);
+```
+
+---
+
+## IMPORTANT LIMITATIONS (Very Important for Exam)
+
+❌ No iterators
+❌ No random access
+❌ Cannot access middle elements
+
+👉 Only `top()` is accessible
+
+---
+
+## Underlying Container
+
+```cpp
+stack<int> st;          // uses deque by default
+stack<int, vector<int>> st2;   // uses vector
+```
+
+---
+
+## Stack vs Vector vs Deque
+
+| Feature    | Stack    | Vector        | Deque        |
+| ---------- | -------- | ------------- | ------------ |
+| Access     | top only | random        | random       |
+| push_back  | ✔        | ✔             | ✔            |
+| push_front | ❌        | ❌             | ✔            |
+| Iterators  | ❌        | ✔             | ✔            |
+| Use case   | LIFO     | dynamic array | double-ended |
+
+---
+
+## Use Cases
+
+* Function calls
+* Undo / Redo
+* Expression evaluation
+* Backtracking
+* DFS
+
+---
+
+## One-line Exam Answer 📝
+
+> Stack is a container adaptor that follows LIFO principle where insertion and deletion occur only at the top.
+
+---
+
+Below are **PRIORITY_QUEUE (STL) notes**, written in the **same style as your VECTOR / DEQUE / STACK notes**
+👉 clear, structured, exam-ready.
+
+---
+
+# PRIORITY QUEUE (STL)
+
+**Priority Queue — Definition**
+
+A **priority_queue** is a **container adaptor** provided by STL where **elements are processed based on priority**, not insertion order.
+
+👉 By default, the **largest element has the highest priority**.
+
+**Key points**
+
+* Based on **Heap** data structure
+* Default: **Max Heap**
+* No iterators
+* No random access
+* Only **top element** is accessible
+
+---
+
+## Header File
+
+```cpp
+#include <queue>
+```
+
+---
+
+## Priority Queue Types
+
+### 1️⃣ Max Heap (Default)
+
+```cpp
+priority_queue<int> pq;
+```
+
+Top element = **largest**
+
+---
+
+### 2️⃣ Min Heap
+
+```cpp
+priority_queue<int, vector<int>, greater<int>> pq;
+```
+
+Top element = **smallest**
+
+---
+
+## Priority Queue Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove highest priority element
+* `top()` → access highest priority element
+* `size()` → number of elements
+* `empty()` → check if empty
+* `swap(pq)` → swap priority queues
+
+---
+
+## Working (Max Heap)
+
+```
+push(10)
+push(40)
+push(20)
+push(30)
+
+TOP → 40
+```
+
+`pop()` removes **40**
+
+---
+
+## Combined Code (Max Heap)
+
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    priority_queue<int> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top: " << pq.top() << endl;
+    cout << "Size: " << pq.size() << endl;
+
+    pq.pop();
+
+    cout << "Top after pop: " << pq.top() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Combined Code (Min Heap)
+
+```cpp
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+
+int main() {
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top (Min): " << pq.top() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Function Explanation
+
+---
+
+### push()
+
+👉 Inserts element
+
+* **O(log n)**
+
+```cpp
+pq.push(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly
+
+* Faster for objects
+* **O(log n)**
+
+```cpp
+pq.emplace(25);
+```
+
+---
+
+### pop()
+
+👉 Removes highest priority element
+
+* **O(log n)**
+* ❌ Does NOT return value
+
+```cpp
+pq.pop();
+```
+
+---
+
+### top()
+
+👉 Returns highest priority element
+
+* **O(1)**
+* ❌ Cannot modify element
+
+```cpp
+pq.top();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+pq.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if empty
+
+```cpp
+pq.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two priority queues
+
+* **O(1)**
+
+```cpp
+pq1.swap(pq2);
+```
+
+---
+
+## IMPORTANT LIMITATIONS (Exam Favorite)
+
+❌ No iterators
+❌ No random access
+❌ Cannot traverse elements
+
+👉 Only `top()` is accessible
+
+---
+
+## Underlying Container
+
+```cpp
+priority_queue<int> pq;              // uses vector by default
+priority_queue<int, deque<int>> pq2; // valid but uncommon
+```
+
+---
+
+## Priority Queue vs Stack vs Queue
+
+| Feature   | Priority Queue | Stack    | Queue  |
+| --------- | -------------- | -------- | ------ |
+| Order     | Priority-based | LIFO     | FIFO   |
+| Access    | top only       | top only | front  |
+| Iterators | ❌              | ❌        | ❌      |
+| Structure | Heap           | Linear   | Linear |
+
+---
+
+## Use Cases
+
+* CPU scheduling
+* Dijkstra algorithm
+* Heap sort
+* Task scheduling
+* Event simulation
+
+---
+
+## One-line Exam Answer 📝
+
+> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
+
+---
+
+Below are **PRIORITY_QUEUE (STL) notes**, written in the **same style as your VECTOR / DEQUE / STACK notes**
+👉 clear, structured, exam-ready.
+
+---
+
+# PRIORITY QUEUE (STL)
+
+**Priority Queue — Definition**
+
+A **priority_queue** is a **container adaptor** provided by STL where **elements are processed based on priority**, not insertion order.
+
+👉 By default, the **largest element has the highest priority**.
+
+**Key points**
+
+* Based on **Heap** data structure
+* Default: **Max Heap**
+* No iterators
+* No random access
+* Only **top element** is accessible
+
+---
+
+## Header File
+
+```cpp
+#include <queue>
+```
+
+---
+
+## Priority Queue Types
+
+### 1️⃣ Max Heap (Default)
+
+```cpp
+priority_queue<int> pq;
+```
+
+Top element = **largest**
+
+---
+
+### 2️⃣ Min Heap
+
+```cpp
+priority_queue<int, vector<int>, greater<int>> pq;
+```
+
+Top element = **smallest**
+
+---
+
+## Priority Queue Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove highest priority element
+* `top()` → access highest priority element
+* `size()` → number of elements
+* `empty()` → check if empty
+* `swap(pq)` → swap priority queues
+
+---
+
+## Working (Max Heap)
+
+```
+push(10)
+push(40)
+push(20)
+push(30)
+
+TOP → 40
+```
+
+`pop()` removes **40**
+
+---
+
+## Combined Code (Max Heap)
+
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    priority_queue<int> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top: " << pq.top() << endl;
+    cout << "Size: " << pq.size() << endl;
+
+    pq.pop();
+
+    cout << "Top after pop: " << pq.top() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Combined Code (Min Heap)
+
+```cpp
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+
+int main() {
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top (Min): " << pq.top() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Function Explanation
+
+---
+
+### push()
+
+👉 Inserts element
+
+* **O(log n)**
+
+```cpp
+pq.push(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly
+
+* Faster for objects
+* **O(log n)**
+
+```cpp
+pq.emplace(25);
+```
+
+---
+
+### pop()
+
+👉 Removes highest priority element
+
+* **O(log n)**
+* ❌ Does NOT return value
+
+```cpp
+pq.pop();
+```
+
+---
+
+### top()
+
+👉 Returns highest priority element
+
+* **O(1)**
+* ❌ Cannot modify element
+
+```cpp
+pq.top();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+pq.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if empty
+
+```cpp
+pq.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two priority queues
+
+* **O(1)**
+
+```cpp
+pq1.swap(pq2);
+```
+
+---
+
+## IMPORTANT LIMITATIONS (Exam Favorite)
+
+❌ No iterators
+❌ No random access
+❌ Cannot traverse elements
+
+👉 Only `top()` is accessible
+
+---
+
+## Underlying Container
+
+```cpp
+priority_queue<int> pq;              // uses vector by default
+priority_queue<int, deque<int>> pq2; // valid but uncommon
+```
+
+---
+
+## Priority Queue vs Stack vs Queue
+
+| Feature   | Priority Queue | Stack    | Queue  |
+| --------- | -------------- | -------- | ------ |
+| Order     | Priority-based | LIFO     | FIFO   |
+| Access    | top only       | top only | front  |
+| Iterators | ❌              | ❌        | ❌      |
+| Structure | Heap           | Linear   | Linear |
+
+---
+
+## Use Cases
+
+* CPU scheduling
+* Dijkstra algorithm
+* Heap sort
+* Task scheduling
+* Event simulation
+
+---
+
+## One-line Exam Answer 📝
+
+> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
+
+---
+
+Below are **UNORDERED_MAP (STL) notes**, written in the **same structured style** as your previous STL notes
+👉 exam-ready, clean, and placement-friendly.
+
+---
+
+# UNORDERED_MAP (STL)
+
+**Unordered Map — Definition**
+
+An **unordered_map** is an **associative container** that stores elements in **key–value pairs**, where **keys are unique**, but **elements are NOT stored in sorted order**.
+
+**Key points**
+
+* Stores **(key, value)** pairs
+* **Keys are unique**
+* ❌ No ordering
+* Very fast lookup — **O(1) average**
+* Implemented using **Hash Table**
+
+**Example**
+
+```cpp
+unordered_map<int, string> ump;
+```
+
+---
+
+## Header File
+
+```cpp
+#include <unordered_map>
+```
+
+---
+
+## Unordered Map Structure
+
+```
+Hash Table
+Index → (Key, Value)
+
+0 → (5, "E")
+1 → (1, "A")
+2 → (9, "I")
+```
+
+👉 Order is **unpredictable**
+
+---
+
+## Unordered Map Functions (STL)
+
+### Insertion / Update
+
+* `insert({k, v})`
+* `ump[k] = v`
+* `emplace(k, v)`
+
+### Access
+
+* `at(k)`
+* `operator[]`
+
+### Remove
+
+* `erase(k)`
+* `clear()`
+
+### Search
+
+* `find(k)`
+* `count(k)`
+
+### Size
+
+* `size()`
+* `empty()`
+
+### Bucket / Hash Info
+
+* `bucket_count()`
+* `load_factor()`
+* `rehash(n)`
+
+---
+
+## Combined Code
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    unordered_map<int, string> ump;
+
+    ump[1] = "A";
+    ump[2] = "B";
+    ump[3] = "C";
+
+    ump.insert({4, "D"});
+    ump.emplace(5, "E");
+
+    cout << "Unordered Map elements:\n";
+    for (auto it : ump)
+        cout << it.first << " -> " << it.second << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Insertion Methods
+
+---
+
+### operator[]
+
+👉 Inserts or updates value
+
+* Creates key if missing
+* **O(1) average**
+
+```cpp
+ump[2] = "B";
+```
+
+---
+
+### insert()
+
+👉 Inserts key–value pair
+
+* Does NOT update existing key
+
+```cpp
+ump.insert({3, "C"});
+```
+
+---
+
+### emplace()
+
+👉 Constructs key–value directly
+
+* Faster
+
+```cpp
+ump.emplace(4, "D");
+```
+
+---
+
+## Access Methods
+
+---
+
+### at()
+
+✔ Safe
+❌ Throws exception if key missing
+
+```cpp
+ump.at(2);
+```
+
+---
+
+### operator[]
+
+✔ Easy
+❌ Creates key if missing
+
+```cpp
+ump[2];
+```
+
+---
+
+## Remove Elements
+
+---
+
+### erase()
+
+```cpp
+ump.erase(3);
+```
+
+---
+
+### clear()
+
+```cpp
+ump.clear();
+```
+
+---
+
+## Search Operations
+
+---
+
+### find()
+
+👉 Returns iterator
+
+* If not found → `ump.end()`
+
+```cpp
+auto it = ump.find(2);
+```
+
+---
+
+### count()
+
+👉 Returns `1` if key exists, else `0`
+
+```cpp
+ump.count(3);
+```
+
+---
+
+## Bucket Concepts (Important for Theory)
+
+---
+
+### bucket_count()
+
+👉 Number of buckets
+
+```cpp
+ump.bucket_count();
+```
+
+---
+
+### load_factor()
+
+👉 Average elements per bucket
+
+```cpp
+ump.load_factor();
+```
+
+---
+
+### rehash(n)
+
+👉 Increases number of buckets
+
+```cpp
+ump.rehash(20);
+```
+
+---
+
+## Time Complexity
+
+| Operation  | Time (Average) |
+| ---------- | -------------- |
+| insert     | O(1)           |
+| delete     | O(1)           |
+| search     | O(1)           |
+| Worst case | O(n)           |
+
+---
+
+## UNORDERED_MAP vs MAP
+
+| Feature       | unordered_map | map            |
+| ------------- | ------------- | -------------- |
+| Order         | ❌ No          | ✔ Sorted       |
+| Structure     | Hash table    | Red-Black tree |
+| Search        | O(1) avg      | O(log n)       |
+| Range queries | ❌             | ✔              |
+
+---
+
+## Use Cases
+
+* Frequency counting
+* Fast lookup tables
+* Caching
+* Competitive programming
+
+---
+
+## IMPORTANT LIMITATIONS
+
+❌ No ordering
+❌ No `lower_bound()` / `upper_bound()`
+❌ Iteration order unpredictable
+
+---
+
+## One-line Exam Answer 📝
+
+> Unordered map is an associative container that stores unique keys in a hash table without maintaining any order.
+
+---
+
+Below are **SET (STL) notes**, written in the **same clean, structured style** as your **map / unordered_map / vector notes**
+👉 exam-ready, placement-friendly.
+
+---
+
+# SET (STL)
+
+**Set — Definition**
+
+A **set** is an **associative container** that stores **unique elements** in **sorted order**.
+
+**Key points**
+
+* Stores **only keys** (no value)
+* **All elements are unique**
+* Automatically **sorted**
+* Fast search, insert, delete — **O(log n)**
+* Implemented using **Red-Black Tree**
+
+**Example**
+
+```cpp
+set<int> s;
+```
+
+---
+
+## Header File
+
+```cpp
+#include <set>
+```
+
+---
+
+## Set Structure
+
+```
+Elements (sorted)
+10 20 30 40
+```
+
+Duplicates are **not allowed**
+
+---
+
+## Set Functions (STL)
+
+### Insertion
+
+* `insert(x)`
+* `emplace(x)`
+
+### Remove
+
+* `erase(x)`
+* `clear()`
+
+### Search
+
+* `find(x)`
+* `count(x)`
+
+### Size
+
+* `size()`
+* `empty()`
+
+### Range Queries
+
+* `lower_bound(x)`
+* `upper_bound(x)`
+
+### Others
+
+* `swap(s)`
+
+---
+
+## Combined Code
+
+```cpp
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> s;
+
+    s.insert(10);
+    s.insert(20);
+    s.insert(30);
+    s.insert(20); // ignored
+
+    s.emplace(40);
+
+    cout << "Set elements:\n";
+    for (int x : s)
+        cout << x << " ";
+
+    return 0;
+}
+```
+
+---
+
+## Insertion Methods
+
+---
+
+### insert()
+
+👉 Inserts element
+
+* Duplicate ignored
+* **O(log n)**
+
+```cpp
+s.insert(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly
+
+* Faster
+* **O(log n)**
+
+```cpp
+s.emplace(20);
+```
+
+---
+
+## Remove Elements
+
+---
+
+### erase()
+
+```cpp
+s.erase(20);
+```
+
+---
+
+### clear()
+
+```cpp
+s.clear();
+```
+
+---
+
+## Search Operations
+
+---
+
+### find()
+
+👉 Returns iterator
+
+* If not found → `s.end()`
+
+```cpp
+auto it = s.find(10);
+```
+
+---
+
+### count()
+
+👉 Returns `1` if exists, else `0`
+
+```cpp
+s.count(10);
+```
+
+---
+
+## Range Queries (IMPORTANT)
+
+---
+
+### lower_bound(x)
+
+👉 First element **≥ x**
+
+```cpp
+s.lower_bound(20);
+```
+
+---
+
+### upper_bound(x)
+
+👉 First element **> x**
+
+```cpp
+s.upper_bound(20);
+```
+
+---
+
+## Iterators
+
+* `begin()` / `end()`
+* `rbegin()` / `rend()`
+* `cbegin()` / `cend()`
+
+---
+
+## Iteration Example
+
+```cpp
+for (auto it = s.begin(); it != s.end(); it++)
+    cout << *it << " ";
+```
+
+---
+
+## Time Complexity
+
+| Operation | Time     |
+| --------- | -------- |
+| insert    | O(log n) |
+| delete    | O(log n) |
+| search    | O(log n) |
+
+---
+
+## SET vs UNORDERED_SET
+
+| Feature       | set            | unordered_set |
+| ------------- | -------------- | ------------- |
+| Order         | Sorted         | Unordered     |
+| Structure     | Red-Black Tree | Hash Table    |
+| Search        | O(log n)       | O(1) avg      |
+| Range queries | ✔              | ❌             |
+
+---
+
+## Use Cases
+
+* Removing duplicates
+* Ordered data
+* Unique elements
+* Range-based queries
+
+---
+
+## IMPORTANT LIMITATIONS
+
+❌ Cannot access by index
+❌ No duplicates
+
+---
+
+## One-line Exam Answer 📝
+
+> Set is an associative container that stores unique elements in sorted order.
+
+---
+
+
+
 
 
 
