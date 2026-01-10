@@ -72,8 +72,6 @@ vector<int> v;
 - [capacity and size](#capacity-and-size)
 - [modifier](#modifier)
 - [Element Access](#Element-Access)
-- [Iterators](#Iterators)
-- [Common STL Algorithms used with vector](#Common-STL-Algorithms-used-with-vector)
   
 ---
 
@@ -696,15 +694,12 @@ list<int> l;
 - [capacity and size](#capacity-and-size)
 - [modifier](#modifier)
 - [Element Access](#Element-Access)
-- [Iterators](#Iterators)
-- [Common STL Algorithms used with list](#Common-STL-Algorithms-used-with-list)
 
 ---
 
 ## capacity and size
 
 ---
-
 * `size()` → number of elements
 * `empty()` → checks if list is empty
 * ❌ No `capacity()`
@@ -739,6 +734,17 @@ int main() {
     l.push_back(2);
     l.push_back(3);
 
+    // emplace_back()
+    l.emplace_back(4);
+
+    // emplace_front()
+    l.emplace_front(0);
+
+    cout << "List elements: ";
+    for (int x : l)
+        cout << x << " ";
+    cout << endl;
+
     cout << "Size: " << l.size() << endl;
 
     return 0;
@@ -753,6 +759,7 @@ int main() {
 * `push_front(x)` → insert at beginning
 * `pop_back()` → remove last
 * `pop_front()` → remove first
+* `emplace back / emplace front`
 * `insert(pos, x)` → insert at position
 * `erase(pos)` → remove at position
 * `remove(x)` → remove all x
@@ -906,6 +913,367 @@ l.back();   // last element
 
 ---
 
+#### deque
+---
+
+# DEQUE (STL)
+
+**Deque (Double Ended Queue) — Definition**
+
+A **deque** is a **dynamic container** provided by STL that allows **fast insertion and deletion at both front and back**.
+
+**Key points**
+
+* Fast random access — **O(1)**
+* Dynamic size
+* Insertion/removal at **both ends is O(1)**
+* Elements stored in **multiple contiguous blocks** (not single block like vector)
+
+**Example**
+
+```cpp
+deque<int> dq;
+```
+
+---
+
+## **Deque Functions (STL)**
+
+* [capacity and size](#capacity-and-size)
+* [modifier](#modifier)
+* [Element Access](#Element-Access)
+* [Iterators](#Iterators)
+* [Common STL Algorithms used with deque](#Common-STL-Algorithms-used-with-deque)
+
+---
+
+## capacity and size
+
+---
+
+* `size()` → number of elements
+* `empty()` → checks if deque is empty
+* ❌ `capacity()` → **NOT available**
+* ❌ `reserve()` → **NOT available**
+* ❌ `shrink_to_fit()` → **NOT available**
+
+---
+
+### Deque Growth (Important)
+
+* Deque does **NOT** have capacity like vector
+* It grows by allocating **new blocks**
+* No full reallocation of all elements
+
+👉 This is why insertion at front is efficient
+
+---
+
+### Combined Code
+
+```cpp
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<int> dq;
+
+    cout << "Is empty? " << dq.empty() << endl;
+
+    dq.push_back(1);
+    dq.push_back(2);
+    dq.push_back(3);
+
+    cout << "Size: " << dq.size() << endl;
+
+    return 0;
+}
+```
+
+---
+
+### size()
+
+```cpp
+dq.size();
+```
+
+---
+
+### empty()
+
+```cpp
+dq.empty();
+```
+
+---
+
+## Modifier
+
+* `push_back(x)` → insert at end
+* `push_front(x)` → insert at front
+* `pop_back()` → remove last element
+* `pop_front()` → remove first element
+* `emplace_back()` → construct at end
+* `emplace_front()` → construct at front
+* `insert(pos, x)` → insert at position
+* `erase(pos)` → remove element
+* `clear()` → remove all elements
+* `assign(n, x)` → fill deque
+* `swap(dq)` → swap deques
+
+---
+
+### Combined Code
+
+```cpp
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<int> dq;
+
+    dq.push_back(10);
+    dq.push_front(5);
+
+    dq.emplace_back(20);
+    dq.emplace_front(1);
+
+    cout << "Deque elements: ";
+    for (int x : dq) cout << x << " ";
+    cout << endl;
+
+    dq.pop_back();
+    dq.pop_front();
+
+    cout << "After pop: ";
+    for (int x : dq) cout << x << " ";
+    cout << endl;
+
+    return 0;
+}
+```
+
+---
+
+### push_back / push_front
+
+👉 Insert at end / front
+
+* **O(1)**
+
+```cpp
+dq.push_back(10);
+dq.push_front(5);
+```
+
+---
+
+### emplace_back / emplace_front
+
+👉 Constructs element directly
+
+* Faster for objects
+* **O(1)**
+
+```cpp
+dq.emplace_back(20);
+dq.emplace_front(1);
+```
+
+---
+
+### pop_back / pop_front
+
+👉 Removes element from end / front
+
+* **O(1)**
+
+```cpp
+dq.pop_back();
+dq.pop_front();
+```
+
+---
+
+### insert
+
+👉 Inserts at given position
+
+* **O(n)** (elements shift)
+
+```cpp
+dq.insert(dq.begin() + 1, 100);
+```
+
+---
+
+### erase
+
+👉 Removes element
+
+* **O(n)**
+
+```cpp
+dq.erase(dq.begin() + 2);
+```
+
+---
+
+### clear
+
+👉 Removes all elements
+
+* Size = 0
+
+```cpp
+dq.clear();
+```
+
+---
+
+### assign
+
+👉 Replaces all elements
+
+```cpp
+dq.assign(3, 7); // [7 7 7]
+```
+
+---
+
+### swap
+
+👉 Exchanges contents of two deques
+
+* **O(1)**
+
+```cpp
+dq1.swap(dq2);
+```
+
+---
+
+## Element Access
+
+* `at(i)` → bounds-checked
+* `operator[]` → no check
+* `front()` → first element
+* `back()` → last element
+
+---
+
+### Combined Code
+
+```cpp
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<int> dq = {10, 20, 30, 40};
+
+    cout << dq.at(1) << endl;
+    cout << dq[2] << endl;
+    cout << dq.front() << endl;
+    cout << dq.back() << endl;
+
+    return 0;
+}
+```
+
+---
+
+### at()
+
+✔ Safe
+❌ Throws exception if invalid
+
+```cpp
+dq.at(2);
+```
+
+---
+
+### operator[]
+
+✔ Fast
+❌ Unsafe
+
+```cpp
+dq[2];
+```
+
+---
+
+## Iterators
+
+* `begin()` / `end()`
+* `rbegin()` / `rend()`
+* `cbegin()` / `cend()`
+
+👉 Same behavior as vector
+
+---
+
+### Combined Code
+
+```cpp
+for (auto it = dq.begin(); it != dq.end(); it++)
+    cout << *it << " ";
+```
+
+---
+
+## Common STL Algorithms used with deque
+
+* `sort()`
+* `reverse()`
+* `find()`
+
+👉 Works because deque supports **random access iterators**
+
+---
+
+### Combined Code
+
+```cpp
+#include <algorithm>
+
+sort(dq.begin(), dq.end());
+reverse(dq.begin(), dq.end());
+auto it = find(dq.begin(), dq.end(), 30);
+```
+
+---
+
+## Vector vs Deque (VERY IMPORTANT)
+
+| Feature       | Vector       | Deque           |
+| ------------- | ------------ | --------------- |
+| Memory        | Single block | Multiple blocks |
+| push_back     | O(1)         | O(1)            |
+| push_front    | ❌ O(n)       | ✔ O(1)          |
+| Random access | ✔            | ✔               |
+| Capacity      | ✔            | ❌               |
+
+---
+
+### One-line exam note 📝
+
+> Deque is a dynamic container that allows fast insertion and deletion at both ends while supporting random access.
+
+---
+
+If you want next:
+
+* **STACK / QUEUE using deque**
+* **list vs deque vs vector**
+* **which STL container to use when**
+
+Just say 👍
 
 
 
