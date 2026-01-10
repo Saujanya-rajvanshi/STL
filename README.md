@@ -31,6 +31,15 @@ Advantages of STL
   Well-tested and optimized
 
 STL makes C++ powerful, fast, and easier to use.
+
+
+STL
+│
+├── Containers   → store data
+├── Iterators    → access data
+├── Algorithms   → process data
+└── Functions    → customize behavior
+
 ```
 
 ## CONTAINERS
