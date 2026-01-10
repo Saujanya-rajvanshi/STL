@@ -2436,6 +2436,69 @@ for (auto it = s.begin(); it != s.end(); it++)
 ---
 
 
+##### difference 
+---
+
+# 🔹 STL CONTAINERS & ADAPTORS COMPARISON
+
+| Feature / Container             | Vector        | List                          | Deque                      | Stack   | Queue   | Priority Queue   | Map                 | Unordered Map    | Set                  | Unordered Set      |
+| ------------------------------- | ------------- | ----------------------------- | -------------------------- | ------- | ------- | ---------------- | ------------------- | ---------------- | -------------------- | ------------------ |
+| **Memory**                      | Contiguous    | Nodes                         | Multiple contiguous blocks | adaptor | adaptor | adaptor          | Tree                | Hash Table       | Tree                 | Hash Table         |
+| **Random Access (`[]`)**        | ✔ O(1)        | ❌                             | ✔ O(1)                     | ❌       | ❌       | ❌                | ❌                   | ❌                | ❌                    | ❌                  |
+| **Insertion**                   | push_back ✔   | push_back/push_front ✔        | push_back/push_front ✔     | push ✔  | push ✔  | push/emplace ✔   | insert/emplace ✔    | insert/emplace ✔ | insert/emplace ✔     | insert/emplace ✔   |
+| **Deletion**                    | pop_back ✔    | pop_back/pop_front ✔          | pop_back/pop_front ✔       | pop ✔   | pop ✔   | pop ✔            | erase ✔             | erase ✔          | erase ✔              | erase ✔            |
+| **Insert Middle**               | O(n)          | ✔ O(1)                        | O(n)                       | ❌       | ❌       | ❌                | ✔ O(log n)          | ✔ O(1) avg       | ✔ O(log n)           | ✔ O(1) avg         |
+| **Erase Middle**                | O(n)          | ✔ O(1)                        | O(n)                       | ❌       | ❌       | ❌                | ✔ O(log n)          | ✔ O(1) avg       | ✔ O(log n)           | ✔ O(1) avg         |
+| **front()**                     | ✔             | ✔                             | ✔                          | ❌       | ✔       | ❌                | ❌                   | ❌                | ✔                    | ❌                  |
+| **back()**                      | ✔             | ✔                             | ✔                          | ✔ (top) | ✔       | ✔ (top)          | ❌                   | ❌                | ✔                    | ❌                  |
+| **top()**                       | ❌             | ❌                             | ❌                          | ✔       | ❌       | ✔                | ❌                   | ❌                | ❌                    | ❌                  |
+| **Iterators**                   | ✔             | ✔                             | ✔                          | ❌       | ❌       | ❌                | ✔                   | ✔                | ✔                    | ✔                  |
+| **Capacity (size vs capacity)** | ✔             | ❌                             | ❌                          | ❌       | ❌       | ❌                | ❌                   | ❌                | ❌                    | ❌                  |
+| **Sorted Order**                | ❌             | ❌                             | ❌                          | ❌       | ❌       | ❌                | ✔                   | ❌                | ✔                    | ❌                  |
+| **Unique Elements Only**        | ❌             | ❌                             | ❌                          | ❌       | ❌       | ❌                | ✔ (keys)            | ✔ (keys)         | ✔                    | ✔                  |
+| **Duplicates Allowed**          | ✔             | ✔                             | ✔                          | ✔       | ✔       | ✔                | ❌                   | ❌                | ❌                    | ❌                  |
+| **Underlying Container**        | array         | nodes                         | blocks                     | deque   | deque   | vector           | tree                | hash table       | tree                 | hash table         |
+| **Search Complexity**           | O(n)          | O(n)                          | O(n)                       | ❌       | ❌       | O(log n) for max | O(log n)            | O(1) avg         | O(log n)             | O(1) avg           |
+| **Use Case**                    | Dynamic array | Frequent insert/delete middle | Double-ended operations    | LIFO    | FIFO    | Heap / priority  | Key-value (ordered) | Key-value (fast) | Unique sorted values | Unique fast lookup |
+
+---
+
+## 🔹 Function Support Quick Reference
+
+| Function / Container                   | Vector | List   | Deque | Stack | Queue | Priority Queue | Map | Unordered Map | Set | Unordered Set |
+| -------------------------------------- | ------ | ------ | ----- | ----- | ----- | -------------- | --- | ------------- | --- | ------------- |
+| push_back                              | ✔      | ✔      | ✔     | ❌     | ❌     | ❌              | ❌   | ❌             | ❌   | ❌             |
+| push_front                             | ❌      | ✔      | ✔     | ❌     | ❌     | ❌              | ❌   | ❌             | ❌   | ❌             |
+| pop_back                               | ✔      | ✔      | ✔     | ✔     | ❌     | ❌              | ❌   | ❌             | ❌   | ❌             |
+| pop_front                              | ❌      | ✔      | ✔     | ❌     | ✔     | ❌              | ❌   | ❌             | ❌   | ❌             |
+| insert middle                          | O(n)   | ✔ O(1) | O(n)  | ❌     | ❌     | ❌              | ✔   | ✔             | ✔   | ✔             |
+| erase middle                           | O(n)   | ✔ O(1) | O(n)  | ❌     | ❌     | ❌              | ✔   | ✔             | ✔   | ✔             |
+| front()                                | ✔      | ✔      | ✔     | ❌     | ✔     | ❌              | ❌   | ❌             | ✔   | ❌             |
+| back()                                 | ✔      | ✔      | ✔     | ✔     | ✔     | ✔              | ❌   | ❌             | ✔   | ❌             |
+| top()                                  | ❌      | ❌      | ❌     | ✔     | ❌     | ✔              | ❌   | ❌             | ❌   | ❌             |
+| operator[]                             | ✔      | ❌      | ✔     | ❌     | ❌     | ❌              | ✔   | ✔             | ❌   | ❌             |
+| at()                                   | ✔      | ❌      | ✔     | ❌     | ❌     | ❌              | ✔   | ✔             | ❌   | ❌             |
+| iterators                              | ✔      | ✔      | ✔     | ❌     | ❌     | ❌              | ✔   | ✔             | ✔   | ✔             |
+| capacity()                             | ✔      | ❌      | ❌     | ❌     | ❌     | ❌              | ❌   | ❌             | ❌   | ❌             |
+| clear()                                | ✔      | ✔      | ✔     | ✔     | ✔     | ✔              | ✔   | ✔             | ✔   | ✔             |
+| swap()                                 | ✔      | ✔      | ✔     | ✔     | ✔     | ✔              | ✔   | ✔             | ✔   | ✔             |
+| emplace / emplace_back / emplace_front | ✔      | ✔      | ✔     | ✔     | ✔     | ✔              | ✔   | ✔             | ✔   | ✔             |
+
+---
+
+### 🔹 Key Takeaways
+
+1. **Random Access Only** → Vector, Deque
+2. **Fast Middle Insert/Delete** → List
+3. **FIFO** → Queue
+4. **LIFO** → Stack
+5. **Priority-based** → Priority Queue
+6. **Sorted Key-Value** → Map, Set
+7. **Fast Hash Lookup** → Unordered_Map, Unordered_Set
+8. **Supports Iterators** → Vector, List, Deque, Map, Unordered_Map, Set, Unordered_Set
+9. **Does Not Support Iterators** → Stack, Queue, Priority Queue
+
+---
 
 
 
