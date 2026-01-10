@@ -465,7 +465,7 @@ vec[2];
 
 ### front()
 
-✔ Access first element
+👉 Access first element
 
 ```cpp
 vec.front();
@@ -475,7 +475,7 @@ vec.front();
 
 ### back()
 
-✔ Access last element
+👉 Access last element
 
 ```cpp
 vec.back();
@@ -484,9 +484,17 @@ vec.back();
 ---
 
 ### data()
-
-✔ Returns pointer to internal array
-✔ Useful for C-style arrays
+👉 data() returns a pointer to the internal contiguous memory used by the vector.
+* p points to the first element of the vector
+* Same as &vec[0] (when vector is not empty)
+* vector stores elements contiguously, so data() is safe.
+```
+[10][20][30][40]
+  ↑
+  p
+```
+* If vector is empty: data() may return nullptr
+* Pointer becomes INVALID after: push_back(), emplace_back(), resize() (if reallocation happens)
 
 ```cpp
 int* p = vec.data();
