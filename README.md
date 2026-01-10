@@ -695,7 +695,7 @@ list<int> l;
 
 ---
 
-## capacity and size
+### capacity and size
 
 ---
 * `size()` → number of elements
@@ -708,7 +708,7 @@ list<int> l;
 
 ---
 
-### Combined Code
+#### Combined Code
 
 ```cpp
 #include <iostream>
@@ -743,7 +743,7 @@ int main() {
 
 ---
 
-## Modifier
+### Modifier
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at beginning
@@ -759,7 +759,7 @@ int main() {
 
 ---
 
-### Combined Code (Modifiers)
+#### Combined Code (Modifiers)
 
 ```cpp
 #include <iostream>
@@ -929,7 +929,7 @@ queue<int> q;
 
 ---
 
-## Header File
+#### Header File
 
 ```cpp
 #include <queue>
@@ -964,7 +964,7 @@ Front → 10 20 30 ← Rear
 
 ---
 
-## Combined Code
+### Combined Code
 
 ```cpp
 #include <iostream>
@@ -992,9 +992,6 @@ int main() {
 }
 ```
 
----
-
-## Function Explanation
 
 ---
 
@@ -1093,7 +1090,7 @@ q1.swap(q2);
 
 ---
 
-## IMPORTANT LIMITATIONS (Exam Favorite)
+### IMPORTANT LIMITATIONS 
 
 ❌ No iterators
 ❌ No random access
@@ -1103,7 +1100,7 @@ q1.swap(q2);
 
 ---
 
-## Underlying Container
+#### Underlying Container
 
 ```cpp
 queue<int> q;               // uses deque by default
@@ -1113,7 +1110,7 @@ queue<int, list<int>> q2;   // also possible
 ---
 ---
 
-## Use Cases
+#### Use Cases
 
 * Task scheduling
 * Breadth First Search (BFS)
@@ -1153,8 +1150,6 @@ deque<int> dq;
 
 ---
 
-## **Deque Functions (STL)**
-
 * [capacity and size](#capacity-and-size)
 * [modifier](#modifier)
 * [Element Access](#Element-Access)
@@ -1163,7 +1158,7 @@ deque<int> dq;
 
 ---
 
-## capacity and size
+### capacity and size
 
 ---
 
@@ -1175,7 +1170,7 @@ deque<int> dq;
 
 ---
 
-### Deque Growth (Important)
+#### Deque Growth (Important)
 
 * Deque does **NOT** have capacity like vector
 * It grows by allocating **new blocks**
@@ -1185,7 +1180,7 @@ deque<int> dq;
 
 ---
 
-### Combined Code
+#### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1225,7 +1220,7 @@ dq.empty();
 
 ---
 
-## Modifier
+### Modifier
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at front
@@ -1241,7 +1236,7 @@ dq.empty();
 
 ---
 
-### Combined Code
+#### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1372,7 +1367,7 @@ dq1.swap(dq2);
 
 ---
 
-## Element Access
+### Element Access
 
 * `at(i)` → bounds-checked
 * `operator[]` → no check
@@ -1381,7 +1376,7 @@ dq1.swap(dq2);
 
 ---
 
-### Combined Code
+#### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1428,7 +1423,7 @@ dq[2];
 #### priority_queue
 ---
 
-# PRIORITY QUEUE (STL)
+# PRIORITY QUEUE 
 
 **Priority Queue — Definition**
 
@@ -1446,7 +1441,7 @@ A **priority_queue** is a **container adaptor** provided by STL where **elements
 
 ---
 
-## Header File
+##### Header File
 
 ```cpp
 #include <queue>
@@ -1454,7 +1449,7 @@ A **priority_queue** is a **container adaptor** provided by STL where **elements
 
 ---
 
-## Priority Queue Types
+### Priority Queue Types
 
 ### 1️⃣ Max Heap (Default)
 
@@ -1531,7 +1526,7 @@ int main() {
 
 ---
 
-## Combined Code (Min Heap)
+#### Combined Code (Min Heap)
 
 ```cpp
 #include <iostream>
@@ -1554,9 +1549,6 @@ int main() {
 ```
 
 ---
-
-## Function Explanation
-
 ---
 
 ### push()
@@ -1642,7 +1634,7 @@ pq1.swap(pq2);
 
 ---
 
-## IMPORTANT LIMITATIONS (Exam Favorite)
+#### IMPORTANT LIMITATIONS (Exam Favorite)
 
 ❌ No iterators
 ❌ No random access
@@ -1652,7 +1644,7 @@ pq1.swap(pq2);
 
 ---
 
-## Underlying Container
+### Underlying Container
 
 ```cpp
 priority_queue<int> pq;              // uses vector by default
@@ -1675,6 +1667,8 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 
 > Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
 ---
+
+
 
 # STACK 
 
@@ -1762,9 +1756,6 @@ int main() {
 }
 ```
 
----
-
-## Function Explanation
 
 ---
 
@@ -1853,7 +1844,7 @@ st1.swap(st2);
 
 ---
 
-## IMPORTANT LIMITATIONS (Very Important for Exam)
+### IMPORTANT LIMITATIONS (Very Important for Exam)
 
 ❌ No iterators
 ❌ No random access
@@ -1863,7 +1854,7 @@ st1.swap(st2);
 
 ---
 
-## Underlying Container
+#### Underlying Container
 
 ```cpp
 stack<int> st;          // uses deque by default
