@@ -546,22 +546,20 @@ int main() {
 ---
 
 ### begin() / end()
-
-✔ Points to first element
-✔ `end()` → points **after last element**
+👉 traversal
+* Points to first element
+* `end()` → points **after last element**
 
 ```cpp
 vec.begin();
 vec.end();
 ```
-
 ---
 
 ### rbegin() / rend()
-
-✔ Reverse traversal
-✔ `rbegin()` → last element
-✔ `rend()` → before first element
+👉 Reverse traversal
+* `rbegin()` → last element
+* `rend()` → before first element
 
 ```cpp
 vec.rbegin();
@@ -572,8 +570,8 @@ vec.rend();
 
 ### cbegin() / cend()
 
-✔ Read-only iterator
-❌ Cannot modify values
+👉 Read-only iterator **constant iterator**
+* Cannot modify values
 
 ```cpp
 vec.cbegin();
@@ -591,7 +589,7 @@ vec.cend();
 
 ---
 
-## 🔹 Combined Code (Algorithms)
+## Combined Code 
 
 ```cpp
 #include <iostream>
@@ -630,12 +628,10 @@ int main() {
 
 ---
 
-## 🔹 Quick Notes (Algorithm-wise)
-
 ### sort()
 
-✔ Sorts in ascending order (default)
-✔ Time: **O(n log n)**
+👉 Sorts in ascending order (default)
+* Time: **O(n log n)**
 
 ```cpp
 sort(v.begin(), v.end());
@@ -645,8 +641,8 @@ sort(v.begin(), v.end());
 
 ### reverse()
 
-✔ Reverses vector order
-✔ Time: **O(n)**
+👉 Reverses vector order
+* Time: **O(n)**
 
 ```cpp
 reverse(v.begin(), v.end());
@@ -656,9 +652,9 @@ reverse(v.begin(), v.end());
 
 ### find()
 
-✔ Linear search
-✔ Returns iterator
-✔ If not found → `v.end()`
+* Linear search
+* Returns iterator
+* If not found → `v.end()`
 
 ```cpp
 find(v.begin(), v.end(), x);
