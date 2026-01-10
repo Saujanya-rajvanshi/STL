@@ -3,8 +3,8 @@
 - [basic](#basic)
 - [containers](#CONTAINERS)
 - [algorithm](#ALGORITHM)
-- [iterators](#iterators)
-- [function](#function)
+- [iterators](#ITERATORS)
+- [function](#FUNCTION)
 
 ## basic
 ```
@@ -2396,6 +2396,398 @@ s.upper_bound(20);
 
 ---
 
+---
+
+# ITERATORS 
+
+### What is an Iterator?
+
+👉 An **object like a pointer** used to **traverse STL containers**
+
+```cpp
+vector<int> v;
+auto it = v.begin();
+```
+
+---
+
+## 🔹 Types of Iterators
+
+### begin() / end()
+
+👉 Points to **first element** / **one past last**
+
+```cpp
+v.begin();
+v.end();
+```
+
+Traversal:
+
+```cpp
+for(auto it = v.begin(); it != v.end(); it++)
+    cout << *it << " ";
+```
+
+---
+
+### rbegin() / rend()
+
+👉 Reverse traversal
+
+```cpp
+v.rbegin();
+v.rend();
+```
+
+---
+
+### cbegin() / cend()
+
+👉 **Read-only iterator**
+❌ Cannot modify elements
+
+```cpp
+v.cbegin();
+v.cend();
+```
+
+---
+
+## 🔹 Iterator Support by Containers
+
+| Container      | Iterators |
+| -------------- | --------- |
+| vector         | ✔         |
+| deque          | ✔         |
+| list           | ✔         |
+| map            | ✔         |
+| set            | ✔         |
+| unordered_map  | ✔         |
+| stack          | ❌         |
+| queue          | ❌         |
+| priority_queue | ❌         |
+
+---
+
+## 🔹 Iterator vs Pointer
+
+| Iterator            | Pointer         |
+| ------------------- | --------------- |
+| STL specific        | Memory address  |
+| Safer               | Unsafe          |
+| Works on containers | Works on arrays |
+
+---
+
+#  ALGORITHM FUNCTIONS 
+
+👉 Found in **`<algorithm>`**
+👉 Work using **iterators**
+
+---
+
+## 🔹 Common Algorithms
+
+### sort()
+
+👉 Sorts elements
+
+```cpp
+sort(v.begin(), v.end());
+```
+
+✔ Random access required
+❌ Not for list
+
+---
+
+### reverse()
+
+👉 Reverses range
+
+```cpp
+reverse(v.begin(), v.end());
+```
+
+---
+
+### find()
+
+👉 Finds element
+
+```cpp
+auto it = find(v.begin(), v.end(), 5);
+```
+
+✔ Returns iterator
+❌ Returns `end()` if not found
+
+---
+
+### count()
+
+👉 Counts occurrences
+
+```cpp
+count(v.begin(), v.end(), 3);
+```
+
+---
+
+### max_element() / min_element()
+
+```cpp
+*max_element(v.begin(), v.end());
+*min_element(v.begin(), v.end());
+```
+
+---
+
+### binary_search()
+
+👉 Works on **sorted data only**
+
+```cpp
+binary_search(v.begin(), v.end(), 10);
+```
+
+---
+
+### accumulate()
+
+👉 Sum of elements (`<numeric>`)
+
+```cpp
+accumulate(v.begin(), v.end(), 0);
+```
+
+---
+
+### all_of() / any_of() / none_of()
+
+```cpp
+all_of(v.begin(), v.end(), condition);
+any_of(v.begin(), v.end(), condition);
+none_of(v.begin(), v.end(), condition);
+```
+
+---
+
+## 🔹 Algorithms vs Container Functions
+
+| Algorithms         | Container Functions |
+| ------------------ | ------------------- |
+| Work via iterators | Work on container   |
+| Generic            | Specific            |
+| `<algorithm>`      | Member functions    |
+
+---
+
+## 🔹 Key Rules (VERY IMPORTANT)
+
+✔ Algorithms **do not know containers**
+✔ They only work with **iterator ranges**
+✔ Containers decide **iterator type**
+
+---
+
+### ⭐ One-Line Summary
+
+**Iterator** → Pointer-like object to access container
+**Algorithm** → Function that works on iterator range
+
+---
+---
+
+# FUNCTION
+
+## 🔹 Functors — Definition
+
+A **Functor (Function Object)** is an **object that behaves like a function**.
+It is a **class or struct that overloads the `operator()`**.
+
+👉 Used to **customize STL algorithms**
+
+---
+
+## Why Functors are needed?
+
+* More powerful than normal functions
+* Can store **state (data)**
+* Faster than function pointers
+* Used in **algorithms and containers**
+
+---
+
+## Syntax
+
+```cpp
+struct Functor {
+    void operator()(int x) {
+        cout << x << endl;
+    }
+};
+```
+
+Usage:
+
+```cpp
+Functor f;
+f(10);   // behaves like function
+```
+
+---
+
+## Types of Functors in STL
+
+1. **Built-in Functors**
+2. **User-defined Functors**
+3. **Comparison Functors**
+
+---
+
+## 1️⃣ Built-in Functors
+
+| Functor           | Meaning                   |
+| ----------------- | ------------------------- |
+| `greater<T>`      | descending order          |
+| `less<T>`         | ascending order (default) |
+| `equal_to<T>`     | equality check            |
+| `not_equal_to<T>` | inequality check          |
+
+---
+
+### Example — `greater<int>`
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {4, 1, 3, 2};
+
+    sort(v.begin(), v.end(), greater<int>());
+
+    for (int x : v)
+        cout << x << " ";
+}
+```
+
+📌 Output:
+
+```
+4 3 2 1
+```
+
+---
+
+## 2️⃣ User-defined Functor
+
+```cpp
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct Multiply {
+    int operator()(int a, int b) {
+        return a * b;
+    }
+};
+
+int main() {
+    Multiply m;
+    cout << m(3, 4);   // 12
+}
+```
+
+---
+
+## 3️⃣ Comparison Functors (Very Important)
+
+Used in:
+
+* `sort()`
+* `set`
+* `map`
+* `priority_queue`
+
+---
+
+### Example — Custom Sorting
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+struct Desc {
+    bool operator()(int a, int b) {
+        return a > b;
+    }
+};
+
+int main() {
+    vector<int> v = {2, 5, 1, 4};
+
+    sort(v.begin(), v.end(), Desc());
+
+    for (int x : v)
+        cout << x << " ";
+}
+```
+
+---
+
+## Functors in Containers
+
+### `priority_queue`
+
+```cpp
+priority_queue<int, vector<int>, greater<int>> pq;
+```
+
+✔ Makes **min heap**
+
+---
+
+### `set` / `map`
+
+```cpp
+set<int, greater<int>> s;
+map<int, int, greater<int>> mp;
+```
+
+✔ Stores elements in **descending order**
+
+---
+
+## Functor vs Function Pointer
+
+| Functor        | Function          |
+| -------------- | ----------------- |
+| Can store data | Cannot store data |
+| Faster         | Slower            |
+| Inlined        | Not inlined       |
+| Object-based   | Pointer-based     |
+
+---
+
+## When to use Functors?
+
+✔ Custom sorting
+✔ Priority queues
+✔ Sets / Maps ordering
+✔ STL algorithms customization
+
+---
+
+> A functor is an object that acts like a function by overloading the `operator()` and is used to customize STL algorithms and containers.
+
+---
 
 
 
