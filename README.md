@@ -306,7 +306,7 @@ int main() {
 ```
 ---
 
-### push_back
+#### push_back
 
 👉 Adds element at end
 * Size ↑, capacity may ↑
@@ -317,7 +317,7 @@ vec.push_back(10);
 
 ---
 
-### pop_back
+###++# pop_back
 
 👉 Removes last element
 * Size ↓, capacity same
@@ -328,7 +328,7 @@ vec.pop_back();
 
 ---
 
-### emplace_back
+###+# emplace_back
 
 * Adds element at end (faster than push_back for objects)
 * 👉 can create inplace object
@@ -340,7 +340,7 @@ vec.emplace_back(20);
 
 ---
 
-### insert
+#### insert
 
 👉 Inserts element at **given position**
 * Shifts elements right
@@ -351,7 +351,7 @@ vec.insert(vec.begin() + 1, 5);
 
 ---
 
-### erase
+###+# erase
 
 👉 **Removes** element at position
 * Shifts elements left
@@ -362,8 +362,8 @@ vec.erase(vec.begin() + 2);
 
 ---
 
-### clear
-
+#### clear
++
 👉 Removes **all** elements
 * Size = 0, **capacity unchanged**
 
@@ -372,7 +372,7 @@ vec.clear();
 ```
 ---
 
-### assign
+#### assign
 👉 assign() **removes all existing** elements of the vector and **fills** it with **new** elements.
 * vec.assign(n, value);
 * Size becomes n
@@ -385,7 +385,7 @@ vec.assign(4, 7); // [7 7 7 7]
 ```
 ---
 
-### swap
+#### swap
 👉swap() **exchanges** the contents of two vectors.
 * Sizes swapped
 * Capacities swapped
@@ -409,7 +409,7 @@ vec1.swap(vec2);
 
 ---
 
-## combined Code 
+### combined Code 
 
 ```cpp
 #include <iostream>
@@ -441,7 +441,7 @@ int main() {
 
 ---
 
-### at()
+#### at()
 👉 returns the data 
 *If index is invalid: Throws std::out_of_range
 * Program can be handled using try–catch
@@ -453,7 +453,7 @@ vec.at(2);
 
 ---
 
-### operator[]
+#### operator[]
 👉 return the data 
 * If index is invalid: No error
 * May access garbage value
@@ -466,8 +466,8 @@ vec[2];
 
 ---
 
-### front()
-
+#### front()
++
 👉 Access first element
 
 ```cpp
@@ -476,7 +476,7 @@ vec.front();
 
 ---
 
-### back()
+#### back()
 
 👉 Access last element
 
@@ -486,7 +486,7 @@ vec.back();
 
 ---
 
-### data()
+#### data()
 👉 data() returns a pointer to the internal contiguous memory used by the vector.
 * p points to the first element of the vector
 * Same as &vec[0] (when vector is not empty)
@@ -502,169 +502,6 @@ vec.back();
 ```cpp
 int* p = vec.data();
 ```
-
----
----
-
-## Iterators 
-
-* **begin() / end()** → forward iterators — `begin`, `end`
-* **rbegin() / rend()** → reverse iterators — `rbegin`, `rend`
-* **cbegin() / cend()** → constant iterators — `cbegin`, `cend`
-
----
-
-## 🔹 Combined Code 
-
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-    vector<int> vec = {10, 20, 30, 40};
-
-    // begin() / end()
-    cout << "Forward: ";
-    for (auto it = vec.begin(); it != vec.end(); it++)
-        cout << *it << " ";
-    cout << endl;
-
-    // rbegin() / rend()
-    cout << "Reverse: ";
-    for (auto it = vec.rbegin(); it != vec.rend(); it++)
-        cout << *it << " ";
-    cout << endl;
-
-    // cbegin() / cend()
-    cout << "Constant: ";
-    for (auto it = vec.cbegin(); it != vec.cend(); it++)
-        cout << *it << " ";
-    cout << endl;
-
-    return 0;
-}
-```
-
----
-
-### begin() / end()
-👉 traversal
-* Points to first element
-* `end()` → points **after last element**
-
-```cpp
-vec.begin();
-vec.end();
-```
----
-
-### rbegin() / rend()
-👉 Reverse traversal
-* `rbegin()` → last element
-* `rend()` → before first element
-
-```cpp
-vec.rbegin();
-vec.rend();
-```
-
----
-
-### cbegin() / cend()
-
-👉 Read-only iterator **constant iterator**
-* Cannot modify values
-
-```cpp
-vec.cbegin();
-vec.cend();
-```
----
-
----
-
-## Common STL Algorithms used with vector
-
-**sort()** → sorts elements — `sort`
-**reverse()** → reverses order — `reverse`
-**find()** → searches element — `find`
-
----
-
-## Combined Code 
-
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
-int main() {
-    vector<int> v = {40, 10, 30, 20};
-
-    // sort()
-    sort(v.begin(), v.end());
-    cout << "After sort: ";
-    for (int x : v) cout << x << " ";
-    cout << endl;
-
-    // reverse()
-    reverse(v.begin(), v.end());
-    cout << "After reverse: ";
-    for (int x : v) cout << x << " ";
-    cout << endl;
-
-    // find()
-    int key = 30;
-    auto it = find(v.begin(), v.end(), key);
-
-    if (it != v.end())
-        cout << "Found " << key << " at index "
-             << it - v.begin() << endl;
-    else
-        cout << "Not found" << endl;
-
-    return 0;
-}
-```
-
----
-
-### sort()
-
-👉 Sorts in ascending order (default)
-* Time: **O(n log n)**
-
-```cpp
-sort(v.begin(), v.end());
-```
-
----
-
-### reverse()
-
-👉 Reverses vector order
-* Time: **O(n)**
-
-```cpp
-reverse(v.begin(), v.end());
-```
-
----
-
-### find()
-
-* Linear search
-* Returns iterator
-* If not found → `v.end()`
-
-```cpp
-find(v.begin(), v.end(), x);
-```
-
----
-
 ---
 
 ##  LIST 
@@ -795,7 +632,7 @@ int main() {
 
 ---
 
-### push_back / push_front
+#### push_back / push_front
 
 👉 Adds element at end / beginning
 
@@ -808,7 +645,7 @@ l.push_front(5);
 
 ---
 
-### pop_back / pop_front
+#### pop_back / pop_front
 
 👉 Removes element from end / beginning
 
@@ -821,7 +658,7 @@ l.pop_front();
 
 ---
 
-### insert
+#### insert
 
 👉 Inserts at given iterator position
 
@@ -853,7 +690,7 @@ l.remove(10);
 
 ---
 
-### clear
+#### clear
 
 👉 Removes all elements
 
@@ -865,7 +702,7 @@ l.clear();
 
 ---
 
-### assign
+#### assign
 
 👉 Replaces all elements
 
@@ -875,7 +712,7 @@ l.assign(4, 9);
 
 ---
 
-### swap
+#### swap
 
 👉 Swaps contents in **O(1)**
 
@@ -895,7 +732,7 @@ l1.swap(l2);
 
 ---
 
-### front / back
+#### front / back
 
 ```cpp
 l.front();  // first element
@@ -929,7 +766,7 @@ stack<int> st;
 
 ---
 
-## Header File
+##### Header File
 
 ```cpp
 #include <stack>
@@ -937,7 +774,7 @@ stack<int> st;
 
 ---
 
-## Stack Functions (STL)
+### Stack Functions (STL)
 
 * `push(x)` → insert element
 * `emplace(x)` → construct element
@@ -949,7 +786,7 @@ stack<int> st;
 
 ---
 
-## Stack Working (LIFO)
+### Stack Working (LIFO)
 
 ```
 push(10)
@@ -965,7 +802,7 @@ TOP → 30
 
 ---
 
-## Combined Code
+### Combined Code
 
 ```cpp
 #include <iostream>
@@ -995,7 +832,7 @@ int main() {
 
 ---
 
-### push()
+#### push()
 
 👉 Inserts element at top
 
@@ -1007,7 +844,7 @@ st.push(10);
 
 ---
 
-### emplace()
+#### emplace()
 
 👉 Constructs element directly at top
 
@@ -1020,7 +857,7 @@ st.emplace(20);
 
 ---
 
-### pop()
+#### pop()
 
 👉 Removes top element
 
@@ -1033,7 +870,7 @@ st.pop();
 
 ---
 
-### top()
+#### top()
 
 👉 Access top element
 
@@ -1046,7 +883,7 @@ st.top();
 
 ---
 
-### size()
+#### size()
 
 👉 Returns number of elements
 
@@ -1056,7 +893,7 @@ st.size();
 
 ---
 
-### empty()
+#### empty()
 
 👉 Checks if stack is empty
 
@@ -1068,7 +905,7 @@ st.empty();
 
 ---
 
-### swap()
+#### swap()
 
 👉 Exchanges contents of two stacks
 
@@ -1080,7 +917,7 @@ st1.swap(st2);
 
 ---
 
-### IMPORTANT LIMITATIONS (Very Important for Exam)
+#### IMPORTANT LIMITATIONS (Very Important for Exam)
 
 ❌ No iterators
 ❌ No random access
@@ -1101,7 +938,7 @@ stack<int, vector<int>> st2;   // uses vector
 
 ---
 
-## Use Cases
+### Use Cases
 
 * Function calls
 * Undo / Redo
@@ -1149,7 +986,7 @@ queue<int> q;
 
 ---
 
-## Queue Working (FIFO)
+### Queue Working (FIFO)
 
 ```
 push(10)
@@ -1163,7 +1000,7 @@ Front → 10 20 30 ← Rear
 
 ---
 
-## Queue Functions (STL)
+### Queue Functions (STL)
 
 * `push(x)` → insert element
 * `emplace(x)` → construct element
@@ -1176,7 +1013,7 @@ Front → 10 20 30 ← Rear
 
 ---
 
-### Combined Code
+#### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1207,7 +1044,7 @@ int main() {
 
 ---
 
-### push()
+#### push()
 
 👉 Inserts element at **rear**
 
@@ -1219,7 +1056,7 @@ q.push(10);
 
 ---
 
-### emplace()
+#### emplace()
 
 👉 Constructs element directly at rear
 
@@ -1232,7 +1069,7 @@ q.emplace(20);
 
 ---
 
-### pop()
+#### pop()
 
 👉 Removes **front** element
 
@@ -1245,7 +1082,7 @@ q.pop();
 
 ---
 
-### front()
+#### front()
 
 👉 Access front element
 
@@ -1258,7 +1095,7 @@ q.front();
 
 ---
 
-### back()
+#### back()
 
 👉 Access last element
 
@@ -1270,7 +1107,7 @@ q.back();
 
 ---
 
-### size()
+#### size()
 
 👉 Returns number of elements
 
@@ -1280,7 +1117,7 @@ q.size();
 
 ---
 
-### empty()
+#### empty()
 
 👉 Checks if queue is empty
 
@@ -1290,7 +1127,7 @@ q.empty();
 
 ---
 
-### swap()
+#### swap()
 
 👉 Exchanges contents of two queues
 
@@ -1302,7 +1139,7 @@ q1.swap(q2);
 
 ---
 
-### IMPORTANT LIMITATIONS 
+#### IMPORTANT LIMITATIONS 
 
 ❌ No iterators
 ❌ No random access
@@ -1361,7 +1198,6 @@ deque<int> dq;
 ```
 
 ---
-
 * [capacity and size](#capacity-and-size)
 * [modifier](#modifier)
 * [Element Access](#Element-Access)
