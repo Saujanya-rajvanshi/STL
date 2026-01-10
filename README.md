@@ -39,14 +39,14 @@ Containers (STL) — Definition
 Containers are STL components used to store and organize data in memory so that it can be accessed and modified efficiently.
 They hold multiple elements of the same data type and manage memory automatically.
 
-vector, list, stack, queue, priority_queue, deque, map, unordered_map, set 
+vector, list, stack, queue, deque, priority_queue, map, unordered_map, set 
 
 - [vector](#VECTOR)
 - [list](#LIST)
 - [stack](#STACK)
 - [queue](#QUEUE)
-- [priority_queue](#priority_queue)
 - [deque](#deque)
+- [priority_queue](#priority_queue)
 - [map](#map)
 - [unordered_map](#unordered_map)
 - [set](#SET)
@@ -89,6 +89,7 @@ vector<int> v;
 * `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
 * `[]()` → vector index access — [bracket](#bracket)
 ---
+
 ---
 #### STL `vector` growth 
 
@@ -903,6 +904,217 @@ l.back();   // last element
 
 ---
 
+
+
+# STACK 
+
+**Stack — Definition**
+
+A **stack** is a **container adaptor** provided by STL that follows **LIFO**
+(**Last In, First Out**) principle.
+
+**Key points**
+
+* LIFO order
+* Insertion and deletion from **top only**
+* No random access
+* No iterators
+* Built on another container (default: **deque**)
+
+**Example**
+
+```cpp
+stack<int> st;
+```
+
+---
+
+## Header File
+
+```cpp
+#include <stack>
+```
+
+---
+
+## Stack Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove top element
+* `top()` → access top element
+* `size()` → number of elements
+* `empty()` → check if stack is empty
+* `swap(st)` → swap stacks
+
+---
+
+## Stack Working (LIFO)
+
+```
+push(10)
+push(20)
+push(30)
+
+TOP → 30
+       20
+       10
+```
+
+`pop()` removes **30**
+
+---
+
+## Combined Code
+
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> st;
+
+    cout << "Is empty? " << st.empty() << endl;
+
+    st.push(10);
+    st.push(20);
+    st.push(30);
+
+    cout << "Top: " << st.top() << endl;
+    cout << "Size: " << st.size() << endl;
+
+    st.pop();
+
+    cout << "Top after pop: " << st.top() << endl;
+
+    return 0;
+}
+```
+
+
+---
+
+### push()
+
+👉 Inserts element at top
+
+* **O(1)**
+
+```cpp
+st.push(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly at top
+
+* Faster for objects
+* **O(1)**
+
+```cpp
+st.emplace(20);
+```
+
+---
+
+### pop()
+
+👉 Removes top element
+
+* **O(1)**
+* ❌ Does NOT return value
+
+```cpp
+st.pop();
+```
+
+---
+
+### top()
+
+👉 Access top element
+
+* **O(1)**
+* ❌ Stack must not be empty
+
+```cpp
+st.top();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+st.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if stack is empty
+
+* Returns `1` (true) or `0` (false)
+
+```cpp
+st.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two stacks
+
+* **O(1)**
+
+```cpp
+st1.swap(st2);
+```
+
+---
+
+### IMPORTANT LIMITATIONS (Very Important for Exam)
+
+❌ No iterators
+❌ No random access
+❌ Cannot access middle elements
+
+👉 Only `top()` is accessible
+
+---
+
+#### Underlying Container
+
+```cpp
+stack<int> st;          // uses deque by default
+stack<int, vector<int>> st2;   // uses vector
+```
+
+---
+
+---
+
+## Use Cases
+
+* Function calls
+* Undo / Redo
+* Expression evaluation
+* Backtracking
+* DFS
+
+---
+
+> Stack is a container adaptor that follows LIFO principle where insertion and deletion occur only at the top.
+
+---
+
 ---
 
 # QUEUE 
@@ -1668,216 +1880,6 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 > Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
 ---
 
-
-
-# STACK 
-
-**Stack — Definition**
-
-A **stack** is a **container adaptor** provided by STL that follows **LIFO**
-(**Last In, First Out**) principle.
-
-**Key points**
-
-* LIFO order
-* Insertion and deletion from **top only**
-* No random access
-* No iterators
-* Built on another container (default: **deque**)
-
-**Example**
-
-```cpp
-stack<int> st;
-```
-
----
-
-## Header File
-
-```cpp
-#include <stack>
-```
-
----
-
-## Stack Functions (STL)
-
-* `push(x)` → insert element
-* `emplace(x)` → construct element
-* `pop()` → remove top element
-* `top()` → access top element
-* `size()` → number of elements
-* `empty()` → check if stack is empty
-* `swap(st)` → swap stacks
-
----
-
-## Stack Working (LIFO)
-
-```
-push(10)
-push(20)
-push(30)
-
-TOP → 30
-       20
-       10
-```
-
-`pop()` removes **30**
-
----
-
-## Combined Code
-
-```cpp
-#include <iostream>
-#include <stack>
-using namespace std;
-
-int main() {
-    stack<int> st;
-
-    cout << "Is empty? " << st.empty() << endl;
-
-    st.push(10);
-    st.push(20);
-    st.push(30);
-
-    cout << "Top: " << st.top() << endl;
-    cout << "Size: " << st.size() << endl;
-
-    st.pop();
-
-    cout << "Top after pop: " << st.top() << endl;
-
-    return 0;
-}
-```
-
-
----
-
-### push()
-
-👉 Inserts element at top
-
-* **O(1)**
-
-```cpp
-st.push(10);
-```
-
----
-
-### emplace()
-
-👉 Constructs element directly at top
-
-* Faster for objects
-* **O(1)**
-
-```cpp
-st.emplace(20);
-```
-
----
-
-### pop()
-
-👉 Removes top element
-
-* **O(1)**
-* ❌ Does NOT return value
-
-```cpp
-st.pop();
-```
-
----
-
-### top()
-
-👉 Access top element
-
-* **O(1)**
-* ❌ Stack must not be empty
-
-```cpp
-st.top();
-```
-
----
-
-### size()
-
-👉 Returns number of elements
-
-```cpp
-st.size();
-```
-
----
-
-### empty()
-
-👉 Checks if stack is empty
-
-* Returns `1` (true) or `0` (false)
-
-```cpp
-st.empty();
-```
-
----
-
-### swap()
-
-👉 Exchanges contents of two stacks
-
-* **O(1)**
-
-```cpp
-st1.swap(st2);
-```
-
----
-
-### IMPORTANT LIMITATIONS (Very Important for Exam)
-
-❌ No iterators
-❌ No random access
-❌ Cannot access middle elements
-
-👉 Only `top()` is accessible
-
----
-
-#### Underlying Container
-
-```cpp
-stack<int> st;          // uses deque by default
-stack<int, vector<int>> st2;   // uses vector
-```
-
----
-
----
-
-## Use Cases
-
-* Function calls
-* Undo / Redo
-* Expression evaluation
-* Backtracking
-* DFS
-
----
-
-> Stack is a container adaptor that follows LIFO principle where insertion and deletion occur only at the top.
-
----
 ---
 
 ###### unordered_map
