@@ -116,11 +116,14 @@ vector<int> v;
 
 [1][2][3][_]
 
+[1][2][3][4]
+
 [1][2][3][4][5][_][_][_]
+
 ```
-
 👉 Doubling gives **fast push_back (amortized O(1))**
-
+* Allocate new memory , Copy into new memory, Insert
+* the old copy gets deleted automaticaly
 ---
 
 #### combined code 
