@@ -693,11 +693,11 @@ list<int> l;
 
 ## **List Functions (STL)**
 
-* [capacity and size](#capacity-and-size)
-* [modifier](#modifier)
-* [Element Access](#Element-Access)
-* [Iterators](#Iterators)
-* [Common STL Algorithms used with list](#Common-STL-Algorithms-used-with-list)
+- [capacity and size](#capacity-and-size)
+- [modifier](#modifier)
+- [Element Access](#Element-Access)
+- [Iterators](#Iterators)
+- [Common STL Algorithms used with list](#Common-STL-Algorithms-used-with-list)
 
 ---
 
@@ -906,107 +906,14 @@ l.back();   // last element
 
 ---
 
-## Iterators
 
-* `begin() / end()` → forward traversal
-* `rbegin() / rend()` → reverse traversal
-* `cbegin() / cend()` → read-only traversal
 
----
 
-### Combined Code (Iterators)
 
-```cpp
-#include <iostream>
-#include <list>
-using namespace std;
 
-int main() {
-    list<int> l = {10, 20, 30};
 
-    for (auto it = l.begin(); it != l.end(); it++)
-        cout << *it << " ";
 
-    cout << endl;
 
-    for (auto it = l.rbegin(); it != l.rend(); it++)
-        cout << *it << " ";
-
-    return 0;
-}
-```
-
----
-
-## Common STL Algorithms used with list
-
-⚠️ **Important:**
-`list` has its **own member functions**, not `<algorithm>` ones.
-
----
-
-### sort()
-
-```cpp
-l.sort();
-```
-
-* Uses **merge sort**
-* O(n log n)
-
----
-
-### reverse()
-
-```cpp
-l.reverse();
-```
-
-* O(n)
-
----
-
-### find()
-
-❌ `std::find()` works but is slow
-✔ Better to use manual iterator
-
----
-
-### remove_if()
-
-```cpp
-l.remove_if([](int x) { return x % 2 == 0; });
-```
-
----
-
-## Vector vs List (FINAL EXAM TABLE)
-
-| Feature        | vector        | list           |
-| -------------- | ------------- | -------------- |
-| Memory         | Contiguous    | Non-contiguous |
-| Random access  | ✅ O(1)        | ❌              |
-| Insertion      | Slow (middle) | Fast           |
-| Deletion       | Slow (middle) | Fast           |
-| Cache friendly | ✅             | ❌              |
-
----
-
-## One-line Exam Definitions 📝
-
-* **Vector**: Dynamic array with contiguous memory
-* **List**: Doubly linked list with non-contiguous memory
-
----
-
-If you want next:
-
-* 👉 **deque in same format**
-* 👉 **vector vs list vs deque table**
-* 👉 **interview questions**
-
-Just say the word 👍
 
 
 
