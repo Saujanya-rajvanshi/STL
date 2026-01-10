@@ -667,7 +667,6 @@ find(v.begin(), v.end(), x);
 
 ##  LIST 
 
-### **List (STL) 
 A **list** is a **doubly linked list** provided by the STL that stores elements in **non-contiguous memory** and allows **fast insertion and deletion** at any position.
 
 ## **Key Points**
@@ -1119,16 +1118,6 @@ queue<int, list<int>> q2;   // also possible
 ```
 
 ---
-
-## Queue vs Stack vs Deque
-
-| Feature    | Queue      | Stack | Deque     |
-| ---------- | ---------- | ----- | --------- |
-| Order      | FIFO       | LIFO  | Both ends |
-| Access     | front/back | top   | random    |
-| Iterators  | ❌          | ❌     | ✔         |
-| push_front | ❌          | ❌     | ✔         |
-
 ---
 
 ## Use Cases
@@ -1150,7 +1139,7 @@ queue<int, list<int>> q2;   // also possible
 #### deque
 ---
 
-# DEQUE (STL)
+# DEQUE 
 
 **Deque (Double Ended Queue) — Definition**
 
@@ -1442,6 +1431,8 @@ dq[2];
 ---
 
 
+
+#### priority_queue
 ---
 
 # PRIORITY QUEUE (STL)
@@ -1677,15 +1668,6 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 
 ---
 
-## Priority Queue vs Stack vs Queue
-
-| Feature   | Priority Queue | Stack    | Queue  |
-| --------- | -------------- | -------- | ------ |
-| Order     | Priority-based | LIFO     | FIFO   |
-| Access    | top only       | top only | front  |
-| Iterators | ❌              | ❌        | ❌      |
-| Structure | Heap           | Linear   | Linear |
-
 ---
 
 ## Use Cases
@@ -1896,16 +1878,6 @@ stack<int, vector<int>> st2;   // uses vector
 ```
 
 ---
-
-## Stack vs Vector vs Deque
-
-| Feature    | Stack    | Vector        | Deque        |
-| ---------- | -------- | ------------- | ------------ |
-| Access     | top only | random        | random       |
-| push_back  | ✔        | ✔             | ✔            |
-| push_front | ❌        | ❌             | ✔            |
-| Iterators  | ❌        | ✔             | ✔            |
-| Use case   | LIFO     | dynamic array | double-ended |
 
 ---
 
@@ -2190,19 +2162,7 @@ ump.rehash(20);
 | Worst case | O(n)           |
 
 ---
-
-## UNORDERED_MAP vs MAP
-
-| Feature       | unordered_map | map            |
-| ------------- | ------------- | -------------- |
-| Order         | ❌ No          | ✔ Sorted       |
-| Structure     | Hash table    | Red-Black tree |
-| Search        | O(1) avg      | O(log n)       |
-| Range queries | ❌             | ✔              |
-
----
-
-## Use Cases
+**Use Cases**
 
 * Frequency counting
 * Fast lookup tables
@@ -2452,15 +2412,6 @@ for (auto it = s.begin(); it != s.end(); it++)
 | search    | O(log n) |
 
 ---
-
-## SET vs UNORDERED_SET
-
-| Feature       | set            | unordered_set |
-| ------------- | -------------- | ------------- |
-| Order         | Sorted         | Unordered     |
-| Structure     | Red-Black Tree | Hash Table    |
-| Search        | O(log n)       | O(1) avg      |
-| Range queries | ✔              | ❌             |
 
 ---
 
