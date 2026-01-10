@@ -680,7 +680,7 @@ l.erase(it);
 
 ---
 
-### remove
+#### remove
 
 👉 Removes **all occurrences** of value
 
@@ -978,7 +978,7 @@ queue<int> q;
 
 ---
 
-#### Header File
+##### Header File
 
 ```cpp
 #include <queue>
@@ -986,7 +986,7 @@ queue<int> q;
 
 ---
 
-### Queue Working (FIFO)
+#### Queue Working (FIFO)
 
 ```
 push(10)
@@ -999,9 +999,6 @@ Front → 10 20 30 ← Rear
 `pop()` removes **10**
 
 ---
-
-### Queue Functions (STL)
-
 * `push(x)` → insert element
 * `emplace(x)` → construct element
 * `pop()` → remove front element
@@ -1175,7 +1172,7 @@ queue<int, list<int>> q2;   // also possible
 
 
 
-#### deque
+##### deque
 ---
 
 # DEQUE 
@@ -1252,7 +1249,7 @@ int main() {
 
 ---
 
-### size()
+#### size()
 
 ```cpp
 dq.size();
@@ -1260,7 +1257,7 @@ dq.size();
 
 ---
 
-### empty()
+#### empty()
 
 ```cpp
 dq.empty();
@@ -1268,7 +1265,7 @@ dq.empty();
 
 ---
 
-### Modifier
+#### Modifier
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at front
@@ -1317,7 +1314,7 @@ int main() {
 
 ---
 
-### push_back / push_front
+#### push_back / push_front
 
 👉 Insert at end / front
 
@@ -1330,7 +1327,7 @@ dq.push_front(5);
 
 ---
 
-### emplace_back / emplace_front
+#### emplace_back / emplace_front
 
 👉 Constructs element directly
 
@@ -1344,7 +1341,7 @@ dq.emplace_front(1);
 
 ---
 
-### pop_back / pop_front
+#### pop_back / pop_front
 
 👉 Removes element from end / front
 
@@ -1357,7 +1354,7 @@ dq.pop_front();
 
 ---
 
-### insert
+#### insert
 
 👉 Inserts at given position
 
@@ -1369,7 +1366,7 @@ dq.insert(dq.begin() + 1, 100);
 
 ---
 
-### erase
+#### erase
 
 👉 Removes element
 
@@ -1381,7 +1378,7 @@ dq.erase(dq.begin() + 2);
 
 ---
 
-### clear
+#### clear
 
 👉 Removes all elements
 
@@ -1393,7 +1390,7 @@ dq.clear();
 
 ---
 
-### assign
+#### assign
 
 👉 Replaces all elements
 
@@ -1403,7 +1400,7 @@ dq.assign(3, 7); // [7 7 7]
 
 ---
 
-### swap
+#### swap
 
 👉 Exchanges contents of two deques
 
@@ -1445,7 +1442,7 @@ int main() {
 
 ---
 
-### at()
+#### at()
 
 ✔ Safe
 ❌ Throws exception if invalid
@@ -1456,7 +1453,7 @@ dq.at(2);
 
 ---
 
-### operator[]
+#### operator[]
 
 ✔ Fast
 ❌ Unsafe
@@ -1468,7 +1465,7 @@ dq[2];
 
 
 
-#### priority_queue
+##### priority_queue
 ---
 
 # PRIORITY QUEUE 
@@ -1499,7 +1496,7 @@ A **priority_queue** is a **container adaptor** provided by STL where **elements
 
 ### Priority Queue Types
 
-### 1️⃣ Max Heap (Default)
+#### 1️⃣ Max Heap (Default)
 
 ```cpp
 priority_queue<int> pq;
@@ -1509,7 +1506,7 @@ Top element = **largest**
 
 ---
 
-### 2️⃣ Min Heap
+#### 2️⃣ Min Heap
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> pq;
@@ -1531,7 +1528,7 @@ Top element = **smallest**
 
 ---
 
-## Working (Max Heap)
+### Working (Max Heap)
 
 ```
 push(10)
@@ -1546,7 +1543,7 @@ TOP → 40
 
 ---
 
-## Combined Code (Max Heap)
+### Combined Code (Max Heap)
 
 ```cpp
 #include <iostream>
@@ -1599,7 +1596,7 @@ int main() {
 ---
 ---
 
-### push()
+#### push()
 
 👉 Inserts element
 
@@ -1611,7 +1608,7 @@ pq.push(10);
 
 ---
 
-### emplace()
+#### emplace()
 
 👉 Constructs element directly
 
@@ -1624,7 +1621,7 @@ pq.emplace(25);
 
 ---
 
-### pop()
+#### pop()
 
 👉 Removes highest priority element
 
@@ -1637,7 +1634,7 @@ pq.pop();
 
 ---
 
-### top()
+#### top()
 
 👉 Returns highest priority element
 
@@ -1650,7 +1647,7 @@ pq.top();
 
 ---
 
-### size()
+#### size()
 
 👉 Returns number of elements
 
@@ -1660,7 +1657,7 @@ pq.size();
 
 ---
 
-### empty()
+#### empty()
 
 👉 Checks if empty
 
@@ -1670,7 +1667,7 @@ pq.empty();
 
 ---
 
-### swap()
+#### swap()
 
 👉 Exchanges contents of two priority queues
 
@@ -1682,7 +1679,7 @@ pq1.swap(pq2);
 
 ---
 
-#### IMPORTANT LIMITATIONS (Exam Favorite)
+##### IMPORTANT LIMITATIONS (Exam Favorite)
 
 ❌ No iterators
 ❌ No random access
@@ -1692,7 +1689,7 @@ pq1.swap(pq2);
 
 ---
 
-### Underlying Container
+#### Underlying Container
 
 ```cpp
 priority_queue<int> pq;              // uses vector by default
@@ -1703,7 +1700,7 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 
 ---
 
-## Use Cases
+#### Use Cases
 
 * CPU scheduling
 * Dijkstra algorithm
@@ -1800,7 +1797,7 @@ Index → (Key, Value)
 
 ---
 
-## Combined Code
+### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1831,7 +1828,7 @@ int main() {
 
 ---
 
-### operator[]
+#### operator[]
 
 👉 Inserts or updates value
 
@@ -1844,7 +1841,7 @@ ump[2] = "B";
 
 ---
 
-### insert()
+#### insert()
 
 👉 Inserts key–value pair
 
@@ -1856,7 +1853,7 @@ ump.insert({3, "C"});
 
 ---
 
-### emplace()
+#### emplace()
 
 👉 Constructs key–value directly
 
@@ -1868,7 +1865,7 @@ ump.emplace(4, "D");
 
 ---
 
-## Access Methods
+#### Access Methods
 
 ---
 
@@ -1883,7 +1880,7 @@ ump.at(2);
 
 ---
 
-### operator[]
+#### operator[]
 
 ✔ Easy
 ❌ Creates key if missing
@@ -1894,11 +1891,11 @@ ump[2];
 
 ---
 
-## Remove Elements
+### Remove Elements
 
 ---
 
-### erase()
+#### erase()
 
 ```cpp
 ump.erase(3);
@@ -1906,7 +1903,7 @@ ump.erase(3);
 
 ---
 
-### clear()
+#### clear()
 
 ```cpp
 ump.clear();
@@ -1914,11 +1911,11 @@ ump.clear();
 
 ---
 
-## Search Operations
+### Search Operations
 
 ---
 
-### find()
+#### find()
 
 👉 Returns iterator
 
@@ -1930,7 +1927,7 @@ auto it = ump.find(2);
 
 ---
 
-### count()
+#### count()
 
 👉 Returns `1` if key exists, else `0`
 
@@ -1940,11 +1937,11 @@ ump.count(3);
 
 ---
 
-## Bucket Concepts (Important for Theory)
+### Bucket Concepts (Important for Theory)
 
 ---
 
-### bucket_count()
+#### bucket_count()
 
 👉 Number of buckets
 
@@ -1954,7 +1951,7 @@ ump.bucket_count();
 
 ---
 
-### load_factor()
+#### load_factor()
 
 👉 Average elements per bucket
 
@@ -1964,7 +1961,7 @@ ump.load_factor();
 
 ---
 
-### rehash(n)
+#### rehash(n)
 
 👉 Increases number of buckets
 
@@ -1974,7 +1971,7 @@ ump.rehash(20);
 
 ---
 
-## Time Complexity
+### Time Complexity
 
 | Operation  | Time (Average) |
 | ---------- | -------------- |
@@ -1993,7 +1990,7 @@ ump.rehash(20);
 
 ---
 
-## IMPORTANT LIMITATIONS
+### IMPORTANT LIMITATIONS
 
 ❌ No ordering
 ❌ No `lower_bound()` / `upper_bound()`
@@ -2029,7 +2026,7 @@ set<int> s;
 
 ---
 
-## Header File
+##### Header File
 
 ```cpp
 #include <set>
@@ -2037,7 +2034,7 @@ set<int> s;
 
 ---
 
-## Set Structure
+### Set Structure
 
 ```
 Elements (sorted)
@@ -2048,7 +2045,7 @@ Duplicates are **not allowed**
 
 ---
 
-## Set Functions (STL)
+### Set Functions (STL)
 
 ### Insertion
 
@@ -2112,7 +2109,7 @@ int main() {
 
 ---
 
-### insert()
+#### insert()
 
 👉 Inserts element
 
@@ -2125,7 +2122,7 @@ s.insert(10);
 
 ---
 
-### emplace()
+#### emplace()
 
 👉 Constructs element directly
 
@@ -2142,7 +2139,7 @@ s.emplace(20);
 
 ---
 
-### erase()
+#### erase()
 
 ```cpp
 s.erase(20);
@@ -2150,7 +2147,7 @@ s.erase(20);
 
 ---
 
-### clear()
+#### clear()
 
 ```cpp
 s.clear();
@@ -2158,11 +2155,11 @@ s.clear();
 
 ---
 
-## Search Operations
+### Search Operations
 
 ---
 
-### find()
+#### find()
 
 👉 Returns iterator
 
@@ -2174,7 +2171,7 @@ auto it = s.find(10);
 
 ---
 
-### count()
+#### count()
 
 👉 Returns `1` if exists, else `0`
 
@@ -2184,11 +2181,11 @@ s.count(10);
 
 ---
 
-## Range Queries (IMPORTANT)
+### Range Queries (IMPORTANT)
 
 ---
 
-### lower_bound(x)
+#### lower_bound(x)
 
 👉 First element **≥ x**
 
@@ -2198,60 +2195,13 @@ s.lower_bound(20);
 
 ---
 
-### upper_bound(x)
+#### upper_bound(x)
 
 👉 First element **> x**
 
 ```cpp
 s.upper_bound(20);
 ```
-
----
-
-## Iterators
-
-* `begin()` / `end()`
-* `rbegin()` / `rend()`
-* `cbegin()` / `cend()`
-
----
-
-## Iteration Example
-
-```cpp
-for (auto it = s.begin(); it != s.end(); it++)
-    cout << *it << " ";
-```
-
----
-
-## Time Complexity
-
-| Operation | Time     |
-| --------- | -------- |
-| insert    | O(log n) |
-| delete    | O(log n) |
-| search    | O(log n) |
-
----
-
----
-
-## Use Cases
-
-* Removing duplicates
-* Ordered data
-* Unique elements
-* Range-based queries
-
----
-
-## IMPORTANT LIMITATIONS
-
-❌ Cannot access by index
-❌ No duplicates
-
----
 
 > Set is an associative container that stores unique elements in sorted order.
 
