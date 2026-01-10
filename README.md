@@ -662,6 +662,351 @@ find(v.begin(), v.end(), x);
 
 ---
 
+Got it 👍
+You want the **SAME STRUCTURE + SAME DEPTH** but now for **`list` (STL)**.
+Below is a **clean, copy-paste ready, exam + notes style** version.
+
+---
+
+##### list 
+## 🧵 LIST 
+
+### **List (STL) 
+A **list** is a **doubly linked list** provided by the STL that stores elements in **non-contiguous memory** and allows **fast insertion and deletion** at any position.
+
+## **Key Points**
+
+* ❌ No random access
+* ✔ Dynamic size
+* ✔ Fast insertion & deletion
+* ❌ Elements NOT stored contiguously
+* ✔ Bidirectional traversal
+
+
+**Example**
+
+```cpp
+list<int> l;
+```
+
+---
+
+## **List Functions (STL)**
+
+* [capacity and size](#capacity-and-size)
+* [modifier](#modifier)
+* [Element Access](#Element-Access)
+* [Iterators](#Iterators)
+* [Common STL Algorithms used with list](#Common-STL-Algorithms-used-with-list)
+
+---
+
+## capacity and size
+
+---
+
+* `size()` → number of elements
+* `empty()` → checks if list is empty
+* ❌ No `capacity()`
+* ❌ No `reserve()`
+* ❌ No `shrink_to_fit()`
+
+---
+
+### ❗ Important Difference (Vector vs List)
+
+| Feature       | vector     | list           |
+| ------------- | ---------- | -------------- |
+| Capacity      | ✅ Yes      | ❌ No           |
+| Memory        | Contiguous | Non-contiguous |
+| Random access | O(1)       | ❌ Not allowed  |
+
+---
+
+### Combined Code
+
+```cpp
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> l;
+
+    cout << "Is empty? " << l.empty() << endl;
+
+    l.push_back(1);
+    l.push_back(2);
+    l.push_back(3);
+
+    cout << "Size: " << l.size() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Modifier
+
+* `push_back(x)` → insert at end
+* `push_front(x)` → insert at beginning
+* `pop_back()` → remove last
+* `pop_front()` → remove first
+* `insert(pos, x)` → insert at position
+* `erase(pos)` → remove at position
+* `remove(x)` → remove all x
+* `clear()` → remove all elements
+* `assign(n, x)` → fill list
+* `swap(l)` → swap lists
+
+---
+
+### Combined Code (Modifiers)
+
+```cpp
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> l = {10, 20, 30};
+
+    l.push_back(40);
+    l.push_front(5);
+
+    l.pop_back();
+    l.pop_front();
+
+    auto it = l.begin();
+    l.insert(it, 15);
+
+    l.erase(l.begin());
+
+    l.assign(3, 7);
+
+    list<int> l2 = {1, 2, 3};
+    l.swap(l2);
+
+    for (int x : l)
+        cout << x << " ";
+
+    return 0;
+}
+```
+
+---
+
+### push_back / push_front
+
+👉 Adds element at end / beginning
+
+* Size ↑
+
+```cpp
+l.push_back(10);
+l.push_front(5);
+```
+
+---
+
+### pop_back / pop_front
+
+👉 Removes element from end / beginning
+
+* Size ↓
+
+```cpp
+l.pop_back();
+l.pop_front();
+```
+
+---
+
+### insert
+
+👉 Inserts at given iterator position
+
+* O(1) if iterator known
+
+```cpp
+l.insert(it, 20);
+```
+
+---
+
+### erase
+
+👉 Removes element at iterator
+
+```cpp
+l.erase(it);
+```
+
+---
+
+### remove
+
+👉 Removes **all occurrences** of value
+
+```cpp
+l.remove(10);
+```
+
+---
+
+### clear
+
+👉 Removes all elements
+
+* Size = 0
+
+```cpp
+l.clear();
+```
+
+---
+
+### assign
+
+👉 Replaces all elements
+
+```cpp
+l.assign(4, 9);
+```
+
+---
+
+### swap
+
+👉 Swaps contents in **O(1)**
+
+```cpp
+l1.swap(l2);
+```
+
+---
+
+## Element Access (List)
+
+❌ No `[]`
+❌ No `at()`
+❌ No random access
+
+✔ Access via iterators only
+
+---
+
+### front / back
+
+```cpp
+l.front();  // first element
+l.back();   // last element
+```
+
+---
+
+## Iterators
+
+* `begin() / end()` → forward traversal
+* `rbegin() / rend()` → reverse traversal
+* `cbegin() / cend()` → read-only traversal
+
+---
+
+### Combined Code (Iterators)
+
+```cpp
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> l = {10, 20, 30};
+
+    for (auto it = l.begin(); it != l.end(); it++)
+        cout << *it << " ";
+
+    cout << endl;
+
+    for (auto it = l.rbegin(); it != l.rend(); it++)
+        cout << *it << " ";
+
+    return 0;
+}
+```
+
+---
+
+## Common STL Algorithms used with list
+
+⚠️ **Important:**
+`list` has its **own member functions**, not `<algorithm>` ones.
+
+---
+
+### sort()
+
+```cpp
+l.sort();
+```
+
+* Uses **merge sort**
+* O(n log n)
+
+---
+
+### reverse()
+
+```cpp
+l.reverse();
+```
+
+* O(n)
+
+---
+
+### find()
+
+❌ `std::find()` works but is slow
+✔ Better to use manual iterator
+
+---
+
+### remove_if()
+
+```cpp
+l.remove_if([](int x) { return x % 2 == 0; });
+```
+
+---
+
+## Vector vs List (FINAL EXAM TABLE)
+
+| Feature        | vector        | list           |
+| -------------- | ------------- | -------------- |
+| Memory         | Contiguous    | Non-contiguous |
+| Random access  | ✅ O(1)        | ❌              |
+| Insertion      | Slow (middle) | Fast           |
+| Deletion       | Slow (middle) | Fast           |
+| Cache friendly | ✅             | ❌              |
+
+---
+
+## One-line Exam Definitions 📝
+
+* **Vector**: Dynamic array with contiguous memory
+* **List**: Doubly linked list with non-contiguous memory
+
+---
+
+If you want next:
+
+* 👉 **deque in same format**
+* 👉 **vector vs list vs deque table**
+* 👉 **interview questions**
+
+Just say the word 👍
 
 
 
