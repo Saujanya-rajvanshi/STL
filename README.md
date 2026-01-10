@@ -99,7 +99,7 @@ vector<int> v;
 * `resize(n)` → changes size of vector — [resize](#resize)
 * `reserve(n)` → reserves capacity — [reserve](#reserve)
 * `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
-* `[]()` → — [bracket](#bracket)
+* `[]()` → vector index access — [bracket](#bracket)
 ---
 ---
 #### STL `vector` growth 
@@ -182,9 +182,12 @@ cout << "Is vector empty? " << vec.empty() << endl;
 ```
 
 ##### resize
-Changes size
+* **Changes size**
 Adds elements (default-initialized) or removes elements
-Capacity may increase
+👉 It changes the **SIZE** of the vector, not primarily the capacity.
+* Vector will contain exactly n elements
+* Elements beyond index n-1  are removed
+* **Capacity** usually remains the same 
 
 ```cpp
 vec.resize(3);
@@ -192,10 +195,10 @@ vec.resize(3);
     cout << "Capacity after resize: " << vec.capacity() << endl;
 ```
 
-##### reverse
-Changes capacity only
-No elements added/removed
-Size unchanged
+##### resevse
+👉 Changes **capacity** only
+* No elements added/removed
+* **Size unchanged**
 
 ```cpp
 vec.reserve(10);
@@ -203,9 +206,10 @@ vec.reserve(10);
 ```
 
 ##### shrink_to_fit
-Reduces capacity to size
-Size unchanged
-Non-binding request (usually works)
+👉 Reduces **capacity to size**
+* Size unchanged
+* Non-binding request (usually works) Non-binding = may obey
+* It is a request, not a command
 
 ```cpp
 vec.shrink_to_fit();
@@ -232,7 +236,6 @@ int main() {
     cout << "val at idx 2" << vec [2] << or << vec.at(2) << endl;
 
 return 0;
-
 }
 
 ```
@@ -316,8 +319,8 @@ int main() {
 
 ### push_back
 
-Adds element at end
-Size ↑, capacity may ↑
+👉 Adds element at end
+* Size ↑, capacity may ↑
 
 ```cpp
 vec.push_back(10);
@@ -327,8 +330,8 @@ vec.push_back(10);
 
 ### pop_back
 
-Removes last element
-Size ↓, capacity same
+👉 Removes last element
+* Size ↓, capacity same
 
 ```cpp
 vec.pop_back();
@@ -339,7 +342,8 @@ vec.pop_back();
 ### emplace_back
 
 * Adds element at end (faster than push_back for objects)
-* can create inplace object
+👉 can create inplace object
+* Size ↑, capacity may ↑
 
 ```cpp
 vec.emplace_back(20);
@@ -349,8 +353,8 @@ vec.emplace_back(20);
 
 ### insert
 
-Inserts element at given position
-Shifts elements right
+👉 Inserts element at **given position**
+* Shifts elements right
 
 ```cpp
 vec.insert(vec.begin() + 1, 5);
@@ -360,8 +364,8 @@ vec.insert(vec.begin() + 1, 5);
 
 ### erase
 
-Removes element at position
-Shifts elements left
+👉 **Removes** element at position
+* Shifts elements left
 
 ```cpp
 vec.erase(vec.begin() + 2);
@@ -371,28 +375,32 @@ vec.erase(vec.begin() + 2);
 
 ### clear
 
-Removes all elements
-Size = 0, capacity unchanged
+👉 Removes **all** elements
+* Size = 0, **capacity unchanged**
 
 ```cpp
 vec.clear();
 ```
-
 ---
 
 ### assign
-
-Replaces all elements with `n` copies of value
+👉 assign() **removes all existing** elements of the vector and **fills** it with **new** elements.
+* vec.assign(n, value);
+* Size becomes n
+* Elements become value
+* Old elements are destroyed Replaces all elements with `n` copies of value
+* Capacity may or may not change
 
 ```cpp
 vec.assign(4, 7); // [7 7 7 7]
 ```
-
 ---
 
 ### swap
-
-Swaps contents of two vectors (O(1))
+👉swap() **exchanges** the contents of two vectors.
+* Sizes swapped
+* Capacities swapped
+* Data swapped
 
 ```cpp
 vec1.swap(vec2);
