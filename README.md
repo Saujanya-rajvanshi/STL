@@ -45,7 +45,10 @@ vector, list, stack, queue, priority_queue, deque, map, unordered_map, set
 - [list](#LIST)
 - [stack](#STACK)
 - [queue](#QUEUE)
+- [priority_queue](#priority_queue)
+- [deque](#deque)
 - [map](#MAP)
+- [unordered_map](unordered_map)
 - [set](#SET)
   
 ## VECTOR 
