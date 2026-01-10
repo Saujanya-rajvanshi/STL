@@ -7,7 +7,7 @@
 - [function](#function)
 
 ## basic
-```cpp
+```
 STL (Standard Template Library)
 The STL is a collection of generic classes and functions in C++ that provide ready-made data structures and algorithms.
 
@@ -30,7 +30,7 @@ Advantages of STL
   Reduces code length
   Well-tested and optimized
 
-👉 STL makes C++ powerful, fast, and easier to use.
+STL makes C++ powerful, fast, and easier to use.
 ```
 
 ## CONTAINERS
