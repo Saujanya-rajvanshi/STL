@@ -663,14 +663,9 @@ find(v.begin(), v.end(), x);
 
 ---
 
-Got it 👍
-You want the **SAME STRUCTURE + SAME DEPTH** but now for **`list` (STL)**.
-Below is a **clean, copy-paste ready, exam + notes style** version.
-
 ---
 
-##### list 
-## 🧵 LIST 
+##  LIST 
 
 ### **List (STL) 
 A **list** is a **doubly linked list** provided by the STL that stores elements in **non-contiguous memory** and allows **fast insertion and deletion** at any position.
@@ -915,6 +910,242 @@ l.back();   // last element
 ```
 
 ---
+
+---
+
+# QUEUE 
+
+**Queue — Definition**
+
+A **queue** is a **container adaptor** provided by STL that follows **FIFO**
+(**First In, First Out**) principle.
+
+**Key points**
+
+* FIFO order
+* Insertion at **rear**
+* Deletion from **front**
+* No random access
+* No iterators
+* Built on another container (default: **deque**)
+
+**Example**
+
+```cpp
+queue<int> q;
+```
+
+---
+
+## Header File
+
+```cpp
+#include <queue>
+```
+
+---
+
+## Queue Working (FIFO)
+
+```
+push(10)
+push(20)
+push(30)
+
+Front → 10 20 30 ← Rear
+```
+
+`pop()` removes **10**
+
+---
+
+## Queue Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove front element
+* `front()` → access front element
+* `back()` → access last element
+* `size()` → number of elements
+* `empty()` → check if empty
+* `swap(q)` → swap queues
+
+---
+
+## Combined Code
+
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> q;
+
+    cout << "Is empty? " << q.empty() << endl;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    cout << "Front: " << q.front() << endl;
+    cout << "Back: " << q.back() << endl;
+    cout << "Size: " << q.size() << endl;
+
+    q.pop();
+
+    cout << "Front after pop: " << q.front() << endl;
+
+    return 0;
+}
+```
+
+---
+
+## Function Explanation
+
+---
+
+### push()
+
+👉 Inserts element at **rear**
+
+* **O(1)**
+
+```cpp
+q.push(10);
+```
+
+---
+
+### emplace()
+
+👉 Constructs element directly at rear
+
+* Faster for objects
+* **O(1)**
+
+```cpp
+q.emplace(20);
+```
+
+---
+
+### pop()
+
+👉 Removes **front** element
+
+* **O(1)**
+* ❌ Does NOT return value
+
+```cpp
+q.pop();
+```
+
+---
+
+### front()
+
+👉 Access front element
+
+* **O(1)**
+* ❌ Queue must not be empty
+
+```cpp
+q.front();
+```
+
+---
+
+### back()
+
+👉 Access last element
+
+* **O(1)**
+
+```cpp
+q.back();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+q.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if queue is empty
+
+```cpp
+q.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two queues
+
+* **O(1)**
+
+```cpp
+q1.swap(q2);
+```
+
+---
+
+## IMPORTANT LIMITATIONS (Exam Favorite)
+
+❌ No iterators
+❌ No random access
+❌ Cannot access middle elements
+
+👉 Only `front()` and `back()` allowed
+
+---
+
+## Underlying Container
+
+```cpp
+queue<int> q;               // uses deque by default
+queue<int, list<int>> q2;   // also possible
+```
+
+---
+
+## Queue vs Stack vs Deque
+
+| Feature    | Queue      | Stack | Deque     |
+| ---------- | ---------- | ----- | --------- |
+| Order      | FIFO       | LIFO  | Both ends |
+| Access     | front/back | top   | random    |
+| Iterators  | ❌          | ❌     | ✔         |
+| push_front | ❌          | ❌     | ✔         |
+
+---
+
+## Use Cases
+
+* Task scheduling
+* Breadth First Search (BFS)
+* Producer–Consumer problem
+* Printing queues
+
+---
+
+> Queue is a container adaptor that follows FIFO principle where insertion happens at the rear and deletion from the front.
+
+---
+
+
+
 
 #### deque
 ---
@@ -1208,74 +1439,269 @@ dq.at(2);
 ```cpp
 dq[2];
 ```
+---
+
 
 ---
 
-## Iterators
+# PRIORITY QUEUE (STL)
 
-* `begin()` / `end()`
-* `rbegin()` / `rend()`
-* `cbegin()` / `cend()`
+**Priority Queue — Definition**
 
-👉 Same behavior as vector
+A **priority_queue** is a **container adaptor** provided by STL where **elements are processed based on priority**, not insertion order.
+
+👉 By default, the **largest element has the highest priority**.
+
+**Key points**
+
+* Based on **Heap** data structure
+* Default: **Max Heap**
+* No iterators
+* No random access
+* Only **top element** is accessible
 
 ---
 
-### Combined Code
+## Header File
 
 ```cpp
-for (auto it = dq.begin(); it != dq.end(); it++)
-    cout << *it << " ";
+#include <queue>
 ```
 
 ---
 
-## Common STL Algorithms used with deque
+## Priority Queue Types
 
-* `sort()`
-* `reverse()`
-* `find()`
+### 1️⃣ Max Heap (Default)
 
-👉 Works because deque supports **random access iterators**
+```cpp
+priority_queue<int> pq;
+```
+
+Top element = **largest**
 
 ---
 
-### Combined Code
+### 2️⃣ Min Heap
 
 ```cpp
-#include <algorithm>
+priority_queue<int, vector<int>, greater<int>> pq;
+```
 
-sort(dq.begin(), dq.end());
-reverse(dq.begin(), dq.end());
-auto it = find(dq.begin(), dq.end(), 30);
+Top element = **smallest**
+
+---
+
+## Priority Queue Functions (STL)
+
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove highest priority element
+* `top()` → access highest priority element
+* `size()` → number of elements
+* `empty()` → check if empty
+* `swap(pq)` → swap priority queues
+
+---
+
+## Working (Max Heap)
+
+```
+push(10)
+push(40)
+push(20)
+push(30)
+
+TOP → 40
+```
+
+`pop()` removes **40**
+
+---
+
+## Combined Code (Max Heap)
+
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    priority_queue<int> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top: " << pq.top() << endl;
+    cout << "Size: " << pq.size() << endl;
+
+    pq.pop();
+
+    cout << "Top after pop: " << pq.top() << endl;
+
+    return 0;
+}
 ```
 
 ---
 
-## Vector vs Deque (VERY IMPORTANT)
+## Combined Code (Min Heap)
 
-| Feature       | Vector       | Deque           |
-| ------------- | ------------ | --------------- |
-| Memory        | Single block | Multiple blocks |
-| push_back     | O(1)         | O(1)            |
-| push_front    | ❌ O(n)       | ✔ O(1)          |
-| Random access | ✔            | ✔               |
-| Capacity      | ✔            | ❌               |
+```cpp
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+
+int main() {
+    priority_queue<int, vector<int>, greater<int>> pq;
+
+    pq.push(10);
+    pq.push(40);
+    pq.push(20);
+    pq.push(30);
+
+    cout << "Top (Min): " << pq.top() << endl;
+
+    return 0;
+}
+```
 
 ---
 
-### One-line exam note 📝
-
-> Deque is a dynamic container that allows fast insertion and deletion at both ends while supporting random access.
+## Function Explanation
 
 ---
 
-Here are **STACK (STL) notes**, written in the **same clean, structured style** as your **vector / deque notes**
-👉 exam-ready + concept-clear.
+### push()
+
+👉 Inserts element
+
+* **O(log n)**
+
+```cpp
+pq.push(10);
+```
 
 ---
 
-# STACK (STL)
+### emplace()
+
+👉 Constructs element directly
+
+* Faster for objects
+* **O(log n)**
+
+```cpp
+pq.emplace(25);
+```
+
+---
+
+### pop()
+
+👉 Removes highest priority element
+
+* **O(log n)**
+* ❌ Does NOT return value
+
+```cpp
+pq.pop();
+```
+
+---
+
+### top()
+
+👉 Returns highest priority element
+
+* **O(1)**
+* ❌ Cannot modify element
+
+```cpp
+pq.top();
+```
+
+---
+
+### size()
+
+👉 Returns number of elements
+
+```cpp
+pq.size();
+```
+
+---
+
+### empty()
+
+👉 Checks if empty
+
+```cpp
+pq.empty();
+```
+
+---
+
+### swap()
+
+👉 Exchanges contents of two priority queues
+
+* **O(1)**
+
+```cpp
+pq1.swap(pq2);
+```
+
+---
+
+## IMPORTANT LIMITATIONS (Exam Favorite)
+
+❌ No iterators
+❌ No random access
+❌ Cannot traverse elements
+
+👉 Only `top()` is accessible
+
+---
+
+## Underlying Container
+
+```cpp
+priority_queue<int> pq;              // uses vector by default
+priority_queue<int, deque<int>> pq2; // valid but uncommon
+```
+
+---
+
+## Priority Queue vs Stack vs Queue
+
+| Feature   | Priority Queue | Stack    | Queue  |
+| --------- | -------------- | -------- | ------ |
+| Order     | Priority-based | LIFO     | FIFO   |
+| Access    | top only       | top only | front  |
+| Iterators | ❌              | ❌        | ❌      |
+| Structure | Heap           | Linear   | Linear |
+
+---
+
+## Use Cases
+
+* CPU scheduling
+* Dijkstra algorithm
+* Heap sort
+* Task scheduling
+* Event simulation
+
+---
+
+> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
+---
+
+# STACK 
 
 **Stack — Definition**
 
@@ -1493,548 +1919,13 @@ stack<int, vector<int>> st2;   // uses vector
 
 ---
 
-## One-line Exam Answer 📝
-
 > Stack is a container adaptor that follows LIFO principle where insertion and deletion occur only at the top.
 
 ---
-
-Below are **PRIORITY_QUEUE (STL) notes**, written in the **same style as your VECTOR / DEQUE / STACK notes**
-👉 clear, structured, exam-ready.
-
 ---
 
-# PRIORITY QUEUE (STL)
-
-**Priority Queue — Definition**
-
-A **priority_queue** is a **container adaptor** provided by STL where **elements are processed based on priority**, not insertion order.
-
-👉 By default, the **largest element has the highest priority**.
-
-**Key points**
-
-* Based on **Heap** data structure
-* Default: **Max Heap**
-* No iterators
-* No random access
-* Only **top element** is accessible
-
----
-
-## Header File
-
-```cpp
-#include <queue>
-```
-
----
-
-## Priority Queue Types
-
-### 1️⃣ Max Heap (Default)
-
-```cpp
-priority_queue<int> pq;
-```
-
-Top element = **largest**
-
----
-
-### 2️⃣ Min Heap
-
-```cpp
-priority_queue<int, vector<int>, greater<int>> pq;
-```
-
-Top element = **smallest**
-
----
-
-## Priority Queue Functions (STL)
-
-* `push(x)` → insert element
-* `emplace(x)` → construct element
-* `pop()` → remove highest priority element
-* `top()` → access highest priority element
-* `size()` → number of elements
-* `empty()` → check if empty
-* `swap(pq)` → swap priority queues
-
----
-
-## Working (Max Heap)
-
-```
-push(10)
-push(40)
-push(20)
-push(30)
-
-TOP → 40
-```
-
-`pop()` removes **40**
-
----
-
-## Combined Code (Max Heap)
-
-```cpp
-#include <iostream>
-#include <queue>
-using namespace std;
-
-int main() {
-    priority_queue<int> pq;
-
-    pq.push(10);
-    pq.push(40);
-    pq.push(20);
-    pq.push(30);
-
-    cout << "Top: " << pq.top() << endl;
-    cout << "Size: " << pq.size() << endl;
-
-    pq.pop();
-
-    cout << "Top after pop: " << pq.top() << endl;
-
-    return 0;
-}
-```
-
----
-
-## Combined Code (Min Heap)
-
-```cpp
-#include <iostream>
-#include <queue>
-#include <vector>
-using namespace std;
-
-int main() {
-    priority_queue<int, vector<int>, greater<int>> pq;
-
-    pq.push(10);
-    pq.push(40);
-    pq.push(20);
-    pq.push(30);
-
-    cout << "Top (Min): " << pq.top() << endl;
-
-    return 0;
-}
-```
-
----
-
-## Function Explanation
-
----
-
-### push()
-
-👉 Inserts element
-
-* **O(log n)**
-
-```cpp
-pq.push(10);
-```
-
----
-
-### emplace()
-
-👉 Constructs element directly
-
-* Faster for objects
-* **O(log n)**
-
-```cpp
-pq.emplace(25);
-```
-
----
-
-### pop()
-
-👉 Removes highest priority element
-
-* **O(log n)**
-* ❌ Does NOT return value
-
-```cpp
-pq.pop();
-```
-
----
-
-### top()
-
-👉 Returns highest priority element
-
-* **O(1)**
-* ❌ Cannot modify element
-
-```cpp
-pq.top();
-```
-
----
-
-### size()
-
-👉 Returns number of elements
-
-```cpp
-pq.size();
-```
-
----
-
-### empty()
-
-👉 Checks if empty
-
-```cpp
-pq.empty();
-```
-
----
-
-### swap()
-
-👉 Exchanges contents of two priority queues
-
-* **O(1)**
-
-```cpp
-pq1.swap(pq2);
-```
-
----
-
-## IMPORTANT LIMITATIONS (Exam Favorite)
-
-❌ No iterators
-❌ No random access
-❌ Cannot traverse elements
-
-👉 Only `top()` is accessible
-
----
-
-## Underlying Container
-
-```cpp
-priority_queue<int> pq;              // uses vector by default
-priority_queue<int, deque<int>> pq2; // valid but uncommon
-```
-
----
-
-## Priority Queue vs Stack vs Queue
-
-| Feature   | Priority Queue | Stack    | Queue  |
-| --------- | -------------- | -------- | ------ |
-| Order     | Priority-based | LIFO     | FIFO   |
-| Access    | top only       | top only | front  |
-| Iterators | ❌              | ❌        | ❌      |
-| Structure | Heap           | Linear   | Linear |
-
----
-
-## Use Cases
-
-* CPU scheduling
-* Dijkstra algorithm
-* Heap sort
-* Task scheduling
-* Event simulation
-
----
-
-## One-line Exam Answer 📝
-
-> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
-
----
-
-Below are **PRIORITY_QUEUE (STL) notes**, written in the **same style as your VECTOR / DEQUE / STACK notes**
-👉 clear, structured, exam-ready.
-
----
-
-# PRIORITY QUEUE (STL)
-
-**Priority Queue — Definition**
-
-A **priority_queue** is a **container adaptor** provided by STL where **elements are processed based on priority**, not insertion order.
-
-👉 By default, the **largest element has the highest priority**.
-
-**Key points**
-
-* Based on **Heap** data structure
-* Default: **Max Heap**
-* No iterators
-* No random access
-* Only **top element** is accessible
-
----
-
-## Header File
-
-```cpp
-#include <queue>
-```
-
----
-
-## Priority Queue Types
-
-### 1️⃣ Max Heap (Default)
-
-```cpp
-priority_queue<int> pq;
-```
-
-Top element = **largest**
-
----
-
-### 2️⃣ Min Heap
-
-```cpp
-priority_queue<int, vector<int>, greater<int>> pq;
-```
-
-Top element = **smallest**
-
----
-
-## Priority Queue Functions (STL)
-
-* `push(x)` → insert element
-* `emplace(x)` → construct element
-* `pop()` → remove highest priority element
-* `top()` → access highest priority element
-* `size()` → number of elements
-* `empty()` → check if empty
-* `swap(pq)` → swap priority queues
-
----
-
-## Working (Max Heap)
-
-```
-push(10)
-push(40)
-push(20)
-push(30)
-
-TOP → 40
-```
-
-`pop()` removes **40**
-
----
-
-## Combined Code (Max Heap)
-
-```cpp
-#include <iostream>
-#include <queue>
-using namespace std;
-
-int main() {
-    priority_queue<int> pq;
-
-    pq.push(10);
-    pq.push(40);
-    pq.push(20);
-    pq.push(30);
-
-    cout << "Top: " << pq.top() << endl;
-    cout << "Size: " << pq.size() << endl;
-
-    pq.pop();
-
-    cout << "Top after pop: " << pq.top() << endl;
-
-    return 0;
-}
-```
-
----
-
-## Combined Code (Min Heap)
-
-```cpp
-#include <iostream>
-#include <queue>
-#include <vector>
-using namespace std;
-
-int main() {
-    priority_queue<int, vector<int>, greater<int>> pq;
-
-    pq.push(10);
-    pq.push(40);
-    pq.push(20);
-    pq.push(30);
-
-    cout << "Top (Min): " << pq.top() << endl;
-
-    return 0;
-}
-```
-
----
-
-## Function Explanation
-
----
-
-### push()
-
-👉 Inserts element
-
-* **O(log n)**
-
-```cpp
-pq.push(10);
-```
-
----
-
-### emplace()
-
-👉 Constructs element directly
-
-* Faster for objects
-* **O(log n)**
-
-```cpp
-pq.emplace(25);
-```
-
----
-
-### pop()
-
-👉 Removes highest priority element
-
-* **O(log n)**
-* ❌ Does NOT return value
-
-```cpp
-pq.pop();
-```
-
----
-
-### top()
-
-👉 Returns highest priority element
-
-* **O(1)**
-* ❌ Cannot modify element
-
-```cpp
-pq.top();
-```
-
----
-
-### size()
-
-👉 Returns number of elements
-
-```cpp
-pq.size();
-```
-
----
-
-### empty()
-
-👉 Checks if empty
-
-```cpp
-pq.empty();
-```
-
----
-
-### swap()
-
-👉 Exchanges contents of two priority queues
-
-* **O(1)**
-
-```cpp
-pq1.swap(pq2);
-```
-
----
-
-## IMPORTANT LIMITATIONS (Exam Favorite)
-
-❌ No iterators
-❌ No random access
-❌ Cannot traverse elements
-
-👉 Only `top()` is accessible
-
----
-
-## Underlying Container
-
-```cpp
-priority_queue<int> pq;              // uses vector by default
-priority_queue<int, deque<int>> pq2; // valid but uncommon
-```
-
----
-
-## Priority Queue vs Stack vs Queue
-
-| Feature   | Priority Queue | Stack    | Queue  |
-| --------- | -------------- | -------- | ------ |
-| Order     | Priority-based | LIFO     | FIFO   |
-| Access    | top only       | top only | front  |
-| Iterators | ❌              | ❌        | ❌      |
-| Structure | Heap           | Linear   | Linear |
-
----
-
-## Use Cases
-
-* CPU scheduling
-* Dijkstra algorithm
-* Heap sort
-* Task scheduling
-* Event simulation
-
----
-
-## One-line Exam Answer 📝
-
-> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
-
----
-
-Below are **UNORDERED_MAP (STL) notes**, written in the **same structured style** as your previous STL notes
-👉 exam-ready, clean, and placement-friendly.
-
----
-
-# UNORDERED_MAP (STL)
+###### unordered_map
+# UNORDERED_MAP 
 
 **Unordered Map — Definition**
 
@@ -2328,18 +2219,13 @@ ump.rehash(20);
 
 ---
 
-## One-line Exam Answer 📝
-
 > Unordered map is an associative container that stores unique keys in a hash table without maintaining any order.
 
 ---
 
-Below are **SET (STL) notes**, written in the **same clean, structured style** as your **map / unordered_map / vector notes**
-👉 exam-ready, placement-friendly.
-
 ---
 
-# SET (STL)
+# SET 
 
 **Set — Definition**
 
@@ -2593,8 +2479,6 @@ for (auto it = s.begin(); it != s.end(); it++)
 ❌ No duplicates
 
 ---
-
-## One-line Exam Answer 📝
 
 > Set is an associative container that stores unique elements in sorted order.
 
