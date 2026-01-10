@@ -706,14 +706,6 @@ list<int> l;
 
 ---
 
-### ❗ Important Difference (Vector vs List)
-
-| Feature       | vector     | list           |
-| ------------- | ---------- | -------------- |
-| Capacity      | ✅ Yes      | ❌ No           |
-| Memory        | Contiguous | Non-contiguous |
-| Random access | O(1)       | ❌ Not allowed  |
-
 ---
 
 ### Combined Code
@@ -892,7 +884,7 @@ l1.swap(l2);
 
 ---
 
-## Element Access (List)
+### Element Access (List)
 
 ❌ No `[]`
 ❌ No `at()`
