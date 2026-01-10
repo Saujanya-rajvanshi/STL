@@ -317,7 +317,7 @@ vec.push_back(10);
 
 ---
 
-###++# pop_back
+#### pop_back
 
 👉 Removes last element
 * Size ↓, capacity same
@@ -328,7 +328,7 @@ vec.pop_back();
 
 ---
 
-###+# emplace_back
+#### emplace_back
 
 * Adds element at end (faster than push_back for objects)
 * 👉 can create inplace object
@@ -351,7 +351,7 @@ vec.insert(vec.begin() + 1, 5);
 
 ---
 
-###+# erase
+#### erase
 
 👉 **Removes** element at position
 * Shifts elements left
