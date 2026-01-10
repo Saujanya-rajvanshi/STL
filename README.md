@@ -1713,6 +1713,130 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 > Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
 ---
 
+Here are **clean, structured NOTES only for `map`**, in the **same style as your vector notes** (exam + interview ready).
+
+###### map
+---
+
+# MAP 
+
+### What is `map`?
+
+* Stores **key–value pairs**
+* **Keys are unique**
+* Automatically **sorted by key**
+* Implemented using **Red-Black Tree**
+
+```cpp
+map<int, string> mp;
+```
+
+---
+
+🔹 Key Properties
+
+✔ Keys are **unique**
+✔ Stored in **sorted order**
+✔ **Fast search, insert, delete → O(log n)**
+✔ Allows **iteration in sorted order**
+❌ No random indexing like array/vector
+
+---
+
+#### insert()
+
+```cpp
+mp.insert({1, "one"});
+```
+
+#### emplace()
+
+```cpp
+mp.emplace(2, "two");
+```
+
+#### operator[]
+
+👉 Inserts key if not present
+
+```cpp
+mp[3] = "three";
+```
+
+⚠ If key doesn’t exist → default value is created
+
+---
+
+#### at()
+
+👉 Access value (safe)
+
+```cpp
+mp.at(1);
+```
+
+❌ Throws exception if key not present
+
+---
+
+#### find()
+
+```cpp
+auto it = mp.find(2);
+```
+
+✔ Returns iterator
+❌ `end()` if key not found
+
+---
+
+#### erase()
+
+```cpp
+mp.erase(2);          // by key
+mp.erase(mp.begin()); // by iterator
+```
+
+---
+
+#### size()
+
+```cpp
+mp.size();
+```
+
+---
+
+#### empty()
+
+```cpp
+mp.empty();
+```
+
+---
+
+#### clear()
+
+```cpp
+mp.clear();
+```
+
+---
+
+#### count()
+
+👉 Check key exists or not
+
+```cpp
+mp.count(2); // 0 or 1
+```
+
+---
+
+> **`map` stores unique key–value pairs in sorted order with O(log n) operations.**
+
+---
+
 ---
 
 ###### unordered_map
