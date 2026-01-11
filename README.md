@@ -778,9 +778,16 @@ A **stack** is a **container adaptor** provided by STL that follows **LIFO**
 * Built on another container (default: **deque**)
 *  No iterators, No random access, Cannot access middle elements
 * 👉 Only `top()` is accessible
+* stack is NOT a container.
+It is a container adaptor.
+*👉 It uses another container internally to store elements.
+```cpp
+stack<int> st;          // uses deque by default
+stack<int, vector<int>> st2;   // uses vector
+```
+* **Use Cases**  Function calls, Undo / Redo, Expression evaluation, Backtracking, DFS
 
 **Example**
-
 ```cpp
 stack<int> st;
 ```
@@ -883,7 +890,7 @@ st.emplace(20);
 👉 Removes top element
 
 * **O(1)**
-* ❌ Does NOT return value
+*  Does NOT return value
 
 ```cpp
 st.pop();
@@ -896,7 +903,7 @@ st.pop();
 👉 Access top element
 
 * **O(1)**
-* ❌ Stack must not be empty
+*  Stack must not be empty
 
 ```cpp
 st.top();
@@ -938,35 +945,6 @@ st1.swap(st2);
 
 ---
 
----
-
-#### Underlying Container
-
-```cpp
-stack<int> st;          // uses deque by default
-stack<int, vector<int>> st2;   // uses vector
-```
-
----
-
----
-
-### Use Cases
-
-* Function calls
-* Undo / Redo
-* Expression evaluation
-* Backtracking
-* DFS
-
----
-
-> Stack is a container adaptor that follows LIFO principle where insertion and deletion occur only at the top.
-
----
-
----
-
 # QUEUE 
 
 **Queue — Definition**
@@ -982,6 +960,16 @@ A **queue** is a **container adaptor** provided by STL that follows **FIFO**
 * No random access
 * No iterators
 * Built on another container (default: **deque**)
+* No iterators, No random access, Cannot access middle elements
+👉 Only `front()` and `back()` allowed
+* Underlying Container
+```cpp
+queue<int> q;               // uses deque by default
+queue<int, list<int>> q2;   // also possible
+```
+**Use Cases** Task scheduling, Breadth First Search (BFS), Producer–Consumer problem, Printing queues
+
+---
 
 **Example**
 
@@ -997,20 +985,7 @@ queue<int> q;
 #include <queue>
 ```
 
----
-
-#### Queue Working (FIFO)
-
-```
-push(10)
-push(20)
-push(30)
-
-Front → 10 20 30 ← Rear
-```
-
-`pop()` removes **10**
-
+##### modifiers and size
 ---
 * `push(x)` → insert element
 * `emplace(x)` → construct element
@@ -1149,38 +1124,8 @@ q1.swap(q2);
 
 ---
 
-#### IMPORTANT LIMITATIONS 
 
-❌ No iterators
-❌ No random access
-❌ Cannot access middle elements
 
-👉 Only `front()` and `back()` allowed
-
----
-
-#### Underlying Container
-
-```cpp
-queue<int> q;               // uses deque by default
-queue<int, list<int>> q2;   // also possible
-```
-
----
----
-
-#### Use Cases
-
-* Task scheduling
-* Breadth First Search (BFS)
-* Producer–Consumer problem
-* Printing queues
-
----
-
-> Queue is a container adaptor that follows FIFO principle where insertion happens at the rear and deletion from the front.
-
----
 
 
 
