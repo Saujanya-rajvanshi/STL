@@ -1774,9 +1774,14 @@ An **unordered_map** is an **associative container** that stores elements in **k
 
 * Stores **(key, value)** pairs
 * **Keys are unique**
-* ❌ No ordering
+* No ordering
 * Very fast lookup — **O(1) average**
 * Implemented using **Hash Table**
+* **Use Cases**
+* Frequency counting, Fast lookup tables, Caching, Competitive programming
+* No ordering, No `lower_bound()` / `upper_bound()`, Iteration order unpredictable
+
+---
 
 **Example**
 
@@ -1786,7 +1791,7 @@ unordered_map<int, string> ump;
 
 ---
 
-## Header File
+##### Header File
 
 ```cpp
 #include <unordered_map>
@@ -1794,7 +1799,7 @@ unordered_map<int, string> ump;
 
 ---
 
-## Unordered Map Structure
+#### Unordered Map Structure
 
 ```
 Hash Table
@@ -1809,35 +1814,35 @@ Index → (Key, Value)
 
 ---
 
-## Unordered Map Functions (STL)
+### Unordered Map Functions (STL)
 
-### Insertion / Update
+#### Insertion / Update
 
 * `insert({k, v})`
 * `ump[k] = v`
 * `emplace(k, v)`
 
-### Access
+#### Access
 
 * `at(k)`
 * `operator[]`
 
-### Remove
+#### Remove
 
 * `erase(k)`
 * `clear()`
 
-### Search
+#### Search
 
 * `find(k)`
 * `count(k)`
 
-### Size
+#### Size
 
 * `size()`
 * `empty()`
 
-### Bucket / Hash Info
+#### Bucket / Hash Info
 
 * `bucket_count()`
 * `load_factor()`
@@ -1872,7 +1877,7 @@ int main() {
 
 ---
 
-## Insertion Methods
+### Insertion Methods
 
 ---
 
@@ -1913,14 +1918,14 @@ ump.emplace(4, "D");
 
 ---
 
-#### Access Methods
+### Access Methods
 
 ---
 
-### at()
+#### at()
 
-✔ Safe
-❌ Throws exception if key missing
+* Safe
+* Throws exception if key missing
 
 ```cpp
 ump.at(2);
@@ -1930,8 +1935,8 @@ ump.at(2);
 
 #### operator[]
 
-✔ Easy
-❌ Creates key if missing
+* Easy
+* Creates key if missing
 
 ```cpp
 ump[2];
@@ -1985,7 +1990,7 @@ ump.count(3);
 
 ---
 
-### Bucket Concepts (Important for Theory)
+### Bucket Concepts 
 
 ---
 
@@ -2016,39 +2021,6 @@ ump.load_factor();
 ```cpp
 ump.rehash(20);
 ```
-
----
-
-### Time Complexity
-
-| Operation  | Time (Average) |
-| ---------- | -------------- |
-| insert     | O(1)           |
-| delete     | O(1)           |
-| search     | O(1)           |
-| Worst case | O(n)           |
-
----
-**Use Cases**
-
-* Frequency counting
-* Fast lookup tables
-* Caching
-* Competitive programming
-
----
-
-### IMPORTANT LIMITATIONS
-
-❌ No ordering
-❌ No `lower_bound()` / `upper_bound()`
-❌ Iteration order unpredictable
-
----
-
-> Unordered map is an associative container that stores unique keys in a hash table without maintaining any order.
-
----
 
 ---
 
@@ -2250,13 +2222,11 @@ s.lower_bound(20);
 ```cpp
 s.upper_bound(20);
 ```
-
-> Set is an associative container that stores unique elements in sorted order.
-
 ---
 
 
-##### difference 
+
+### difference 
 ---
 
 # 🔹 STL CONTAINERS & ADAPTORS COMPARISON
