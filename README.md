@@ -521,12 +521,11 @@ A **list** is a **doubly linked list** provided by the STL that stores elements 
 
 ## **Key Points**
 
-* ❌ No random access
-* ✔ Dynamic size
-* ✔ Fast insertion & deletion
-* ❌ Elements NOT stored contiguously
-* ✔ Bidirectional traversal
-
+*  No random access
+*  Dynamic size
+*  Fast insertion & deletion
+*  Elements NOT stored contiguously
+*  Bidirectional traversal
 
 **Example**
 
@@ -554,9 +553,9 @@ list<int> l;
 ---
 * `size()` → number of elements
 * `empty()` → checks if list is empty
-* ❌ No `capacity()`
-* ❌ No `reserve()`
-* ❌ No `shrink_to_fit()`
+*  No `capacity()`
+*  No `reserve()`
+*  No `shrink_to_fit()`
 
 ---
 
@@ -591,7 +590,7 @@ int main() {
 
 ---
 
-### Modifier
+### Modifier and size
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at beginning
@@ -607,7 +606,7 @@ int main() {
 
 ---
 
-#### Combined Code (Modifiers)
+#### Combined Code 
 
 ```cpp
 #include <iostream>
@@ -802,7 +801,7 @@ stack<int> st;
 
 ---
 
-### Stack Functions (STL)
+### Stack Functions 
 
 * `push(x)` → insert element
 * `emplace(x)` → construct element
@@ -985,6 +984,21 @@ queue<int> q;
 #include <queue>
 ```
 
+### queue Working (LIFO)
+
+```
+push(10)
+push(20)
+push(30)
+
+front → 10
+        20
+back  → 30
+```
+
+---
+
+
 ##### modifiers and size
 ---
 * `push(x)` → insert element
@@ -1059,7 +1073,7 @@ q.emplace(20);
 👉 Removes **front** element
 
 * **O(1)**
-* ❌ Does NOT return value
+* Does NOT return value
 
 ```cpp
 q.pop();
@@ -1072,7 +1086,7 @@ q.pop();
 👉 Access front element
 
 * **O(1)**
-* ❌ Queue must not be empty
+* Queue must not be empty
 
 ```cpp
 q.front();
@@ -1125,11 +1139,6 @@ q1.swap(q2);
 ---
 
 
-
-
-
-
-
 ##### deque
 ---
 
@@ -1156,9 +1165,6 @@ deque<int> dq;
 * [capacity and size](#capacity-and-size)
 * [modifier](#modifier)
 * [Element Access](#Element-Access)
-* [Iterators](#Iterators)
-* [Common STL Algorithms used with deque](#Common-STL-Algorithms-used-with-deque)
-
 ---
 
 ### capacity and size
@@ -1173,7 +1179,7 @@ deque<int> dq;
 
 ---
 
-#### Deque Growth (Important)
+#### Deque Growth 
 
 * Deque does **NOT** have capacity like vector
 * It grows by allocating **new blocks**
@@ -1402,8 +1408,8 @@ int main() {
 
 #### at()
 
-✔ Safe
-❌ Throws exception if invalid
+* Safe
+* Throws exception if invalid
 
 ```cpp
 dq.at(2);
@@ -1413,8 +1419,8 @@ dq.at(2);
 
 #### operator[]
 
-✔ Fast
-❌ Unsafe
+* Fast
+* Unsafe
 
 ```cpp
 dq[2];
@@ -1441,6 +1447,13 @@ A **priority_queue** is a **container adaptor** provided by STL where **elements
 * No iterators
 * No random access
 * Only **top element** is accessible
+* No iterator, No random access, Cannot traverse elements 👉 Only `top()` is accessible
+* Underlying Container
+```cpp
+priority_queue<int> pq;              // uses vector by default
+priority_queue<int, deque<int>> pq2; // valid but uncommon
+```
+* **Use Cases** CPU scheduling, Dijkstra algorithm, Heap sort, Task scheduling, Event simulation
 
 ---
 
@@ -1474,7 +1487,7 @@ Top element = **smallest**
 
 ---
 
-## Priority Queue Functions (STL)
+### Priority Queue Functions (STL)
 
 * `push(x)` → insert element
 * `emplace(x)` → construct element
@@ -1486,7 +1499,7 @@ Top element = **smallest**
 
 ---
 
-### Working (Max Heap)
+#### Working (Max Heap)
 
 ```
 push(10)
@@ -1501,7 +1514,7 @@ TOP → 40
 
 ---
 
-### Combined Code (Max Heap)
+#### Combined Code (Max Heap)
 
 ```cpp
 #include <iostream>
@@ -1584,7 +1597,7 @@ pq.emplace(25);
 👉 Removes highest priority element
 
 * **O(log n)**
-* ❌ Does NOT return value
+* Does NOT return value
 
 ```cpp
 pq.pop();
@@ -1597,7 +1610,7 @@ pq.pop();
 👉 Returns highest priority element
 
 * **O(1)**
-* ❌ Cannot modify element
+* Cannot modify element
 
 ```cpp
 pq.top();
@@ -1637,41 +1650,6 @@ pq1.swap(pq2);
 
 ---
 
-##### IMPORTANT LIMITATIONS (Exam Favorite)
-
-❌ No iterators
-❌ No random access
-❌ Cannot traverse elements
-
-👉 Only `top()` is accessible
-
----
-
-#### Underlying Container
-
-```cpp
-priority_queue<int> pq;              // uses vector by default
-priority_queue<int, deque<int>> pq2; // valid but uncommon
-```
-
----
-
----
-
-#### Use Cases
-
-* CPU scheduling
-* Dijkstra algorithm
-* Heap sort
-* Task scheduling
-* Event simulation
-
----
-
-> Priority queue is a container adaptor where elements are accessed based on priority, with the highest priority element available at the top.
----
-
-Here are **clean, structured NOTES only for `map`**, in the **same style as your vector notes** (exam + interview ready).
 
 ###### map
 ---
