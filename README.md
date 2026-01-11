@@ -1656,8 +1656,6 @@ pq1.swap(pq2);
 
 # MAP 
 
-### What is `map`?
-
 * Stores **key–value pairs**
 * **Keys are unique**
 * Automatically **sorted by key**
@@ -1669,13 +1667,12 @@ map<int, string> mp;
 
 ---
 
-🔹 Key Properties
-
-✔ Keys are **unique**
-✔ Stored in **sorted order**
-✔ **Fast search, insert, delete → O(log n)**
-✔ Allows **iteration in sorted order**
-❌ No random indexing like array/vector
+#### Key Properties
+* Keys are **unique**
+* Stored in **sorted order**
+* **Fast search, insert, delete → O(log n)**
+* Allows **iteration in sorted order**
+* No random indexing like array/vector
 
 ---
 
@@ -1706,24 +1703,21 @@ mp[3] = "three";
 #### at()
 
 👉 Access value (safe)
+* Throws exception if key not present
 
 ```cpp
 mp.at(1);
 ```
-
-❌ Throws exception if key not present
-
 ---
 
 #### find()
 
+👉 Returns iterator
+* `end()` if key not found
+
 ```cpp
 auto it = mp.find(2);
 ```
-
-✔ Returns iterator
-❌ `end()` if key not found
-
 ---
 
 #### erase()
@@ -1766,16 +1760,10 @@ mp.clear();
 ```cpp
 mp.count(2); // 0 or 1
 ```
-
 ---
 
-> **`map` stores unique key–value pairs in sorted order with O(log n) operations.**
-
+###### unordered map
 ---
-
----
-
-###### unordered_map
 # UNORDERED_MAP 
 
 **Unordered Map — Definition**
