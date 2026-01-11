@@ -534,6 +534,11 @@ A **list** is a **doubly linked list** provided by the STL that stores elements 
 list<int> l;
 ```
 
+###### header file 
+```cpp
+#include <list>
+```
+
 ---
 
 ## **List Functions (STL)**
@@ -771,6 +776,8 @@ A **stack** is a **container adaptor** provided by STL that follows **LIFO**
 * No random access
 * No iterators
 * Built on another container (default: **deque**)
+*  No iterators, No random access, Cannot access middle elements
+* 👉 Only `top()` is accessible
 
 **Example**
 
@@ -930,14 +937,6 @@ st1.swap(st2);
 ```
 
 ---
-
-#### IMPORTANT LIMITATIONS (Very Important for Exam)
-
-❌ No iterators
-❌ No random access
-❌ Cannot access middle elements
-
-👉 Only `top()` is accessible
 
 ---
 
