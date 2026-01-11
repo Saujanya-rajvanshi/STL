@@ -516,6 +516,8 @@ int* p = vec.data();
 ##  LIST 
 
 A **list** is a **doubly linked list** provided by the STL that stores elements in **non-contiguous memory** and allows **fast insertion and deletion** at any position.
+* std::list    :  	Doubly linked list
+* std::forward_list     : 	Singly linked list
 
 ## **Key Points**
 
@@ -571,12 +573,6 @@ int main() {
     l.push_back(2);
     l.push_back(3);
 
-    // emplace_back()
-    l.emplace_back(4);
-
-    // emplace_front()
-    l.emplace_front(0);
-
     cout << "List elements: ";
     for (int x : l)
         cout << x << " ";
@@ -597,7 +593,7 @@ int main() {
 * `pop_back()` → remove last
 * `pop_front()` → remove first
 * `emplace back / emplace front`
-* `insert(pos, x)` → insert at position
+* `insert(pos, x)` → insert x at position
 * `erase(pos)` → remove at position
 * `remove(x)` → remove all x
 * `clear()` → remove all elements
@@ -621,6 +617,12 @@ int main() {
 
     l.pop_back();
     l.pop_front();
+
+    // emplace_back()
+    l.emplace_back(4);
+
+    // emplace_front()
+    l.emplace_front(0);
 
     auto it = l.begin();
     l.insert(it, 15);
@@ -714,6 +716,9 @@ l.clear();
 #### assign
 
 👉 Replaces all elements
+* Clears the list, All current nodes are deleted.
+* Creates 4 new nodes, Each node stores the value 9.
+* Links them as a doubly linked list
 
 ```cpp
 l.assign(4, 9);
