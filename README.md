@@ -231,11 +231,10 @@ int main() {
     cout << vec.size() << endl; //3
     cout << vec.capacity() << endl; //4
 
-    cout << "val at idx 2" << vec [2] << or << vec.at(2) << endl;
+    cout << "val at idx 2 : " << vec[2] << " or " << vec.at(2) << endl;
 
 return 0;
 }
-
 ```
 
 ## Modifier
