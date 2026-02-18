@@ -765,7 +765,6 @@ l1.swap(l2);
 ---
 
 ### Element Access (List)
-
 ❌ No `[]`
 ❌ No `at()`
 ❌ No random access
@@ -774,12 +773,45 @@ l1.swap(l2);
 
 ---
 
-#### front / back
+* **front / back**
 
 ```cpp
 l.front();  // first element
 l.back();   // last element
 ```
+
+
+
+
+#### combined code
+
+```cpp
+#include <iostream>
+#include <list>
+using namespace std;
+
+int main() {
+    list<int> l = {10, 20, 30, 40};
+
+    // Access using iterator (since no indexing)
+    auto it = l.begin();
+    advance(it, 1);   // move iterator to index 1
+    cout << "Element at position 1: " << *it << endl;
+
+    // front()
+    cout << "front(): " << l.front() << endl;
+
+    // back()
+    cout << "back(): " << l.back() << endl;
+
+    // Access first element using begin()
+    cout << "begin(): " << *l.begin() << endl;
+
+    return 0;
+}
+```
+
+
 
 ---
 
