@@ -612,33 +612,58 @@ int main() {
 #include <list>
 using namespace std;
 
+void printList(list<int> l) {
+    for (int x : l)
+        cout << x << " ";
+    cout << endl;
+}
+
 int main() {
     list<int> l = {10, 20, 30};
+    cout << "Initial list: ";
+    printList(l);
 
     l.push_back(40);
+    cout << "After push_back(40): ";
+    printList(l);
+
     l.push_front(5);
+    cout << "After push_front(5): ";
+    printList(l);
 
     l.pop_back();
+    cout << "After pop_back(): ";
+    printList(l);
+
     l.pop_front();
+    cout << "After pop_front(): ";
+    printList(l);
 
-    // emplace_back()
     l.emplace_back(4);
+    cout << "After emplace_back(4): ";
+    printList(l);
 
-    // emplace_front()
     l.emplace_front(0);
+    cout << "After emplace_front(0): ";
+    printList(l);
 
     auto it = l.begin();
     l.insert(it, 15);
+    cout << "After insert(15 at begin): ";
+    printList(l);
 
     l.erase(l.begin());
+    cout << "After erase(begin): ";
+    printList(l);
 
     l.assign(3, 7);
+    cout << "After assign(3,7): ";
+    printList(l);
 
     list<int> l2 = {1, 2, 3};
     l.swap(l2);
-
-    for (int x : l)
-        cout << x << " ";
+    cout << "After swap with {1,2,3}: ";
+    printList(l);
 
     return 0;
 }
