@@ -43,8 +43,6 @@ STL
 ```
 
 ## CONTAINERS
-Containers (STL) — Definition
-
 Containers are STL components used to store and organize data in memory so that it can be accessed and modified efficiently.
 They hold multiple elements of the same data type and manage memory automatically.
 
