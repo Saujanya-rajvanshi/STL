@@ -1,12 +1,12 @@
 # STL
-## index
+## Index
 - [basic](#basic)
 - [containers](#CONTAINERS)
 - [iterators](#ITERATORS)
 - [algorithm](#ALGORITHM)
 - [function](#FUNCTION)
 
-## basic
+## Basic
 ```
 STL (Standard Template Library)
 The STL is a collection of generic classes and functions in C++ that provide ready-made data structures and algorithms.
@@ -77,8 +77,6 @@ A **vector** is a **dynamic array** provided by the STL that stores elements in 
 vector<int> v;
 ```
 
----
-
 ## **Vector Functions (STL)**
 - [capacity and size](#capacity-and-size)
 - [modifier](#modifier)
@@ -87,7 +85,7 @@ vector<int> v;
 ---
 
 ## capacity and size
----
+
 * `size()` → returns number of elements — [size](#size)
 * `capacity()` → returns allocated storage — [capacity](#capacity)
 * `empty()` → checks if vector is empty — [empty](#empty)
@@ -95,9 +93,8 @@ vector<int> v;
 * `reserve(n)` → reserves capacity — [reserve](#reserve)
 * `shrink_to_fit()` → reduces capacity — [shrink_to_fit](#shrink_to_fit)
 * `[]()` → vector index access — [bracket](#bracket)
----
 
----
+
 #### STL `vector` growth 
 
 * `size` = used boxes
@@ -121,7 +118,7 @@ vector<int> v;
 * when there is no more space left
 * Allocate new memory , Copy into new memory, Insert
 * the old copy gets deleted automaticaly
----
+
 
 #### combined code 
 
@@ -310,7 +307,6 @@ int main() {
     return 0;
 }
 ```
----
 
 #### push_back
 
@@ -321,7 +317,6 @@ int main() {
 vec.push_back(10);
 ```
 
----
 
 #### pop_back
 
@@ -332,7 +327,6 @@ vec.push_back(10);
 vec.pop_back();
 ```
 
----
 
 #### emplace_back
 
@@ -344,7 +338,6 @@ vec.pop_back();
 vec.emplace_back(20);
 ```
 
----
 
 #### insert
 
@@ -355,7 +348,6 @@ vec.emplace_back(20);
 vec.insert(vec.begin() + 1, 5);
 ```
 
----
 
 #### erase
 
@@ -366,7 +358,6 @@ vec.insert(vec.begin() + 1, 5);
 vec.erase(vec.begin() + 2);
 ```
 
----
 
 #### clear
 +
@@ -376,7 +367,6 @@ vec.erase(vec.begin() + 2);
 ```cpp
 vec.clear();
 ```
----
 
 #### assign
 👉 assign() **removes all existing** elements of the vector and **fills** it with **new** elements.
@@ -389,7 +379,7 @@ vec.clear();
 ```cpp
 vec.assign(4, 7); // [7 7 7 7]
 ```
----
+
 
 #### swap
 👉swap() **exchanges** the contents of two vectors.
@@ -401,9 +391,7 @@ vec.assign(4, 7); // [7 7 7 7]
 vec1.swap(vec2);
 ```
 
----
 
----
 
 ## Element Access
 
@@ -413,7 +401,6 @@ vec1.swap(vec2);
 * **back()** → last element — `back`
 * **data()** → pointer to internal array — `data`
 
----
 
 ### combined Code 
 
@@ -445,7 +432,6 @@ int main() {
 }
 ```
 
----
 
 #### at()
 👉 returns the data 
@@ -457,7 +443,6 @@ int main() {
 vec.at(2);
 ```
 
----
 
 #### operator[]
 👉 return the data 
@@ -470,7 +455,6 @@ vec.at(2);
 vec[2];
 ```
 
----
 
 #### front()
 +
@@ -480,7 +464,6 @@ vec[2];
 vec.front();
 ```
 
----
 
 #### back()
 
@@ -490,7 +473,6 @@ vec.front();
 vec.back();
 ```
 
----
 
 #### data()
 👉 data() returns a pointer to the internal contiguous memory used by the vector.
@@ -535,7 +517,6 @@ list<int> l;
 #include <list>
 ```
 
----
 
 ## **List Functions (STL)**
 
@@ -543,20 +524,16 @@ list<int> l;
 - [modifier](#list-Modifier-and-size)
 - [Element Access](#List-Element-Access)
 
----
 
 ### capacity and size
 
----
+
 * `size()` → number of elements
 * `empty()` → checks if list is empty
 *  No `capacity()`
 *  No `reserve()`
 *  No `shrink_to_fit()`
 
----
-
----
 
 #### Combined Code
 
@@ -585,7 +562,6 @@ int main() {
 }
 ```
 
----
 
 ### list Modifier and size
 
@@ -601,7 +577,6 @@ int main() {
 * `assign(n, x)` → fill list
 * `swap(l)` → swap lists
 
----
 
 #### Combined Code 
 
@@ -667,7 +642,6 @@ int main() {
 }
 ```
 
----
 
 #### push_back / push_front
 
@@ -680,7 +654,6 @@ l.push_back(10);
 l.push_front(5);
 ```
 
----
 
 #### pop_back / pop_front
 
@@ -693,7 +666,6 @@ l.pop_back();
 l.pop_front();
 ```
 
----
 
 #### insert
 
@@ -705,7 +677,6 @@ l.pop_front();
 l.insert(it, 20);
 ```
 
----
 
 ### erase
 
@@ -715,7 +686,6 @@ l.insert(it, 20);
 l.erase(it);
 ```
 
----
 
 #### remove
 
@@ -725,7 +695,6 @@ l.erase(it);
 l.remove(10);
 ```
 
----
 
 #### clear
 
@@ -737,7 +706,6 @@ l.remove(10);
 l.clear();
 ```
 
----
 
 #### assign
 
@@ -750,7 +718,6 @@ l.clear();
 l.assign(4, 9);
 ```
 
----
 
 #### swap
 
@@ -760,7 +727,6 @@ l.assign(4, 9);
 l1.swap(l2);
 ```
 
----
 ### List Element Access
 
 * `front()` → first element — front
@@ -773,7 +739,6 @@ l1.swap(l2);
 * No at() → lists have no random access.
 * No data() → elements are not stored contiguously in memory.
 
----
 
 * **front / back**
 
@@ -815,10 +780,8 @@ int main() {
 
 
 
+
 ---
-
-
-
 # STACK 
 
 **Stack — Definition**
@@ -849,7 +812,6 @@ stack<int, vector<int>> st2;   // uses vector
 stack<int> st;
 ```
 
----
 
 ##### Header File
 
@@ -857,7 +819,6 @@ stack<int> st;
 #include <stack>
 ```
 
----
 
 ### Stack Functions 
 
@@ -869,7 +830,6 @@ stack<int> st;
 * `empty()` → check if stack is empty
 * `swap(st)` → swap stacks
 
----
 
 ### Stack Working (LIFO)
 
@@ -885,7 +845,6 @@ TOP → 30
 
 `pop()` removes **30**
 
----
 
 ### Combined Code
 
@@ -915,7 +874,6 @@ int main() {
 ```
 
 
----
 
 #### push()
 
@@ -927,7 +885,6 @@ int main() {
 st.push(10);
 ```
 
----
 
 #### emplace()
 
@@ -940,7 +897,6 @@ st.push(10);
 st.emplace(20);
 ```
 
----
 
 #### pop()
 
@@ -953,7 +909,6 @@ st.emplace(20);
 st.pop();
 ```
 
----
 
 #### top()
 
@@ -966,7 +921,6 @@ st.pop();
 st.top();
 ```
 
----
 
 #### size()
 
@@ -976,7 +930,6 @@ st.top();
 st.size();
 ```
 
----
 
 #### empty()
 
@@ -988,7 +941,6 @@ st.size();
 st.empty();
 ```
 
----
 
 #### swap()
 
@@ -1026,7 +978,6 @@ queue<int, list<int>> q2;   // also possible
 ```
 **Use Cases** Task scheduling, Breadth First Search (BFS), Producer–Consumer problem, Printing queues
 
----
 
 **Example**
 
@@ -1034,7 +985,6 @@ queue<int, list<int>> q2;   // also possible
 queue<int> q;
 ```
 
----
 
 ##### Header File
 
@@ -1054,11 +1004,10 @@ front → 10
 back  → 30
 ```
 
----
 
 
 ##### modifiers and size
----
+
 * `push(x)` → insert element
 * `emplace(x)` → construct element
 * `pop()` → remove front element
@@ -1068,7 +1017,6 @@ back  → 30
 * `empty()` → check if empty
 * `swap(q)` → swap queues
 
----
 
 #### Combined Code
 
@@ -1099,7 +1047,6 @@ int main() {
 ```
 
 
----
 
 #### push()
 
@@ -1111,7 +1058,6 @@ int main() {
 q.push(10);
 ```
 
----
 
 #### emplace()
 
@@ -1124,7 +1070,6 @@ q.push(10);
 q.emplace(20);
 ```
 
----
 
 #### pop()
 
@@ -1137,7 +1082,6 @@ q.emplace(20);
 q.pop();
 ```
 
----
 
 #### front()
 
@@ -1150,7 +1094,6 @@ q.pop();
 q.front();
 ```
 
----
 
 #### back()
 
@@ -1162,7 +1105,6 @@ q.front();
 q.back();
 ```
 
----
 
 #### size()
 
@@ -1172,7 +1114,6 @@ q.back();
 q.size();
 ```
 
----
 
 #### empty()
 
@@ -1182,7 +1123,6 @@ q.size();
 q.empty();
 ```
 
----
 
 #### swap()
 
@@ -1194,10 +1134,7 @@ q.empty();
 q1.swap(q2);
 ```
 
----
 
-
-##### deque
 ---
 
 # DEQUE 
@@ -1219,15 +1156,14 @@ A **deque** is a **dynamic container** provided by STL that allows **fast insert
 deque<int> dq;
 ```
 
----
 * [capacity and size](#capacity-and-size)
 * [modifier](#modifier)
 * [Element Access](#Element-Access)
----
+
 
 ### capacity and size
 
----
+
 
 * `size()` → number of elements
 * `empty()` → checks if deque is empty
@@ -1235,7 +1171,6 @@ deque<int> dq;
 * ❌ `reserve()` → **NOT available**
 * ❌ `shrink_to_fit()` → **NOT available**
 
----
 
 #### Deque Growth 
 
@@ -1245,7 +1180,6 @@ deque<int> dq;
 
 👉 This is why insertion at front is efficient
 
----
 
 #### Combined Code
 
@@ -1269,7 +1203,6 @@ int main() {
 }
 ```
 
----
 
 #### size()
 
@@ -1277,7 +1210,6 @@ int main() {
 dq.size();
 ```
 
----
 
 #### empty()
 
@@ -1285,7 +1217,6 @@ dq.size();
 dq.empty();
 ```
 
----
 
 #### Modifier
 
@@ -1301,7 +1232,6 @@ dq.empty();
 * `assign(n, x)` → fill deque
 * `swap(dq)` → swap deques
 
----
 
 #### Combined Code
 
@@ -1334,7 +1264,6 @@ int main() {
 }
 ```
 
----
 
 #### push_back / push_front
 
@@ -1347,7 +1276,6 @@ dq.push_back(10);
 dq.push_front(5);
 ```
 
----
 
 #### emplace_back / emplace_front
 
@@ -1361,7 +1289,6 @@ dq.emplace_back(20);
 dq.emplace_front(1);
 ```
 
----
 
 #### pop_back / pop_front
 
@@ -1374,7 +1301,6 @@ dq.pop_back();
 dq.pop_front();
 ```
 
----
 
 #### insert
 
@@ -1386,7 +1312,6 @@ dq.pop_front();
 dq.insert(dq.begin() + 1, 100);
 ```
 
----
 
 #### erase
 
@@ -1398,7 +1323,6 @@ dq.insert(dq.begin() + 1, 100);
 dq.erase(dq.begin() + 2);
 ```
 
----
 
 #### clear
 
@@ -1410,7 +1334,6 @@ dq.erase(dq.begin() + 2);
 dq.clear();
 ```
 
----
 
 #### assign
 
@@ -1420,7 +1343,6 @@ dq.clear();
 dq.assign(3, 7); // [7 7 7]
 ```
 
----
 
 #### swap
 
@@ -1432,7 +1354,6 @@ dq.assign(3, 7); // [7 7 7]
 dq1.swap(dq2);
 ```
 
----
 
 ### Element Access
 
@@ -1441,7 +1362,6 @@ dq1.swap(dq2);
 * `front()` → first element
 * `back()` → last element
 
----
 
 #### Combined Code
 
@@ -1462,7 +1382,6 @@ int main() {
 }
 ```
 
----
 
 #### at()
 
@@ -1473,7 +1392,6 @@ int main() {
 dq.at(2);
 ```
 
----
 
 #### operator[]
 
@@ -1483,11 +1401,9 @@ dq.at(2);
 ```cpp
 dq[2];
 ```
----
 
 
 
-##### priority_queue
 ---
 
 # PRIORITY QUEUE 
