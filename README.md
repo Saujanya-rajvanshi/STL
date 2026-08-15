@@ -541,7 +541,7 @@ list<int> l;
 
 - [capacity and size](#capacity-and-size)
 - [modifier](#list-Modifier-and-size)
-- [Element Access](#Element-Access)
+- [Element Access](#List-Element-Access)
 
 ---
 
@@ -761,13 +761,17 @@ l1.swap(l2);
 ```
 
 ---
+### List Element Access
 
-### Element Access (List)
-❌ No `[]`
-❌ No `at()`
-❌ No random access
+* `front()` → first element — front
+* `back()` → last element — back
+* `begin()` → iterator to first element — begin
+* `end()` → iterator past the last element — end
 
-✔ Access via iterators only
+⚠️ Important Difference from Vector
+* No [] → linked lists do not support indexing.
+* No at() → lists have no random access.
+* No data() → elements are not stored contiguously in memory.
 
 ---
 
