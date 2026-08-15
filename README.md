@@ -53,8 +53,8 @@ vector, list, stack, queue, deque, priority_queue, map, unordered_map, set
 - [stack](#STACK)
 - [queue](#QUEUE)
 - [deque](#DEQUE)
-- [priority_queue](#priority_queue)
-- [map](#map)
+- [priority_queue](#PRIORITY-QUEUE)
+- [map](#MAP)
 - [unordered_map](#unordered_map)
 - [set](#SET)
 - [difference](#STL-CONTAINERS--ADAPTORS-COMPARISON)
@@ -1661,17 +1661,12 @@ pq1.swap(pq2);
 ```cpp
 map<int, string> mp;
 ```
-
----
-
 #### Key Properties
 * Keys are **unique**
 * Stored in **sorted order**
 * **Fast search, insert, delete → O(log n)**
 * Allows **iteration in sorted order**
 * No random indexing like array/vector
-
----
 
 #### insert()
 
@@ -1695,7 +1690,6 @@ mp[3] = "three";
 
 ⚠ If key doesn’t exist → default value is created
 
----
 
 #### at()
 
@@ -1705,7 +1699,6 @@ mp[3] = "three";
 ```cpp
 mp.at(1);
 ```
----
 
 #### find()
 
@@ -1715,7 +1708,6 @@ mp.at(1);
 ```cpp
 auto it = mp.find(2);
 ```
----
 
 #### erase()
 
@@ -1724,15 +1716,11 @@ mp.erase(2);          // by key
 mp.erase(mp.begin()); // by iterator
 ```
 
----
-
 #### size()
 
 ```cpp
 mp.size();
 ```
-
----
 
 #### empty()
 
@@ -1740,15 +1728,12 @@ mp.size();
 mp.empty();
 ```
 
----
-
 #### clear()
 
 ```cpp
 mp.clear();
 ```
 
----
 
 #### count()
 
@@ -1757,9 +1742,7 @@ mp.clear();
 ```cpp
 mp.count(2); // 0 or 1
 ```
----
 
-###### unordered map
 ---
 # UNORDERED_MAP 
 
@@ -1778,23 +1761,17 @@ An **unordered_map** is an **associative container** that stores elements in **k
 * Frequency counting, Fast lookup tables, Caching, Competitive programming
 * No ordering, No `lower_bound()` / `upper_bound()`, Iteration order unpredictable
 
----
-
 **Example**
 
 ```cpp
 unordered_map<int, string> ump;
 ```
 
----
-
 ##### Header File
 
 ```cpp
 #include <unordered_map>
 ```
-
----
 
 #### Unordered Map Structure
 
@@ -1808,8 +1785,6 @@ Index → (Key, Value)
 ```
 
 👉 Order is **unpredictable**
-
----
 
 ### Unordered Map Functions (STL)
 
@@ -1845,7 +1820,6 @@ Index → (Key, Value)
 * `load_factor()`
 * `rehash(n)`
 
----
 
 ### Combined Code
 
@@ -1872,11 +1846,8 @@ int main() {
 }
 ```
 
----
-
 ### Insertion Methods
 
----
 
 #### operator[]
 
@@ -1889,8 +1860,6 @@ int main() {
 ump[2] = "B";
 ```
 
----
-
 #### insert()
 
 👉 Inserts key–value pair
@@ -1900,8 +1869,6 @@ ump[2] = "B";
 ```cpp
 ump.insert({3, "C"});
 ```
-
----
 
 #### emplace()
 
@@ -1913,11 +1880,8 @@ ump.insert({3, "C"});
 ump.emplace(4, "D");
 ```
 
----
 
 ### Access Methods
-
----
 
 #### at()
 
@@ -1928,7 +1892,6 @@ ump.emplace(4, "D");
 ump.at(2);
 ```
 
----
 
 #### operator[]
 
@@ -1939,11 +1902,8 @@ ump.at(2);
 ump[2];
 ```
 
----
 
 ### Remove Elements
-
----
 
 #### erase()
 
@@ -1951,7 +1911,6 @@ ump[2];
 ump.erase(3);
 ```
 
----
 
 #### clear()
 
@@ -1959,11 +1918,8 @@ ump.erase(3);
 ump.clear();
 ```
 
----
-
 ### Search Operations
 
----
 
 #### find()
 
@@ -1975,7 +1931,6 @@ ump.clear();
 auto it = ump.find(2);
 ```
 
----
 
 #### count()
 
@@ -1985,11 +1940,7 @@ auto it = ump.find(2);
 ump.count(3);
 ```
 
----
-
 ### Bucket Concepts 
-
----
 
 #### bucket_count()
 
@@ -1999,8 +1950,6 @@ ump.count(3);
 ump.bucket_count();
 ```
 
----
-
 #### load_factor()
 
 👉 Average elements per bucket
@@ -2008,8 +1957,6 @@ ump.bucket_count();
 ```cpp
 ump.load_factor();
 ```
-
----
 
 #### rehash(n)
 
