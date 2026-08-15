@@ -540,7 +540,7 @@ list<int> l;
 ## **List Functions (STL)**
 
 - [capacity and size](#capacity-and-size)
-- [modifier](#modifier)
+- [modifier](#list-Modifier-and-size)
 - [Element Access](#Element-Access)
 
 ---
@@ -587,7 +587,7 @@ int main() {
 
 ---
 
-### Modifier and size
+### list Modifier and size
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at beginning
