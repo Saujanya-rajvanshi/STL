@@ -2358,8 +2358,6 @@ You can generally insert, delete, iterate, and access their elements directly.
 
 > Container = **I store the elements myself.**
 
----
-
 ### 2. 🧩 Container Adaptor
 
 An **adaptor does not work like a general-purpose container**. It provides a **restricted interface** on top of another container.
@@ -2407,8 +2405,6 @@ deque → Queue        → FIFO
 vector → Priority Queue → highest priority first
 ```
 
----
-
 ### 3. 🔗 Associative Container
 
 Associative containers organize elements based on **keys/order or hashing**, rather than simply storing elements by position.
@@ -2443,8 +2439,6 @@ You access using the **key**, not a position.
 m[2]    // "Banana"
 ```
 
----
-
 #### `set`
 
 Stores **unique values**:
@@ -2459,8 +2453,6 @@ It automatically sorts them:
 10 20 30
 ```
 
----
-
 #### `unordered_map`
 
 Stores key-value pairs but uses hashing:
@@ -2470,8 +2462,6 @@ key → value
 ```
 
 No sorted order, but average lookup is **O(1)**.
-
----
 
 #### `unordered_set`
 
@@ -2484,8 +2474,6 @@ Stores unique elements using hashing:
 ```
 
 No guaranteed sorted order.
-
----
 
 ### 🧠 Simple way to remember
 
@@ -2525,9 +2513,7 @@ vector<int> v;
 auto it = v.begin();
 ```
 
----
-
-## 🔹 Types of Iterators
+### Types of Iterators
 
 ### begin() / end()
 
@@ -2545,8 +2531,6 @@ for(auto it = v.begin(); it != v.end(); it++)
     cout << *it << " ";
 ```
 
----
-
 ### rbegin() / rend()
 
 👉 Reverse traversal
@@ -2555,8 +2539,6 @@ for(auto it = v.begin(); it != v.end(); it++)
 v.rbegin();
 v.rend();
 ```
-
----
 
 ### cbegin() / cend()
 
@@ -2568,9 +2550,7 @@ v.cbegin();
 v.cend();
 ```
 
----
-
-## 🔹 Iterator Support by Containers
+### Iterator Support by Containers
 
 | Container      | Iterators |
 | -------------- | --------- |
@@ -2584,9 +2564,7 @@ v.cend();
 | queue          | ❌         |
 | priority_queue | ❌         |
 
----
-
-## 🔹 Iterator vs Pointer
+### Iterator vs Pointer
 
 | Iterator            | Pointer         |
 | ------------------- | --------------- |
