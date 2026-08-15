@@ -58,7 +58,8 @@ vector, list, stack, queue, deque, priority_queue, map, unordered_map, set
 - [unordered_map](#unordered_map)
 - [set](#SET)
 - [difference](#STL-CONTAINERS--ADAPTORS-COMPARISON)
-  
+
+---
 ## VECTOR 
 
 **Vector (STL) — Definition**
