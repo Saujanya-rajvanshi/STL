@@ -78,14 +78,13 @@ A **vector** is a **dynamic array** provided by the STL that stores elements in 
 vector<int> v;
 ```
 
-## **Vector Functions (STL)**
+### **Vector Functions (STL)**
 - [capacity and size](#capacity-and-size)
 - [modifier](#modifier)
 - [Element Access](#Element-Access)
   
----
 
-## capacity and size
+### capacity and size
 
 * `size()` → returns number of elements — [size](#size)
 * `capacity()` → returns allocated storage — [capacity](#capacity)
