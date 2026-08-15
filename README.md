@@ -2,8 +2,8 @@
 ## index
 - [basic](#basic)
 - [containers](#CONTAINERS)
-- [algorithm](#ALGORITHM)
 - [iterators](#ITERATORS)
+- [algorithm](#ALGORITHM)
 - [function](#FUNCTION)
 
 ## basic
