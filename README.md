@@ -1506,14 +1506,90 @@ Top element = **smallest**
 * `size()` → number of elements
 * `empty()` → check if empty
 
+#### size()
+
+👉 Returns number of elements
+
+```cpp
+pq.size();
+```
+
+#### empty()
+
+👉 Checks if empty
+
+```cpp
+pq.empty();
+```
+
+
 ## Priority Queue modifier
 * `push(x)` → insert element
 * `emplace(x)` → construct element
 * `pop()` → remove highest priority element
 * `swap(pq)` → swap priority queues
 
+
+#### push()
+
+👉 Inserts element
+
+* **O(log n)**
+
+```cpp
+pq.push(10);
+```
+
+
+#### emplace()
+
+👉 Constructs element directly
+
+* Faster for objects
+* **O(log n)**
+
+```cpp
+pq.emplace(25);
+```
+
+#### pop()
+
+👉 Removes highest priority element
+
+* **O(log n)**
+* Does NOT return value
+
+```cpp
+pq.pop();
+```
+
+#### swap()
+
+👉 Exchanges contents of two priority queues
+
+* **O(1)**
+
+```cpp
+pq1.swap(pq2);
+```
+
 ## Priority Queue Element Access
 * `top()` → access highest priority element
+  
+#### top()
+
+👉 Returns highest priority element
+
+* **O(1)**
+* Cannot modify element
+
+```cpp
+pq.top();
+```
+
+
+
+
 
 #### Working (Max Heap)
 
@@ -1577,78 +1653,6 @@ int main() {
 ```
 
 
-#### push()
-
-👉 Inserts element
-
-* **O(log n)**
-
-```cpp
-pq.push(10);
-```
-
-
-#### emplace()
-
-👉 Constructs element directly
-
-* Faster for objects
-* **O(log n)**
-
-```cpp
-pq.emplace(25);
-```
-
-#### pop()
-
-👉 Removes highest priority element
-
-* **O(log n)**
-* Does NOT return value
-
-```cpp
-pq.pop();
-```
-
-#### top()
-
-👉 Returns highest priority element
-
-* **O(1)**
-* Cannot modify element
-
-```cpp
-pq.top();
-```
-
-
-#### size()
-
-👉 Returns number of elements
-
-```cpp
-pq.size();
-```
-
-#### empty()
-
-👉 Checks if empty
-
-```cpp
-pq.empty();
-```
-
-
-#### swap()
-
-👉 Exchanges contents of two priority queues
-
-* **O(1)**
-
-```cpp
-pq1.swap(pq2);
-```
-
 ---
 
 # MAP 
@@ -1661,12 +1665,43 @@ pq1.swap(pq2);
 ```cpp
 map<int, string> mp;
 ```
+
 #### Key Properties
 * Keys are **unique**
 * Stored in **sorted order**
 * **Fast search, insert, delete → O(log n)**
 * Allows **iteration in sorted order**
 * No random indexing like array/vector
+
+### Map Functions (STL)
+* [capacity and size](#map-capacity-and-size)
+* [modifier](#map-modifier)
+* [Element Access](#map-Element-Access)
+
+## map capacity and size
+
+#### size()
+
+```cpp
+mp.size();
+```
+
+#### empty()
+
+```cpp
+mp.empty();
+```
+
+#### max_size()
+```
+m.size();      // elements currently present
+m.max_size();  // maximum possible elements
+
+size()      → 5
+max_size()  → a very large implementation-dependent number
+```
+
+## map modifier
 
 #### insert()
 
@@ -1677,8 +1712,30 @@ mp.insert({1, "one"});
 #### emplace()
 
 ```cpp
+
 mp.emplace(2, "two");
 ```
+
+#### erase()
+
+```cpp
+mp.erase(2);          // by key
+mp.erase(mp.begin()); // by iterator
+```
+
+#### clear()
+
+```cpp
+mp.clear();
+```
+
+#### swap()
+```
+m1.swap(m2);
+swap(m1, m2);
+```
+
+## map Element Access
 
 #### operator[]
 
@@ -1708,32 +1765,6 @@ mp.at(1);
 ```cpp
 auto it = mp.find(2);
 ```
-
-#### erase()
-
-```cpp
-mp.erase(2);          // by key
-mp.erase(mp.begin()); // by iterator
-```
-
-#### size()
-
-```cpp
-mp.size();
-```
-
-#### empty()
-
-```cpp
-mp.empty();
-```
-
-#### clear()
-
-```cpp
-mp.clear();
-```
-
 
 #### count()
 
@@ -1787,38 +1818,162 @@ Index → (Key, Value)
 👉 Order is **unpredictable**
 
 ### Unordered Map Functions (STL)
+* [capacity and size](#Unordered-Map-capacity-and-size)
+* [modifier](#Unordered-Map-modifier)
+* [Element Access](#Unordered-Map-Element-Access)
 
-#### Insertion / Update
-
-* `insert({k, v})`
-* `ump[k] = v`
-* `emplace(k, v)`
-
-#### Access
-
-* `at(k)`
-* `operator[]`
-
-#### Remove
-
-* `erase(k)`
-* `clear()`
-
-#### Search
-
-* `find(k)`
-* `count(k)`
-
-#### Size
-
+## Unordered Map capacity and size
 * `size()`
 * `empty()`
 
-#### Bucket / Hash Info
+### Size
+* **`size()`** → returns the **number of key-value pairs currently stored**.
 
+```cpp
+unordered_map<int, string> m;
+
+m[1] = "A";
+m[2] = "B";
+m[3] = "C";
+
+cout << m.size();   // 3
+```
+
+### `empty()`
+
+* **`empty()`** → checks whether the unordered map contains **zero elements**.
+* Returns `true` or `false`.
+
+```cpp
+if(m.empty()) {
+    cout << "Map is empty";
+}
+else {
+    cout << "Map is not empty";
+}
+```
+
+### `max_size()`
+
+* **`max_size()`** → maximum number of elements the unordered map can theoretically hold.
+
+```cpp
+cout << m.max_size();
+```
+
+
+## Unordered Map modifier
+* `insert({k, v})`
+* `emplace(k, v)`
+* `erase(k)`
+* `clear()`
 * `bucket_count()`
 * `load_factor()`
 * `rehash(n)`
+
+#### insert()
+
+👉 Inserts key–value pair
+
+* Does NOT update existing key
+
+```cpp
+ump.insert({3, "C"});
+```
+
+#### emplace()
+
+👉 Constructs key–value directly
+
+* Faster
+
+```cpp
+ump.emplace(4, "D");
+```
+
+#### erase()
+
+```cpp
+ump.erase(3);
+```
+
+
+#### clear()
+
+```cpp
+ump.clear();
+```
+
+#### bucket_count()
+
+👉 Number of buckets
+
+```cpp
+ump.bucket_count();
+```
+
+#### load_factor()
+
+👉 Average elements per bucket
+
+```cpp
+ump.load_factor();
+```
+
+#### rehash(n)
+
+👉 Increases number of buckets
+
+```cpp
+ump.rehash(20);
+```
+
+#### Unordered Map Element Access
+
+* `at(k)`
+* `operator[]`
+* `find(k)`
+* `count(k)`
+
+#### at()
+
+* Safe
+* Throws exception if key missing
+
+```cpp
+ump.at(2);
+```
+
+#### operator[]
+
+👉 Inserts or updates value
+
+* Creates key if missing
+* **O(1) average**
+
+```cpp
+ump[2] = "B";
+```
+
+#### find()
+
+👉 Returns iterator
+
+* If not found → `ump.end()`
+
+```cpp
+auto it = ump.find(2);
+```
+
+
+#### count()
+
+👉 Returns `1` if key exists, else `0`
+
+```cpp
+ump.count(3);
+```
+
 
 
 ### Combined Code
@@ -1846,126 +2001,6 @@ int main() {
 }
 ```
 
-### Insertion Methods
-
-
-#### operator[]
-
-👉 Inserts or updates value
-
-* Creates key if missing
-* **O(1) average**
-
-```cpp
-ump[2] = "B";
-```
-
-#### insert()
-
-👉 Inserts key–value pair
-
-* Does NOT update existing key
-
-```cpp
-ump.insert({3, "C"});
-```
-
-#### emplace()
-
-👉 Constructs key–value directly
-
-* Faster
-
-```cpp
-ump.emplace(4, "D");
-```
-
-
-### Access Methods
-
-#### at()
-
-* Safe
-* Throws exception if key missing
-
-```cpp
-ump.at(2);
-```
-
-
-#### operator[]
-
-* Easy
-* Creates key if missing
-
-```cpp
-ump[2];
-```
-
-
-### Remove Elements
-
-#### erase()
-
-```cpp
-ump.erase(3);
-```
-
-
-#### clear()
-
-```cpp
-ump.clear();
-```
-
-### Search Operations
-
-
-#### find()
-
-👉 Returns iterator
-
-* If not found → `ump.end()`
-
-```cpp
-auto it = ump.find(2);
-```
-
-
-#### count()
-
-👉 Returns `1` if key exists, else `0`
-
-```cpp
-ump.count(3);
-```
-
-### Bucket Concepts 
-
-#### bucket_count()
-
-👉 Number of buckets
-
-```cpp
-ump.bucket_count();
-```
-
-#### load_factor()
-
-👉 Average elements per bucket
-
-```cpp
-ump.load_factor();
-```
-
-#### rehash(n)
-
-👉 Increases number of buckets
-
-```cpp
-ump.rehash(20);
-```
-
 ---
 
 # SET 
@@ -1988,15 +2023,11 @@ A **set** is an **associative container** that stores **unique elements** in **s
 set<int> s;
 ```
 
----
-
 ##### Header File
 
 ```cpp
 #include <set>
 ```
-
----
 
 ### Set Structure
 
@@ -2007,40 +2038,140 @@ Elements (sorted)
 
 Duplicates are **not allowed**
 
----
-
 ### Set Functions (STL)
+* [capacity and size](#Set-capacity-and-size)
+* [modifier](#Set-modifier)
+* [Element Access](#Set-Element-Access)
 
-### Insertion
-
-* `insert(x)`
-* `emplace(x)`
-
-### Remove
-
-* `erase(x)`
-* `clear()`
-
-### Search
-
-* `find(x)`
-* `count(x)`
-
-### Size
-
+## Set capacity and size
 * `size()`
 * `empty()`
 
-### Range Queries
+#### `size()`
 
+Returns the **number of elements currently present** in the set.
+
+```cpp
+set<int> s = {10, 20, 30};
+
+cout << s.size();   // 3
+```
+
+#### `empty()`
+
+Checks whether the set contains **no elements**.
+
+Returns:
+
+* `true` → set is empty
+* `false` → set is not empty
+
+```cpp
+if(s.empty()) {
+    cout << "Set is empty";
+}
+else {
+    cout << "Set is not empty";
+}
+```
+
+#### `max_size()`
+
+Returns the **maximum number of elements the set can theoretically hold**.
+
+```cpp
+cout << s.max_size();
+```
+
+It is implementation-dependent and usually a very large number.
+
+
+
+## Set modifier
+* `insert(x)`
+* `emplace(x)`
+* `erase(x)`
+* `clear()`
+* `swap(s)`
+
+#### insert()
+
+👉 Inserts element
+
+* Duplicate ignored
+* **O(log n)**
+
+```cpp
+s.insert(10);
+```
+
+#### emplace()
+
+👉 Constructs element directly
+
+* Faster
+* **O(log n)**
+
+```cpp
+s.emplace(20);
+```
+
+#### erase()
+
+```cpp
+s.erase(20);
+```
+
+#### clear()
+
+```cpp
+s.clear();
+```
+
+#### swap()
+```cpp
+s1.swap(s2);
+swap(s1, s2);
+```
+
+## Set Element Access
+* `find(x)`
+* `count(x)`
 * `lower_bound(x)`
 * `upper_bound(x)`
 
-### Others
+#### find()
 
-* `swap(s)`
+👉 Returns iterator
 
----
+* If not found → `s.end()`
+
+```cpp
+auto it = s.find(10);
+```
+
+#### count()
+
+👉 Returns `1` if exists, else `0`
+
+```cpp
+s.count(10);
+```
+#### lower_bound(x)
+
+👉 First element **≥ x**
+
+```cpp
+s.lower_bound(20);
+```
+
+#### upper_bound(x)
+
+👉 First element **> x**
+
+```cpp
+s.upper_bound(20);
+```
 
 ## Combined Code
 
@@ -2067,111 +2198,11 @@ int main() {
 }
 ```
 
----
 
-## Insertion Methods
 
 ---
-
-#### insert()
-
-👉 Inserts element
-
-* Duplicate ignored
-* **O(log n)**
-
-```cpp
-s.insert(10);
-```
-
----
-
-#### emplace()
-
-👉 Constructs element directly
-
-* Faster
-* **O(log n)**
-
-```cpp
-s.emplace(20);
-```
-
----
-
-## Remove Elements
-
----
-
-#### erase()
-
-```cpp
-s.erase(20);
-```
-
----
-
-#### clear()
-
-```cpp
-s.clear();
-```
-
----
-
-### Search Operations
-
----
-
-#### find()
-
-👉 Returns iterator
-
-* If not found → `s.end()`
-
-```cpp
-auto it = s.find(10);
-```
-
----
-
-#### count()
-
-👉 Returns `1` if exists, else `0`
-
-```cpp
-s.count(10);
-```
-
----
-
-### Range Queries (IMPORTANT)
-
----
-
-#### lower_bound(x)
-
-👉 First element **≥ x**
-
-```cpp
-s.lower_bound(20);
-```
-
----
-
-#### upper_bound(x)
-
-👉 First element **> x**
-
-```cpp
-s.upper_bound(20);
-```
----
-
-
 
 ### difference 
----
 
 ## STL CONTAINERS & ADAPTORS COMPARISON
 
@@ -2218,158 +2249,12 @@ s.upper_bound(20);
 * `priority_queue::top()` is **O(1)**, while `push()` and `pop()` are **O(log n)**.
 * `set` and `unordered_set` contain unique **elements**; `map` and `unordered_map` contain unique **keys**, but duplicate values are allowed.
 
-These terms describe **how the STL data structure is designed and used**.
-
-### 1. 📦 Container
-
-A **container directly stores and manages a collection of elements**.
-
-Examples:
-
-```text
-Vector
-List
-Deque
-```
-
-They directly hold elements:
-
-```cpp
-vector<int> v = {10, 20, 30};
-```
-
-You can generally insert, delete, iterate, and access their elements directly.
-
-**Think:**
-
-> Container = **I store the elements myself.**
-
-### 2. 🧩 Container Adaptor
-
-An **adaptor does not work like a general-purpose container**. It provides a **restricted interface** on top of another container.
-
-Examples:
-
-```text
-Stack
-Queue
-Priority Queue
-```
-
-For example:
-
-```cpp
-stack<int> st;
-```
-
-You cannot do:
-
-```cpp
-st[2];        // ❌
-st.begin();   // ❌
-```
-
-because a stack intentionally gives you only the operations needed for **LIFO**:
-
-```cpp
-st.push(10);
-st.pop();
-st.top();
-```
-
-Internally, a `stack` uses another container (by default, `deque`).
-
-**Think:**
-
-> Adaptor = **Take an existing container and restrict it to create a specific behavior.**
-
-Examples:
-
-```text
-deque → Stack        → LIFO
-deque → Queue        → FIFO
-vector → Priority Queue → highest priority first
-```
-
-### 3. 🔗 Associative Container
-
-Associative containers organize elements based on **keys/order or hashing**, rather than simply storing elements by position.
-
-Examples:
-
-```text
-map
-unordered_map
-set
-unordered_set
-```
-
-#### `map`
-
-Stores:
-
-```text
-key → value
-```
-
-```cpp
-map<int, string> m;
-
-m[1] = "Apple";
-m[2] = "Banana";
-```
-
-You access using the **key**, not a position.
-
-```cpp
-m[2]    // "Banana"
-```
-
-#### `set`
-
-Stores **unique values**:
-
-```cpp
-set<int> s = {30, 10, 20};
-```
-
-It automatically sorts them:
-
-```text
-10 20 30
-```
-
-#### `unordered_map`
-
-Stores key-value pairs but uses hashing:
-
-```text
-key → value
-```
-
-No sorted order, but average lookup is **O(1)**.
-
-#### `unordered_set`
-
-Stores unique elements using hashing:
-
-```text
-10
-20
-30
-```
-
-No guaranteed sorted order.
-
-### 🧠 Simple way to remember
-
 | Type            | Meaning                                                       | Examples                                       |
 | --------------- | ------------------------------------------------------------- | ---------------------------------------------- |
 | **Container**   | Directly stores elements                                      | `vector`, `list`, `deque`                      |
 | **Adaptor**     | Gives a restricted interface/behavior using another container | `stack`, `queue`, `priority_queue`             |
 | **Associative** | Organizes/searches using keys, ordering, or hashing           | `map`, `set`, `unordered_map`, `unordered_set` |
 
-### The easiest mental picture
 
 ```text
                  STL
@@ -2383,8 +2268,6 @@ No guaranteed sorted order.
    deque        priority    unordered_map
                 queue       unordered_set
 ```
-
-**One important point:** "Associative" doesn't mean all four work the same way. `map`/`set` are **ordered associative containers**, while `unordered_map`/`unordered_set` are **unordered associative containers based on hashing**.
 
 ---
 
