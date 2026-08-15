@@ -84,7 +84,7 @@ vector<int> v;
 - [Element Access](#Element-Access)
   
 
-### capacity and size
+## capacity and size
 
 * `size()` → returns number of elements — [size](#size)
 * `capacity()` → returns allocated storage — [capacity](#capacity)
@@ -492,13 +492,13 @@ int* p = vec.data();
 ```
 ---
 
-##  LIST 
+#  LIST 
 
 A **list** is a **doubly linked list** provided by the STL that stores elements in **non-contiguous memory** and allows **fast insertion and deletion** at any position.
 * std::list    :  	Doubly linked list
 * std::forward_list     : 	Singly linked list
 
-## **Key Points**
+### **Key Points**
 
 *  No random access
 *  Dynamic size
@@ -525,7 +525,7 @@ list<int> l;
 - [Element Access](#List-Element-Access)
 
 
-### capacity and size
+## capacity and size
 
 
 * `size()` → number of elements
@@ -563,7 +563,7 @@ int main() {
 ```
 
 
-### list Modifier and size
+## list Modifier and size
 
 * `push_back(x)` → insert at end
 * `push_front(x)` → insert at beginning
@@ -727,7 +727,7 @@ l.assign(4, 9);
 l1.swap(l2);
 ```
 
-### List Element Access
+## List Element Access
 
 * `front()` → first element — front
 * `back()` → last element — back
