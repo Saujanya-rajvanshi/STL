@@ -57,7 +57,7 @@ vector, list, stack, queue, deque, priority_queue, map, unordered_map, set
 - [map](#map)
 - [unordered_map](#unordered_map)
 - [set](#SET)
-- [difference](#difference)
+- [difference](#STL-CONTAINERS--ADAPTORS-COMPARISON)
   
 ## VECTOR 
 
@@ -2287,7 +2287,51 @@ s.upper_bound(20);
 ### difference 
 ---
 
-# 🔹 STL CONTAINERS & ADAPTORS COMPARISON
+## STL CONTAINERS & ADAPTORS COMPARISON
+
+| **Feature / Container**  | **Vector**    | **List**                   | **Deque**               | **Stack**             | **Queue**             | **Priority Queue**    | **Map**          | **Unordered Map**     | **Set**              | **Unordered Set**  |
+| ------------------------ | ------------- | -------------------------- | ----------------------- | --------------------- | --------------------- | --------------------- | ---------------- | --------------------- | -------------------- | ------------------ |
+| **Type**                 | Container     | Container                  | Container               | Adaptor               | Adaptor               | Adaptor               | Associative      | Associative           | Associative          | Associative        |
+| **Underlying Structure** | Dynamic array | Doubly linked list         | Segmented array         | Deque*                | Deque*                | Vector*               | Balanced BST     | Hash table            | Balanced BST         | Hash table         |
+| **Memory**               | Contiguous    | Non-contiguous             | Multiple blocks         | Depends on underlying | Depends on underlying | Depends on underlying | Non-contiguous   | Non-contiguous        | Non-contiguous       | Non-contiguous     |
+| **Random Access `[]`**   | ✔ O(1)        | ❌                          | ✔ O(1)                  | ❌                     | ❌                     | ❌                     | ✔† O(log n)      | ✔† O(1) avg           | ❌                    | ❌                  |
+| **`at()`**               | ✔             | ❌                          | ✔                       | ❌                     | ❌                     | ❌                     | ✔†               | ✔†                    | ❌                    | ❌                  |
+| **`front()`**            | ✔             | ✔                          | ✔                       | ❌                     | ✔                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`back()`**             | ✔             | ✔                          | ✔                       | ❌                     | ✔                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`top()`**              | ❌             | ❌                          | ❌                       | ✔                     | ❌                     | ✔                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`push_back()`**        | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`push_front()`**       | ❌             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`pop_back()`**         | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`pop_front()`**        | ❌             | ✔                          | ✔                       | ❌                     | ✔                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`push()`**             | ❌             | ❌                          | ❌                       | ✔                     | ✔                     | ✔                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`pop()`**              | ❌             | ❌                          | ❌                       | ✔                     | ✔                     | ✔                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`insert()`**           | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`erase()`**            | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`clear()`**            | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`swap()`**             | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`emplace()`**          | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`emplace_back()`**     | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **`emplace_front()`**    | ❌             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **Iterators**            | ✔             | ✔                          | ✔                       | ❌                     | ❌                     | ❌                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`size()`**             | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`empty()`**            | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔                | ✔                     | ✔                    | ✔                  |
+| **`capacity()`**         | ✔             | ❌                          | ❌                       | ❌                     | ❌                     | ❌                     | ❌                | ❌                     | ❌                    | ❌                  |
+| **Sorted Automatically** | ❌             | ❌                          | ❌                       | ❌                     | ❌                     | ❌                     | ✔ keys           | ❌                     | ✔                    | ❌                  |
+| **Unique Elements**      | ❌             | ❌                          | ❌                       | ❌                     | ❌                     | ❌                     | ✔ keys           | ✔ keys                | ✔                    | ✔                  |
+| **Duplicates Allowed**   | ✔             | ✔                          | ✔                       | ✔                     | ✔                     | ✔                     | ✔ values         | ✔ values              | ❌                    | ❌                  |
+| **Average Search**       | O(n)          | O(n)                       | O(n)                    | —                     | —                     | O(n)                  | O(log n)         | O(1)                  | O(log n)             | O(1)               |
+| **Worst Search**         | O(n)          | O(n)                       | O(n)                    | —                     | —                     | O(n)                  | O(log n)         | O(n)                  | O(log n)             | O(n)               |
+| **Typical Use**          | Dynamic array | Frequent insertion/erasure | Front + back operations | LIFO                  | FIFO                  | Priority-based access | Sorted key-value | Fast key-value lookup | Sorted unique values | Fast unique lookup |
+
+### Important notes
+
+* `*` **Stack, Queue and Priority Queue** are **container adaptors**. Their default underlying containers are `deque`, `deque`, and `vector` respectively.
+* `†` For `map`/`unordered_map`, `operator[]` means **key lookup**, not positional random access. It does **not** mean `m[3]` accesses the 4th element.
+* `list` insertion/erasure is **O(1) when you already have an iterator to the position**; finding that position can take O(n).
+* `unordered_map` and `unordered_set` are **O(1) average, O(n) worst case** for lookup.
+* `priority_queue::top()` is **O(1)**, while `push()` and `pop()` are **O(log n)**.
+* `set` and `unordered_set` contain unique **elements**; `map` and `unordered_map` contain unique **keys**, but duplicate values are allowed.
+
 
 | Feature / Container             | Vector        | List                          | Deque                      | Stack   | Queue   | Priority Queue   | Map                 | Unordered Map    | Set                  | Unordered Set      |
 | ------------------------------- | ------------- | ----------------------------- | -------------------------- | ------- | ------- | ---------------- | ------------------- | ---------------- | -------------------- | ------------------ |
