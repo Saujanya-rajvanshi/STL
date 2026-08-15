@@ -520,12 +520,12 @@ list<int> l;
 
 ## **List Functions (STL)**
 
-- [capacity and size](#capacity-and-size)
+- [capacity and size](#list-capacity-and-size)
 - [modifier](#list-Modifier-and-size)
 - [Element Access](#List-Element-Access)
 
 
-## capacity and size
+## list capacity and size
 
 
 * `size()` → number of elements
@@ -820,15 +820,100 @@ stack<int> st;
 ```
 
 
-### Stack Functions 
+### **Stack Functions (STL)**
 
+- [capacity and size](#Stack-capacity-and-size)
+- [modifier](#Stack-Modifier-and-size)
+- [Element Access](#Stack-Element-Access)
+
+## Stack capacity and size
 * `push(x)` → insert element
 * `emplace(x)` → construct element
 * `pop()` → remove top element
-* `top()` → access top element
+* `swap(st)` → swap stacks
+
+#### push()
+
+👉 Inserts element at top
+
+* **O(1)**
+
+```cpp
+st.push(10);
+```
+
+
+#### emplace()
+
+👉 Constructs element directly at top
+
+* Faster for objects
+* **O(1)**
+
+```cpp
+st.emplace(20);
+```
+
+
+#### pop()
+
+👉 Removes top element
+
+* **O(1)**
+*  Does NOT return value
+
+```cpp
+st.pop();
+```
+
+#### swap()
+
+👉 Exchanges contents of two stacks
+
+* **O(1)**
+
+```cpp
+st1.swap(st2);
+```
+
+
+## Stack Modifier and size
 * `size()` → number of elements
 * `empty()` → check if stack is empty
-* `swap(st)` → swap stacks
+
+#### size()
+
+👉 Returns number of elements
+
+```cpp
+st.size();
+```
+
+
+#### empty()
+
+👉 Checks if stack is empty
+
+* Returns `1` (true) or `0` (false)
+
+```cpp
+st.empty();
+```
+
+
+## Stack Element Access
+* `top()` → access top element
+
+#### top()
+
+👉 Access top element
+
+* **O(1)**
+*  Stack must not be empty
+
+```cpp
+st.top();
+```
 
 
 ### Stack Working (LIFO)
@@ -871,85 +956,6 @@ int main() {
 
     return 0;
 }
-```
-
-
-
-#### push()
-
-👉 Inserts element at top
-
-* **O(1)**
-
-```cpp
-st.push(10);
-```
-
-
-#### emplace()
-
-👉 Constructs element directly at top
-
-* Faster for objects
-* **O(1)**
-
-```cpp
-st.emplace(20);
-```
-
-
-#### pop()
-
-👉 Removes top element
-
-* **O(1)**
-*  Does NOT return value
-
-```cpp
-st.pop();
-```
-
-
-#### top()
-
-👉 Access top element
-
-* **O(1)**
-*  Stack must not be empty
-
-```cpp
-st.top();
-```
-
-
-#### size()
-
-👉 Returns number of elements
-
-```cpp
-st.size();
-```
-
-
-#### empty()
-
-👉 Checks if stack is empty
-
-* Returns `1` (true) or `0` (false)
-
-```cpp
-st.empty();
-```
-
-
-#### swap()
-
-👉 Exchanges contents of two stacks
-
-* **O(1)**
-
-```cpp
-st1.swap(st2);
 ```
 
 ---
@@ -1004,49 +1010,41 @@ front → 10
 back  → 30
 ```
 
+### **Stack Functions (STL)**
 
+- [capacity and size](#queue-capacity-and-size)
+- [modifier](#queue-Modifier-and-size)
+- [Element Access](#queue-Element-Access)
 
-##### modifiers and size
-
-* `push(x)` → insert element
-* `emplace(x)` → construct element
-* `pop()` → remove front element
-* `front()` → access front element
-* `back()` → access last element
+##### Stack capacity and size  
 * `size()` → number of elements
 * `empty()` → check if empty
-* `swap(q)` → swap queues
 
+#### size()
 
-#### Combined Code
+👉 Returns number of elements
 
 ```cpp
-#include <iostream>
-#include <queue>
-using namespace std;
-
-int main() {
-    queue<int> q;
-
-    cout << "Is empty? " << q.empty() << endl;
-
-    q.push(10);
-    q.push(20);
-    q.push(30);
-
-    cout << "Front: " << q.front() << endl;
-    cout << "Back: " << q.back() << endl;
-    cout << "Size: " << q.size() << endl;
-
-    q.pop();
-
-    cout << "Front after pop: " << q.front() << endl;
-
-    return 0;
-}
+q.size();
 ```
 
 
+#### empty()
+
+👉 Checks if queue is empty
+
+```cpp
+q.empty();
+```
+
+
+
+
+##### queue Modifier and size
+* `push(x)` → insert element
+* `emplace(x)` → construct element
+* `pop()` → remove front element
+* `swap(q)` → swap queues
 
 #### push()
 
@@ -1081,7 +1079,19 @@ q.emplace(20);
 ```cpp
 q.pop();
 ```
+#### swap()
 
+👉 Exchanges contents of two queues
+
+* **O(1)**
+
+```cpp
+q1.swap(q2);
+```
+
+##### queue Element Access
+* `front()` → access front element
+* `back()` → access last element
 
 #### front()
 
@@ -1106,33 +1116,36 @@ q.back();
 ```
 
 
-#### size()
-
-👉 Returns number of elements
+#### Combined Code
 
 ```cpp
-q.size();
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> q;
+
+    cout << "Is empty? " << q.empty() << endl;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    cout << "Front: " << q.front() << endl;
+    cout << "Back: " << q.back() << endl;
+    cout << "Size: " << q.size() << endl;
+
+    q.pop();
+
+    cout << "Front after pop: " << q.front() << endl;
+
+    return 0;
+}
 ```
 
 
-#### empty()
 
-👉 Checks if queue is empty
-
-```cpp
-q.empty();
-```
-
-
-#### swap()
-
-👉 Exchanges contents of two queues
-
-* **O(1)**
-
-```cpp
-q1.swap(q2);
-```
 
 
 ---
@@ -1156,14 +1169,12 @@ A **deque** is a **dynamic container** provided by STL that allows **fast insert
 deque<int> dq;
 ```
 
-* [capacity and size](#capacity-and-size)
-* [modifier](#modifier)
-* [Element Access](#Element-Access)
+* [capacity and size](#deque-capacity-and-size)
+* [modifier](#deque-modifier)
+* [Element Access](#deque-Element-Access)
 
 
-### capacity and size
-
-
+### deque capacity and size
 
 * `size()` → number of elements
 * `empty()` → checks if deque is empty
@@ -1354,16 +1365,14 @@ dq.assign(3, 7); // [7 7 7]
 dq1.swap(dq2);
 ```
 
+## Element Access
 
-### Element Access
+* `at(i)` → **bounds-checked access**
+* `operator[]` → **unchecked access**
+* `front()` → **first element**
+* `back()` → **last element**
 
-* `at(i)` → bounds-checked
-* `operator[]` → no check
-* `front()` → first element
-* `back()` → last element
-
-
-#### Combined Code
+### Combined Code
 
 ```cpp
 #include <iostream>
@@ -1373,35 +1382,68 @@ using namespace std;
 int main() {
     deque<int> dq = {10, 20, 30, 40};
 
-    cout << dq.at(1) << endl;
-    cout << dq[2] << endl;
-    cout << dq.front() << endl;
-    cout << dq.back() << endl;
+    cout << dq.at(1) << endl;     // 20
+    cout << dq[2] << endl;        // 30
+    cout << dq.front() << endl;   // 10
+    cout << dq.back() << endl;    // 40
 
     return 0;
 }
 ```
 
 
-#### at()
+##### `at()`
 
-* Safe
-* Throws exception if invalid
-
-```cpp
-dq.at(2);
-```
-
-
-#### operator[]
-
-* Fast
-* Unsafe
+* **Bounds checked**
+* Throws `std::out_of_range` if the index is invalid
+* Slightly more overhead than `[]`
 
 ```cpp
-dq[2];
+dq.at(2);      // 30
+dq.at(10);     // ❌ throws exception
 ```
 
+Example:
+
+```cpp
+try {
+    cout << dq.at(10);
+}
+catch (const out_of_range& e) {
+    cout << "Invalid index";
+}
+```
+
+##### `operator[]`
+
+* **No bounds checking**
+* Direct access
+* If the index is invalid, the behavior is **undefined**
+
+```cpp
+dq[2];      // 30
+dq[10];     // ❌ undefined behavior
+```
+
+##### `front()`
+
+Returns the **first element**.
+
+```cpp
+cout << dq.front();    // 10
+```
+
+⚠️ The deque must not be empty.
+
+##### `back()`
+
+Returns the **last element**.
+
+```cpp
+cout << dq.back();     // 40
+```
+
+⚠️ The deque must not be empty.
 
 
 ---
@@ -1429,15 +1471,12 @@ priority_queue<int, deque<int>> pq2; // valid but uncommon
 ```
 * **Use Cases** CPU scheduling, Dijkstra algorithm, Heap sort, Task scheduling, Event simulation
 
----
 
 ##### Header File
 
 ```cpp
 #include <queue>
 ```
-
----
 
 ### Priority Queue Types
 
@@ -1449,8 +1488,6 @@ priority_queue<int> pq;
 
 Top element = **largest**
 
----
-
 #### 2️⃣ Min Heap
 
 ```cpp
@@ -1459,19 +1496,24 @@ priority_queue<int, vector<int>, greater<int>> pq;
 
 Top element = **smallest**
 
----
 
 ### Priority Queue Functions (STL)
+* [capacity and size](#Priority-Queue-capacity-and-size)
+* [modifier](#Priority-Queue-modifier)
+* [Element Access](#Priority-Queue-Element-Access)
 
+## Priority Queue capacity and size
+* `size()` → number of elements
+* `empty()` → check if empty
+
+## Priority Queue modifier
 * `push(x)` → insert element
 * `emplace(x)` → construct element
 * `pop()` → remove highest priority element
-* `top()` → access highest priority element
-* `size()` → number of elements
-* `empty()` → check if empty
 * `swap(pq)` → swap priority queues
 
----
+## Priority Queue Element Access
+* `top()` → access highest priority element
 
 #### Working (Max Heap)
 
@@ -1485,8 +1527,6 @@ TOP → 40
 ```
 
 `pop()` removes **40**
-
----
 
 #### Combined Code (Max Heap)
 
@@ -1514,8 +1554,6 @@ int main() {
 }
 ```
 
----
-
 #### Combined Code (Min Heap)
 
 ```cpp
@@ -1538,8 +1576,6 @@ int main() {
 }
 ```
 
----
----
 
 #### push()
 
@@ -1551,7 +1587,6 @@ int main() {
 pq.push(10);
 ```
 
----
 
 #### emplace()
 
@@ -1564,8 +1599,6 @@ pq.push(10);
 pq.emplace(25);
 ```
 
----
-
 #### pop()
 
 👉 Removes highest priority element
@@ -1576,8 +1609,6 @@ pq.emplace(25);
 ```cpp
 pq.pop();
 ```
-
----
 
 #### top()
 
@@ -1590,7 +1621,6 @@ pq.pop();
 pq.top();
 ```
 
----
 
 #### size()
 
@@ -1600,8 +1630,6 @@ pq.top();
 pq.size();
 ```
 
----
-
 #### empty()
 
 👉 Checks if empty
@@ -1610,7 +1638,6 @@ pq.size();
 pq.empty();
 ```
 
----
 
 #### swap()
 
@@ -1622,10 +1649,6 @@ pq.empty();
 pq1.swap(pq2);
 ```
 
----
-
-
-###### map
 ---
 
 # MAP 
