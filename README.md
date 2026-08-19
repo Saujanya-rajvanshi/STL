@@ -2348,9 +2348,7 @@ v.cend();
 👉 Found in **`<algorithm>`**
 👉 Work using **iterators**
 
----
-
-## 🔹 Common Algorithms
+## Common Algorithms
 
 ### sort()
 
@@ -2363,8 +2361,6 @@ sort(v.begin(), v.end());
 ✔ Random access required
 ❌ Not for list
 
----
-
 ### reverse()
 
 👉 Reverses range
@@ -2372,8 +2368,6 @@ sort(v.begin(), v.end());
 ```cpp
 reverse(v.begin(), v.end());
 ```
-
----
 
 ### find()
 
@@ -2386,8 +2380,6 @@ auto it = find(v.begin(), v.end(), 5);
 ✔ Returns iterator
 ❌ Returns `end()` if not found
 
----
-
 ### count()
 
 👉 Counts occurrences
@@ -2396,16 +2388,12 @@ auto it = find(v.begin(), v.end(), 5);
 count(v.begin(), v.end(), 3);
 ```
 
----
-
 ### max_element() / min_element()
 
 ```cpp
 *max_element(v.begin(), v.end());
 *min_element(v.begin(), v.end());
 ```
-
----
 
 ### binary_search()
 
@@ -2415,8 +2403,6 @@ count(v.begin(), v.end(), 3);
 binary_search(v.begin(), v.end(), 10);
 ```
 
----
-
 ### accumulate()
 
 👉 Sum of elements (`<numeric>`)
@@ -2424,8 +2410,6 @@ binary_search(v.begin(), v.end(), 10);
 ```cpp
 accumulate(v.begin(), v.end(), 0);
 ```
-
----
 
 ### all_of() / any_of() / none_of()
 
@@ -2435,9 +2419,7 @@ any_of(v.begin(), v.end(), condition);
 none_of(v.begin(), v.end(), condition);
 ```
 
----
-
-## 🔹 Algorithms vs Container Functions
+## Algorithms vs Container Functions
 
 | Algorithms         | Container Functions |
 | ------------------ | ------------------- |
@@ -2445,15 +2427,11 @@ none_of(v.begin(), v.end(), condition);
 | Generic            | Specific            |
 | `<algorithm>`      | Member functions    |
 
----
-
-## 🔹 Key Rules (VERY IMPORTANT)
+## Key Rules (VERY IMPORTANT)
 
 ✔ Algorithms **do not know containers**
 ✔ They only work with **iterator ranges**
 ✔ Containers decide **iterator type**
-
----
 
 ### ⭐ One-Line Summary
 
@@ -2461,18 +2439,13 @@ none_of(v.begin(), v.end(), condition);
 **Algorithm** → Function that works on iterator range
 
 ---
----
 
 # FUNCTION
-
-## 🔹 Functors — Definition
 
 A **Functor (Function Object)** is an **object that behaves like a function**.
 It is a **class or struct that overloads the `operator()`**.
 
 👉 Used to **customize STL algorithms**
-
----
 
 ## Why Functors are needed?
 
@@ -2480,8 +2453,6 @@ It is a **class or struct that overloads the `operator()`**.
 * Can store **state (data)**
 * Faster than function pointers
 * Used in **algorithms and containers**
-
----
 
 ## Syntax
 
@@ -2500,17 +2471,13 @@ Functor f;
 f(10);   // behaves like function
 ```
 
----
-
 ## Types of Functors in STL
 
 1. **Built-in Functors**
 2. **User-defined Functors**
 3. **Comparison Functors**
 
----
-
-## 1️⃣ Built-in Functors
+## Built-in Functors
 
 | Functor           | Meaning                   |
 | ----------------- | ------------------------- |
